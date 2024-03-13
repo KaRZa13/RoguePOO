@@ -20,12 +20,10 @@ class Character:
         return self.hp > 0
     
     def show_healthbar(self):
-        print(
-            f"[{'♥' * self.hp}{'♡' * (self.hp_max - self.hp)}] {self.hp}/{self.hp_max}hp"
-        )
+        print(f"[{'♥' * self.hp}{'♡' * (self.hp_max - self.hp)}] {self.hp}/{self.hp_max}hp")
 
     def decrease_hp(self, amount):
-        self.hp -= amount
+        self.hp -= amount - self.armor
         if self.hp < 0:
             self.hp = 0
         self.show_healthbar()
@@ -47,4 +45,20 @@ class Character:
             return self.attack1
         else:
             return self.attack2 
+    
+
+class Warrior(Character):
+    def attack(self, target, amount):
+        return super().attack(target, amount) + 3
+    
+class Mage(Character):
+    pass
+
+class Thief(Character):
+    def attack(self, target, amount):
+        return super().attack(target, amount) + target.armor
+    
+class Colossus(Character):
+    def decrease_hp(self, amount):
+        return super().decrease_hp(amount - 3)
     

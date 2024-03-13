@@ -1,5 +1,3 @@
-from dice import Dice
-
 class Attack:
 
     def __init__(self, name, damages, crit_chances, crit_multiplier, miss_chances, description, dice) -> None:
