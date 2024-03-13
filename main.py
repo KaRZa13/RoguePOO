@@ -8,6 +8,7 @@ from rich import print
 HALF = 50
 THREE_QUARTERS = 75
 QUARTER = 25
+CLASS_TYPES = {1 : "Warrior", 2 : "Mage", 3 : "Thief", 4 : "Colossus"}
 
 ATTACK_DICE = Dice(100)
 ATT1 = Attack("Normal attack", 6, THREE_QUARTERS, 1.25, QUARTER, "Just a normal sword strike", ATTACK_DICE)
@@ -21,6 +22,11 @@ display.clear_console()
 display.title()
 
 display.menu()
+
+
+
+
+
 
 
 
