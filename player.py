@@ -1,16 +1,17 @@
-from dice import Dice
 from rich import print
-from display import Display
+from inventory import Inventory
 
 class Character:
 
-    def __init__(self, name, base_hp, armor, attack1, attack2):
+    def __init__(self, name, base_hp, armor, attack1, attack2, gold=0):
         self.name = name
         self.max_hp = base_hp
         self.hp = self.max_hp
         self.armor = armor
+        self.gold = gold
         self.attack1 = attack1
         self.attack2 = attack2
+        self.inventory = Inventory()
 
 
     def __str__(self):
@@ -20,9 +21,7 @@ class Character:
         return self.hp > 0
     
     def show_healthbar(self):
-        print(
-            f"[{'♥' * self.hp}{'♡' * (self.hp_max - self.hp)}] {self.hp}/{self.hp_max}hp"
-        )
+        print(f"[{'♥' * self.hp}{'♡' * (self.hp_max - self.hp)}] {self.hp}/{self.hp_max}hp")
 
     def decrease_hp(self, amount):
         self.hp -= amount
@@ -48,3 +47,6 @@ class Character:
         else:
             return self.attack2 
     
+    def sell_item(self, item):
+        self.inventory.items.remove(item)
+        self.gold += item.value
