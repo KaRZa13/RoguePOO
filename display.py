@@ -1,9 +1,4 @@
 import os
-<<<<<<< HEAD
-=======
-from rich import print as p
-from rich.pretty import pprint
->>>>>>> 2edc6fae75f203193df45f7642e77fca7d010544
 
 
 class Display:
