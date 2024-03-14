@@ -3,10 +3,12 @@ from inventory import Inventory
 
 class Character:
 
-    def __init__(self, name, base_hp, armor, attack1, attack2, gold=0):
+    def __init__(self, name, base_hp, base_mana, armor, attack1, attack2, gold=0):
         self.name = name
         self.max_hp = base_hp
         self.hp = self.max_hp
+        self.max_mana = base_mana
+        self.mana = self.max_mana
         self.armor = armor
         self.gold = gold
         self.attack1 = attack1

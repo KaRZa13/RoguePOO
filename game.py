@@ -19,89 +19,147 @@ CLASS_TYPES = [0, "Warrior", "Mage", "Thief", "Colossus"]
 
 # SWORDS
 
-commun_sword = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5)
-uncommun_sword = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Uncommun", 1.5)
-rare_sword = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Rare", 1.5)
-epic_sword = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Epic", 1.5)
-legendary_sword = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Legendary", 1.5)
-mythic_sword = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Mythic", 1.5)
+commun_sword = Weapons("Chocolate sword", 100, "Don't try to eat it, this is not real chocolate", 10, 70, "Commun", 1)
+uncommun_sword = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 20, 40, "Uncommun", 1.1)
+rare_sword = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 50, 35, "Rare", 1.2)
+epic_sword = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 100, 25, "Epic", 1.3)
+legendary_sword = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 300, 15, "Legendary", 1.4)
+mythic_sword = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 5, "Mythic", 1.5)
 
 # KNIVES
 
-commun_knife = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5)
-uncommun_knife = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Uncommun", 1.5)
-rare_knife = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Rare", 1.5)
-epic_knife = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Epic", 1.5)
-legendary_knife = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Legendary", 1.5)
-mythic_knife = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Mythic", 1.5)
+commun_knife = Weapons("Name", "Description", "Durability", "value", "drop chance", "Commun", 1)
+uncommun_knife = Weapons("Name", "Description", "Durability", "value", "drop chance", "Uncommun", 1.1)
+rare_knife = Weapons("Name", "Description", "Durability", "value", "drop chance", "Rare", 1.2)
+epic_knife = Weapons("Name", "Description", "Durability", "value", "drop chance", "Epic", 1.3)
+legendary_knife = Weapons("Name", "Description", "Durability", "value", "drop chance", "Legendary", 1.4)
+mythic_knife = Weapons("Name", "Description", "Durability", "value", "drop chance", "Mythic", 1.5)
 
 # HAMMER
 
-cummun_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5)
-uncommun_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Uncommun", 1.5)
-rare_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Rare", 1.5)
-epic_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Epic", 1.5)
-legendary_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Legendary", 1.5)
-mythic_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Mythic", 1.5)
+cummun_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 10, 70, "Commun", 1)
+uncommun_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 20, 40, "Uncommun", 1.1)
+rare_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 50, 35, "Rare", 1.2)
+epic_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 100, 25, "Epic", 1.3)
+legendary_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 300, 15, "Legendary", 1.4)
+mythic_hammer = Weapons("Name", "Description", "Durability", "value", "drop chance", "Mythic", 1.5)
 
 # MAGE'S STICK
 
-commun_stick = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5)
-uncommun_stick = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Uncommun", 1.5)
-rare_stick = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Rare", 1.5)
-epic_stick = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Epic", 1.5)
-legendary_stick = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Legendary", 1.5)
-mythic_stick = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Mythic", 1.5)
+commun_stick = Weapons("Name", "Description", "Durability", "value", "drop chance", "Commun", 1)
+uncommun_stick = Weapons("Name", "Description", "Durability", "value", "drop chance", "Uncommun", 1.1)
+rare_stick = Weapons("Name", "Description", "Durability", "value", "drop chance", "Rare", 1.2)
+epic_stick = Weapons("Name", "Description", "Durability", "value", "drop chance", "Epic", 1.3)
+legendary_stick = Weapons("Name", "Description", "Durability", "value", "drop chance", "Legendary", 1.4)
+mythic_stick = Weapons("Big Stick of DOOM", 100, "It's still a piece of shit", 666, 10, "Mythic", 1.5)
 
 # SHIELD 
 
-commun_shield = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5)
-uncommun_shield = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Uncommun", 1.5)
-rare_shield = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Rare", 1.5)
-epic_shield = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Epic", 1.5)
-legendary_shield = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Legendary", 1.5)
-mythic_shield = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Mythic", 1.5)
+commun_shield = Armor("Name", "Description", "Durability", "value", "drop chance", "Commun", 1.5)
+uncommun_shield = Armor("Name", "Description", "Durability", "value", "drop chance", "Uncommun", 1.5)
+rare_shield = Armor("Name", "Description", "Durability", "value", "drop chance", "Rare", 1.5)
+epic_shield = Armor("Name", "Description", "Durability", "value", "drop chance", "Epic", 1.5)
+legendary_shield = Armor("Name", "Description", "Durability", "value", "drop chance", "Legendary", 1.5)
+mythic_shield = Armor("Name", "Description", "Durability", "value", "drop chance", "Mythic", 1.5)
 
 # ARMOR HELMET
 
-commun_helmet = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5)
-uncommun_helmet = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Uncommun", 1.5)
-rare_helmet = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Rare", 1.5)
-epic_helmet = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Epic", 1.5)
-legendary_helmet = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Legendary", 1.5)
-mythic_helmet = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Mythic", 1.5)
+commun_helmet = Armor("Name", "Description", "Durability", "value", "drop chance", "Commun", 1.5)
+uncommun_helmet = Armor("Name", "Description", "Durability", "value", "drop chance", "Uncommun", 1.5)
+rare_helmet = Armor("Name", "Description", "Durability", "value", "drop chance", "Rare", 1.5)
+epic_helmet = Armor("Name", "Description", "Durability", "value", "drop chance", "Epic", 1.5)
+legendary_helmet = Armor("Name", "Description", "Durability", "value", "drop chance", "Legendary", 1.5)
+mythic_helmet = Armor("Name", "Description", "Durability", "value", "drop chance", "Mythic", 1.5)
 
 # ARMOR CHESTPLATE
 
-commun_chestplate = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5)
-uncommun_chestplate = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Uncommun", 1.5)
-rare_chestplate = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Rare", 1.5)
-epic_chestplate = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Epic", 1.5)
-legendary_chestplate = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Legendary", 1.5)
-mythic_chestplate = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Mythic", 1.5)
+commun_chestplate = Armor("Name", "Description", "Durability", "value", "drop chance", "Commun", 1.5)
+uncommun_chestplate = Armor("Name", "Description", "Durability", "value", "drop chance", "Uncommun", 1.5)
+rare_chestplate = Armor("Name", "Description", "Durability", "value", "drop chance", "Rare", 1.5)
+epic_chestplate = Armor("Name", "Description", "Durability", "value", "drop chance", "Epic", 1.5)
+legendary_chestplate = Armor("Name", "Description", "Durability", "value", "drop chance", "Legendary", 1.5)
+mythic_chestplate = Armor("Name", "Description", "Durability", "value", "drop chance", "Mythic", 1.5)
 
 # ARMOR LEGGINGS
 
-commun_leggings = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5)
-uncommun_leggings = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Uncommun", 1.5)
-rare_leggings = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Rare", 1.5)
-epic_leggings = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Epic", 1.5)
-legendary_leggings = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Legendary", 1.5)
-mythic_leggings = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Mythic", 1.5)
+commun_leggings = Armor("Name", "Description", "Durability", "value", "drop chance", "Commun", 1.5)
+uncommun_leggings = Armor("Name", "Description", "Durability", "value", "drop chance", "Uncommun", 1.5)
+rare_leggings = Armor("Name", "Description", "Durability", "value", "drop chance", "Rare", 1.5)
+epic_leggings = Armor("Name", "Description", "Durability", "value", "drop chance", "Epic", 1.5)
+legendary_leggings = Armor("Name", "Description", "Durability", "value", "drop chance", "Legendary", 1.5)
+mythic_leggings = Armor("Name", "Description", "Durability", "value", "drop chance", "Mythic", 1.5)
 
 # ARMOR BOOTS
 
-commun_boots = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5)
-uncommun_boots = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Uncommun", 1.5)
-rare_boots = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Rare", 1.5)
-epic_boots = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Epic", 1.5)
-legendary_boots = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Legendary", 1.5)
-mythic_boots = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Mythic", 1.5)
+commun_boots = Armor("Name", "Description", "Durability", "value", "drop chance", "Commun", 1.5)
+uncommun_boots = Armor("Name", "Description", "Durability", "value", "drop chance", "Uncommun", 1.5)
+rare_boots = Armor("Name", "Description", "Durability", "value", "drop chance", "Rare", 1.5)
+epic_boots = Armor("Name", "Description", "Durability", "value", "drop chance", "Epic", 1.5)
+legendary_boots = Armor("Name", "Description", "Durability", "value", "drop chance", "Legendary", 1.5)
+mythic_boots = Armor("Name", "Description", "Durability", "value", "drop chance", "Mythic", 1.5)
 
-# POTIONS
+# POTIONS (HEALTH/MANA)
 
-health_potion = Potion("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5,2)
-mana_potion = Potion("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5,2)
+commun_health_potion = Potion("Basic potion", 
+                              "Just a little potion", 
+                              1, 
+                              666, 
+                              10, 
+                              1, 
+                              "Commun", "Health"
+                              )
+uncommun_health_potion = Potion("Big potion", 
+                                "Not just a little potion", 
+                                1, 
+                                666, 
+                                10, 
+                                1, 
+                                "Uncommun", 
+                                "Health"
+                                )
+rare_health_potion = Potion("Really big potion", 
+                            "Looks like a beer but it's not", 
+                            1, 
+                            666, 
+                            10, 
+                            1, 
+                            "Rare", 
+                            "Health"
+                            )
+epic_health_potion = Potion("Huge potion", 
+                            "Too much for a potion", 
+                            1, 
+                            666, 
+                            10, 
+                            1, 
+                            "Epic", 
+                            "Health"
+                            )
+legendary_health_potion = Potion("Guargantuan potion", 
+                                 "This is stupidly big", 
+                                 1, 
+                                 666, 
+                                 10, 
+                                 1, 
+                                 "Legendary", 
+                                 "Health"
+                                 )
+mythic_health_potion = Potion("DAAAAAMMMMMNNNN potion", 
+                              "I can't even quantify this thing", 
+                              1, 
+                              666, 
+                              10, 
+                              1, 
+                              "Mythic", 
+                              "Health"
+                              )
+
+commun_mana_potion = Potion("Basic mana potion", "Same stuff but for mana", 1, 666, 10, 1.5,"Commun",  "Mana")
+uncommun_mana_potion = Potion("Big mana potion", "You're using too much spells", 1, 666, 10, 1.5,"Uncommun", "Mana")
+rare_mana_potion = Potion("Really big mana potion", "A really big one", 1, 666, 10, 1.5,"Rare", "Mana")
+epic_mana_potion = Potion("Huge mana potion", "You don't even have this amount of mana, why ?", 1, 666, 10, 1.5,"Epic", "Mana")
+legendary_mana_potion = Potion("Guargantuan mana potion", "Are you stupid ?", 1, 666, 10, 1.5, "Legendary", "Mana")
+mythic_mana_potion = Potion("DAAAAAMMMMMNNNN mana potion", "You're definitely insane", 1, 666, 10, 1.5, "Mythic", "Mana")
 
 class Game:
     def __init__(self):
