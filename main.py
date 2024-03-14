@@ -38,8 +38,8 @@ mythic_knife = Weapons("Big Sword of DOOM", 100, "This sword came from your mom'
 
 # HAMMER
 
-cummun_hammer = Weapons()
-uncommun_hammer = Weapons()
+commun_hammer = Weapons("Carpenter Hammer", 10, "Bla bla bla", 50, 60, "Commun", 0.9)
+uncommun_hammer = Weapons("Smithing Hammer", 15, "Bla bla bla", 75, 50, "Uncommun", 1)
 rare_hammer = Weapons()
 epic_hammer = Weapons()
 legendary_hammer = Weapons()
