@@ -173,6 +173,11 @@ class Game:
         self.display.menu()
         if self.player == None:
             self.player = self.choose_class()
+        
+    def hub(self):
+        self.display.clear_console()
+        self.display.title()
+        self.display.village()
 
 
     def choose_class(self):
@@ -186,14 +191,16 @@ class Game:
 
         if class_input == 1:
             self.player =  Warrior(name, 20, 3, ATT1,ATT2)
+            self.display.printchar(name,CLASS_TYPES[class_input])
         elif class_input == 2:
             self.player = Mage(name, 20, 3, ATT1,ATT2)
+            self.display.printchar(name,CLASS_TYPES[class_input])
         elif class_input == 3:
             self.player = Thief(name, 20, 3, ATT1,ATT2)
+            self.display.printchar(name,CLASS_TYPES[class_input])
         elif class_input == 4:
             self.player = Colossus(name, 20, 3, ATT1,ATT2)
+            self.display.printchar(name,CLASS_TYPES[class_input])
         else:
             print("Entrée invalide. Veuillez choisir un numéro entre 1 et 4.")
             return self.choose_class()
-        
-        self.display.printchar(name,CLASS_TYPES[class_input])
