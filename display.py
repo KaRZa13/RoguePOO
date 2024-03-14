@@ -36,22 +36,18 @@ class Display:
 //   |//    | | ((____     //   / /   ((___( (
 """)
         
+
+    @staticmethod
+    def printclass():
+        p(" \n Choose your class : \n")
+        p("1.  [red]Warrior[/red]")
+        p("2.  [blue]Mage[/blue]")
+        p("3.  [green]Thief[/green]")
+        p("4.  [yellow]Colossus[/yellow] \n \n")
     
     @staticmethod
-    def name_choice():
-        print("Choose your character name :")
-        return str(input())
-    
-    @staticmethod
-    def class_choice():
-        p(f"Choose between your attacks :\n \n\
-        1.  [red]Warrior[/red] \n \n\
-        2.  [red]Mage[/red] \n \n\
-        3.  [red]Thief[/red] \n \n\
-        4.  [red]Colossus[/red] \n \n\
-              ")
-        choice = int(input())
-        return choice
+    def printchar(name,charclass):
+        p("Hello " + name + " the " + charclass + " !")
         
     
     
