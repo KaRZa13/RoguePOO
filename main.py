@@ -5,8 +5,6 @@ game = Game()
 
 game.start()
 
-time.sleep(5)
-
 game.hub()
 
 
