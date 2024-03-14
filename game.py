@@ -38,11 +38,11 @@ mythic_knife = Weapons("Big Sword of DOOM", 100, "This sword came from your mom'
 # HAMMER
 
 cummun_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5)
-uncommun_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5)
-rare_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5)
-epic_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5)
-legendary_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5)
-mythic_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5)
+uncommun_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Uncommun", 1.5)
+rare_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Rare", 1.5)
+epic_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Epic", 1.5)
+legendary_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Legendary", 1.5)
+mythic_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Mythic", 1.5)
 
 # MAGE'S STICK
 
@@ -53,41 +53,50 @@ epic_stick = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's 
 legendary_stick = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Legendary", 1.5)
 mythic_stick = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Mythic", 1.5)
 
+# SHIELD 
+
+commun_shield = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5)
+uncommun_shield = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Uncommun", 1.5)
+rare_shield = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Rare", 1.5)
+epic_shield = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Epic", 1.5)
+legendary_shield = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Legendary", 1.5)
+mythic_shield = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Mythic", 1.5)
+
 # ARMOR HELMET
 
 commun_helmet = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5)
-uncommun_helmet = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5)
-rare_helmet = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5)
-epic_helmet = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5)
-legendary_helmet = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5)
-mythic_helmet = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5)
+uncommun_helmet = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Uncommun", 1.5)
+rare_helmet = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Rare", 1.5)
+epic_helmet = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Epic", 1.5)
+legendary_helmet = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Legendary", 1.5)
+mythic_helmet = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Mythic", 1.5)
 
 # ARMOR CHESTPLATE
 
 commun_chestplate = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5)
-uncommun_chestplate = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5)
-rare_chestplate = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5)
-epic_chestplate = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5)
-legendary_chestplate = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5)
-mythic_chestplate = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5)
+uncommun_chestplate = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Uncommun", 1.5)
+rare_chestplate = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Rare", 1.5)
+epic_chestplate = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Epic", 1.5)
+legendary_chestplate = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Legendary", 1.5)
+mythic_chestplate = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Mythic", 1.5)
 
 # ARMOR LEGGINGS
 
 commun_leggings = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5)
-uncommun_leggings = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5)
-rare_leggings = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5)
-epic_leggings = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5)
-legendary_leggings = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5)
-mythic_leggings = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5)
+uncommun_leggings = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Uncommun", 1.5)
+rare_leggings = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Rare", 1.5)
+epic_leggings = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Epic", 1.5)
+legendary_leggings = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Legendary", 1.5)
+mythic_leggings = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Mythic", 1.5)
 
 # ARMOR BOOTS
 
 commun_boots = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5)
-uncommun_boots = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5)
-rare_boots = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5)
-epic_boots = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5)
-legendary_boots = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5)
-mythic_boots = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Commun", 1.5)
+uncommun_boots = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Uncommun", 1.5)
+rare_boots = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Rare", 1.5)
+epic_boots = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Epic", 1.5)
+legendary_boots = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Legendary", 1.5)
+mythic_boots = Armor("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 10, "Mythic", 1.5)
 
 # POTIONS
 
