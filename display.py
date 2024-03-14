@@ -1,4 +1,6 @@
 import os
+from rich import print as p
+from rich.pretty import pprint
 
 
 class Display:
