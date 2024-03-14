@@ -19,8 +19,8 @@ CLASS_TYPES = [0, "Warrior", "Mage", "Thief", "Colossus"]
 
 # SWORDS
 
-commun_sword = Weapons("Chocolate sword", 100, "Don't try to eat it, this is not real chocolate", 10, 70, "Commun", 1)
-uncommun_sword = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 20, 40, "Uncommun", 1.1)
+common_sword = Weapons("Chocolate sword", 100, "Don't try to eat it, this is not real chocolate", 10, 70, "Common", 1)
+uncommon_sword = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 20, 40, "Uncommon", 1.1)
 rare_sword = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 50, 35, "Rare", 1.2)
 epic_sword = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 100, 25, "Epic", 1.3)
 legendary_sword = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 300, 15, "Legendary", 1.4)
@@ -28,8 +28,8 @@ mythic_sword = Weapons("Big Sword of DOOM", 100, "This sword came from your mom'
 
 # KNIVES
 
-commun_knife = Weapons("Name", "Description", "Durability", "value", "drop chance", "Commun", 1)
-uncommun_knife = Weapons("Name", "Description", "Durability", "value", "drop chance", "Uncommun", 1.1)
+common_knife = Weapons("Name", "Description", "Durability", "value", "drop chance", "Common", 1)
+uncommon_knife = Weapons("Name", "Description", "Durability", "value", "drop chance", "Uncommon", 1.1)
 rare_knife = Weapons("Name", "Description", "Durability", "value", "drop chance", "Rare", 1.2)
 epic_knife = Weapons("Name", "Description", "Durability", "value", "drop chance", "Epic", 1.3)
 legendary_knife = Weapons("Name", "Description", "Durability", "value", "drop chance", "Legendary", 1.4)
@@ -37,8 +37,8 @@ mythic_knife = Weapons("Name", "Description", "Durability", "value", "drop chanc
 
 # HAMMER
 
-cummun_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 10, 70, "Commun", 1)
-uncommun_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 20, 40, "Uncommun", 1.1)
+common_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 10, 70, "common", 1)
+uncommon_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 20, 40, "Uncommon", 1.1)
 rare_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 50, 35, "Rare", 1.2)
 epic_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 100, 25, "Epic", 1.3)
 legendary_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 300, 15, "Legendary", 1.4)
@@ -46,8 +46,8 @@ mythic_hammer = Weapons("Name", "Description", "Durability", "value", "drop chan
 
 # MAGE'S STICK
 
-commun_stick = Weapons("Name", "Description", "Durability", "value", "drop chance", "Commun", 1)
-uncommun_stick = Weapons("Name", "Description", "Durability", "value", "drop chance", "Uncommun", 1.1)
+common_stick = Weapons("Name", "Description", "Durability", "value", "drop chance", "common", 1)
+uncommon_stick = Weapons("Name", "Description", "Durability", "value", "drop chance", "Uncommon", 1.1)
 rare_stick = Weapons("Name", "Description", "Durability", "value", "drop chance", "Rare", 1.2)
 epic_stick = Weapons("Name", "Description", "Durability", "value", "drop chance", "Epic", 1.3)
 legendary_stick = Weapons("Name", "Description", "Durability", "value", "drop chance", "Legendary", 1.4)
@@ -100,59 +100,12 @@ mythic_boots = Armor("Name", "Description", "Durability", "value", "drop chance"
 
 # POTIONS (HEALTH/MANA)
 
-commun_health_potion = Potion("Basic potion", 
-                              "Just a little potion", 
-                              1, 
-                              666, 
-                              10, 
-                              1, 
-                              "Commun", "Health"
-                              )
-uncommun_health_potion = Potion("Big potion", 
-                                "Not just a little potion", 
-                                1, 
-                                666, 
-                                10, 
-                                1, 
-                                "Uncommun", 
-                                "Health"
-                                )
-rare_health_potion = Potion("Really big potion", 
-                            "Looks like a beer but it's not", 
-                            1, 
-                            666, 
-                            10, 
-                            1, 
-                            "Rare", 
-                            "Health"
-                            )
-epic_health_potion = Potion("Huge potion", 
-                            "Too much for a potion", 
-                            1, 
-                            666, 
-                            10, 
-                            1, 
-                            "Epic", 
-                            "Health"
-                            )
-legendary_health_potion = Potion("Guargantuan potion", 
-                                 "This is stupidly big", 
-                                 1, 
-                                 666, 
-                                 10, 
-                                 1, 
-                                 "Legendary", 
-                                 "Health"
-                                 )
-mythic_health_potion = Potion("DAAAAAMMMMMNNNN potion", 
-                              "I can't even quantify this thing", 
-                              1, 
-                              666, 
-                              10, 
-                              1, 
-                              "Mythic", 
-                              "Health"
-                              )
+commun_health_potion = Potion("Basic potion", "Just a little potion", 1, 666, 10, 1, "Commun", "Health")
+uncommun_health_potion = Potion("Big potion", "Not just a little potion", 1, 666, 10, 1, "Uncommun", "Health")
+rare_health_potion = Potion("Really big potion", "Looks like a beer but it's not", 1, 666, 10, 1, "Rare", "Health")
+epic_health_potion = Potion("Huge potion", "Too much for a potion", 1, 666, 10, 1, "Epic", "Health")
+legendary_health_potion = Potion("Guargantuan potion", "This is stupidly big", 1, 666, 10, 1, "Legendary", "Health")
+mythic_health_potion = Potion("DAAAAAMMMMMNNNN potion", "I can't even quantify this thing", 1, 666, 10, 1, "Mythic", "Health")
 
 commun_mana_potion = Potion("Basic mana potion", "Same stuff but for mana", 1, 666, 10, 1.5,"Commun",  "Mana")
 uncommun_mana_potion = Potion("Big mana potion", "You're using too much spells", 1, 666, 10, 1.5,"Uncommun", "Mana")
@@ -185,13 +138,13 @@ class Game:
 
 
         if class_input == 1:
-            self.player =  Warrior(name, 20, 3, ATT1,ATT2)
+            self.player =  Warrior(name, 20, 0, 3, ATT1,ATT2)
         elif class_input == 2:
-            self.player = Mage(name, 20, 3, ATT1,ATT2)
+            self.player = Mage(name, 20, 20, 3, ATT1,ATT2)
         elif class_input == 3:
-            self.player = Thief(name, 20, 3, ATT1,ATT2)
+            self.player = Thief(name, 20, 0, 3, ATT1,ATT2, 10)
         elif class_input == 4:
-            self.player = Colossus(name, 20, 3, ATT1,ATT2)
+            self.player = Colossus(name, 20, 0, 3, ATT1,ATT2)
         else:
             print("Entrée invalide. Veuillez choisir un numéro entre 1 et 4.")
             return self.choose_class()
