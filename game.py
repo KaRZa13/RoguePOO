@@ -225,7 +225,7 @@ class Game:
         self.display.village()
         print(f"[{self.playercolor}]{self.player.name}[/{self.playercolor}] : {self.player.hp}/{self.player.max_hp} [red]HP[/red] - {self.player.gold} [yellow]Gold[/yellow] \n \n ")
         self.display.print_hub()
-        self.current_area = self.hub()
+        self.current_area = self.hub_decision(self.hub_decision)
         hub_choice = int(input(""))
         self.hub_decision(hub_choice)
 
