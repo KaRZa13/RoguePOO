@@ -226,19 +226,19 @@ class Game:
         self.display.printhub()
         self.current_area = self.hub()
         hub_choice = int(input(""))
-        self.hubdecision(hub_choice)
+        self.hub_decision(hub_choice)
 
-    def hubdecision(self,choice):
+    def hub_decision(self,choice):
         if choice == 1:
             self.inventory()
         if choice == 2:
             self.categories()
 
-    def inventorydecision(self,choice):
+    def inventory_decision(self,choice):
         if choice == 1:
             self.hub()
         if choice == 2:
-            self.hubdecision(1)
+            self.hub_decision(1)
     
     def categories(self):
         self.display.clear_console()
@@ -248,7 +248,7 @@ class Game:
         self.display.shopcategories()
         self.current_area = self.categories()
         category_choice = int(input(""))
-        self.shopcategoriesdecision(category_choice)
+        self.shop_categories_decision(category_choice)
 
     def inventory(self):
         self.display.clear_console()
@@ -259,10 +259,10 @@ class Game:
         self.display.quitinventory()
         self.current_area = self.inventory()
         inventory_choice = int(input(""))
-        self.inventorydecision(inventory_choice)
+        self.inventory_decision(inventory_choice)
 
 
-    def shopcategoriesdecision(self,choice):
+    def shop_categories_decision(self,choice):
         if choice == 1:
             self.display.clear_console()
             self.display.title()
@@ -274,7 +274,7 @@ class Game:
             if buy_choice == 7:
                 self.categories()
             else:
-                self.buydecision(sword_inventory.items[(buy_choice - 1)])
+                self.buy_decision(sword_inventory.items[(buy_choice - 1)])
 
         if choice == 2:
             self.display.clear_console()
@@ -287,7 +287,7 @@ class Game:
             if buy_choice == 7:
                 self.categories()
             else:
-                self.buydecision(knives_inventory.items[(buy_choice - 1)])
+                self.buy_decision(knives_inventory.items[(buy_choice - 1)])
         if choice == 3:
             self.display.clear_console()
             self.display.title()
@@ -299,7 +299,7 @@ class Game:
             if buy_choice == 7:
                 self.categories()
             else:
-                self.buydecision(hammer_inventory.items[(buy_choice - 1)])
+                self.buy_decision(hammer_inventory.items[(buy_choice - 1)])
         if choice == 4:
             self.display.clear_console()
             self.display.title()
@@ -311,7 +311,7 @@ class Game:
             if buy_choice == 7:
                 self.categories()
             else:
-                self.buydecision(stick_inventory.items[(buy_choice - 1)])
+                self.buy_decision(stick_inventory.items[(buy_choice - 1)])
         if choice == 5:
             self.display.clear_console()
             self.display.title()
@@ -323,7 +323,7 @@ class Game:
             if buy_choice == 7:
                 self.categories()
             else:
-                self.buydecision(shield_inventory.items[(buy_choice - 1)])
+                self.buy_decision(shield_inventory.items[(buy_choice - 1)])
         if choice == 6:
             self.display.clear_console()
             self.display.title()
@@ -335,7 +335,7 @@ class Game:
             if buy_choice == 7:
                 self.categories()
             else:
-                self.buydecision(helmet_inventory.items[(buy_choice - 1)])
+                self.buy_decision(helmet_inventory.items[(buy_choice - 1)])
         if choice == 7:
             self.display.clear_console()
             self.display.title()
@@ -347,7 +347,7 @@ class Game:
             if buy_choice == 7:
                 self.categories()
             else:
-                self.buydecision(chestplate_inventory.items[(buy_choice - 1)])
+                self.buy_decision(chestplate_inventory.items[(buy_choice - 1)])
         if choice == 8:
             self.display.clear_console()
             self.display.title()
@@ -359,7 +359,7 @@ class Game:
             if buy_choice == 7:
                 self.categories()
             else:
-                self.buydecision(leggings_inventory.items[(buy_choice - 1)])
+                self.buy_decision(leggings_inventory.items[(buy_choice - 1)])
         if choice == 9:
             self.display.clear_console()
             self.display.title()
@@ -371,13 +371,13 @@ class Game:
             if buy_choice == 7:
                 self.categories()
             else:
-                self.buydecision(boots_inventory.items[(buy_choice - 1)])
+                self.buy_decision(boots_inventory.items[(buy_choice - 1)])
         if choice == 10:
             pass
         if choice == 11:
             self.hub()
 
-    def replacedecision(self, choice):
+    def replace_decision(self, choice):
         if choice == 1:
             '''Remplacer l'item'''
             pass
@@ -385,7 +385,7 @@ class Game:
             self.current_area
 
 
-    def buydecision(self, item):
+    def buy_decision(self, item):
         if self.player.gold >= item.value:
             if self.player.char_class == item.item_class or item.item_class == "Any":
                     if item not in self.player.inventory.items and item.item_class == "Any":
@@ -395,7 +395,7 @@ class Game:
                     else:
                         self.display.alreadyhave(item)
                         replace = int(input())
-                        self.replacedecision(replace)
+                        self.replace_decision(replace)
 
             else:
                 self.display.wrongclass(self.player.char_class)
