@@ -154,6 +154,7 @@ leggings_inventory.add_item(rare_leggings)
 leggings_inventory.add_item(epic_leggings)
 leggings_inventory.add_item(legendary_leggings)
 leggings_inventory.add_item(mythic_leggings)
+
 # ARMOR BOOTS
 
 common_boots = Armor("Name", "Description", "Durability", "value", "drop chance", "Commun", 1.5, "Any")
@@ -223,7 +224,7 @@ class Game:
         self.display.title()
         self.display.village()
         print(f"[{self.playercolor}]{self.player.name}[/{self.playercolor}] : {self.player.hp}/{self.player.max_hp} [red]HP[/red] - {self.player.gold} [yellow]Gold[/yellow] \n \n ")
-        self.display.printhub()
+        self.display.print_hub()
         self.current_area = self.hub()
         hub_choice = int(input(""))
         self.hub_decision(hub_choice)
@@ -411,7 +412,7 @@ class Game:
 
         name = input(" \n Choose your name : ")
 
-        self.display.printclass()
+        self.display.print_class()
 
         class_input = int(input(""))
 
