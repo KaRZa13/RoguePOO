@@ -174,12 +174,12 @@ boots_inventory.add_item(mythic_boots)
 
 # POTIONS (HEALTH/MANA)
 
-common_health_potion = Potion("Basic potion", "Just a little potion", 1, 666, 10, 1, "Commun", "Health")
-uncommon_health_potion = Potion("Big potion", "Not just a little potion", 1, 666, 10, 1, "Uncommun", "Health")
-rare_health_potion = Potion("Really big potion", "Looks like a beer but it's not", 1, 666, 10, 1, "Rare", "Health")
-epic_health_potion = Potion("Huge potion", "Too much for a potion", 1, 666, 10, 1, "Epic", "Health")
-legendary_health_potion = Potion("Guargantuan potion", "This is stupidly big", 1, 666, 10, 1, "Legendary", "Health")
-mythic_health_potion = Potion("DAAAAAMMMMMNNNN potion", "I can't even quantify this thing", 1, 666, 10, 1, "Mythic", "Health")
+common_health_potion = Potion("Basic potion", "Just a little potion", 1, 666, 10, 1, 1, "Commun", "Health")
+uncommon_health_potion = Potion("Big potion", "Not just a little potion", 1, 666, 10, 1, 1, "Uncommun", "Health")
+rare_health_potion = Potion("Really big potion", "Looks like a beer but it's not", 1, 666, 10, 1, 1, "Rare", "Health")
+epic_health_potion = Potion("Huge potion", "Too much for a potion", 1, 666, 10, 1, 1, "Epic", "Health")
+legendary_health_potion = Potion("Guargantuan potion", "This is stupidly big", 1, 666, 1, 10, 1, "Legendary", "Health")
+mythic_health_potion = Potion("DAAAAAMMMMMNNNN potion", "I can't even quantify this thing", 1, 1, 666, 10, 1, "Mythic", "Health")
 
 health_pot_inventory = ShopCategory()
 health_pot_inventory.add_item(common_health_potion)
