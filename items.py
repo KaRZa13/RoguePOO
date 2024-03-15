@@ -9,15 +9,17 @@ class Items:
 
 
 class Weapons(Items):
-    def __init__(self, name, description, durability, value, drop_chance, tier, attack_modifier) -> None:
+    def __init__(self, name, description, durability, value, drop_chance, tier, attack_modifier,item_class) -> None:
         super().__init__(name, description, durability, value, drop_chance, tier)
         self.attack_modifier = attack_modifier
+        self.item_class = item_class
 
 
 class Armor(Items):
-    def __init__(self, name, description, durability, value, drop_chance, tier, armor_modifier) -> None:
+    def __init__(self, name, description, durability, value, drop_chance, tier, armor_modifier,item_class) -> None:
         super().__init__(name, description, durability, value, drop_chance, tier)
         self.armor_modifier = armor_modifier
+        self.item_class = item_class
 
 
 class Potion(Items):

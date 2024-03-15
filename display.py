@@ -309,7 +309,15 @@ __/ /___     //   / /   ||/ /   ((____     //   / /   / /      ((___/ /   //    
 
     @staticmethod
     def cantafford():
-        p("You can't afford this item")
+        p("You can't afford this item (automatically returning to the shop)")
+
+    @staticmethod
+    def wrongclass(char_class):
+        p("A "+char_class+" can't use this type of weapon mate (automatically returning to the shop)")
+
+    @staticmethod
+    def nevermind():
+        p("7.  Nevermind")
         
     
     

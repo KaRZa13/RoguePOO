@@ -21,12 +21,12 @@ CLASS_TYPES = [0, "Warrior", "Mage", "Thief", "Colossus"]
 
 # SWORDS
 
-common_sword = Weapons("Chocolate sword", 100, "Don't try to eat it, this is not real chocolate", 10, 70, "Common", 1)
-uncommon_sword = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 20, 40, "Uncommon", 1.1)
-rare_sword = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 50, 35, "Rare", 1.2)
-epic_sword = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 100, 25, "Epic", 1.3)
-legendary_sword = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 300, 15, "Legendary", 1.4)
-mythic_sword = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 5, "Mythic", 1.5)
+common_sword = Weapons("Chocolate sword", 100, "Don't try to eat it, this is not real chocolate", 10, 70, "Common", 1, "Warrior")
+uncommon_sword = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 20, 40, "Uncommon", 1.1, "Warrior")
+rare_sword = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 50, 35, "Rare", 1.2, "Warrior")
+epic_sword = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 100, 25, "Epic", 1.3, "Warrior")
+legendary_sword = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 300, 15, "Legendary", 1.4, "Warrior")
+mythic_sword = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 5, "Mythic", 1.5, "Warrior")
 
 sword_inventory = ShopCategory()
 sword_inventory.add_item(common_sword)
@@ -38,12 +38,12 @@ sword_inventory.add_item(mythic_sword)
 
 # KNIVES
 
-common_knife = Weapons("Name", "Description", "Durability", "value", "drop chance", "Common", 1)
-uncommon_knife = Weapons("Name", "Description", "Durability", "value", "drop chance", "Uncommon", 1.1)
-rare_knife = Weapons("Name", "Description", "Durability", "value", "drop chance", "Rare", 1.2)
-epic_knife = Weapons("Name", "Description", "Durability", "value", "drop chance", "Epic", 1.3)
-legendary_knife = Weapons("Name", "Description", "Durability", "value", "drop chance", "Legendary", 1.4)
-mythic_knife = Weapons("Name", "Description", "Durability", "value", "drop chance", "Mythic", 1.5)
+common_knife = Weapons("Name", "Description", "Durability", "value", "drop chance", "Common", 1, "Thief")
+uncommon_knife = Weapons("Name", "Description", "Durability", "value", "drop chance", "Uncommon", 1.1, "Thief")
+rare_knife = Weapons("Name", "Description", "Durability", "value", "drop chance", "Rare", 1.2, "Thief")
+epic_knife = Weapons("Name", "Description", "Durability", "value", "drop chance", "Epic", 1.3, "Thief")
+legendary_knife = Weapons("Name", "Description", "Durability", "value", "drop chance", "Legendary", 1.4, "Thief")
+mythic_knife = Weapons("Name", "Description", "Durability", "value", "drop chance", "Mythic", 1.5, "Thief")
 
 knives_inventory = ShopCategory()
 knives_inventory.add_item(common_knife)
@@ -55,12 +55,12 @@ knives_inventory.add_item(mythic_knife)
 
 # HAMMER
 
-common_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 10, 70, "common", 1)
-uncommon_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 20, 40, "Uncommon", 1.1)
-rare_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 50, 35, "Rare", 1.2)
-epic_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 100, 25, "Epic", 1.3)
-legendary_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 300, 15, "Legendary", 1.4)
-mythic_hammer = Weapons("Name", "Description", "Durability", "value", "drop chance", "Mythic", 1.5)
+common_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 10, 70, "common", 1, "Colossus")
+uncommon_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 20, 40, "Uncommon", 1.1, "Colossus")
+rare_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 50, 35, "Rare", 1.2, "Colossus")
+epic_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 100, 25, "Epic", 1.3, "Colossus")
+legendary_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 300, 15, "Legendary", 1.4, "Colossus")
+mythic_hammer = Weapons("Name", "Description", "Durability", "value", "drop chance", "Mythic", 1.5, "Colossus")
 
 hammer_inventory = ShopCategory()
 hammer_inventory.add_item(common_hammer)
@@ -72,12 +72,12 @@ hammer_inventory.add_item(mythic_hammer)
 
 # MAGE'S STICK
 
-common_stick = Weapons("Name", "Description", "Durability", "value", "drop chance", "common", 1)
-uncommon_stick = Weapons("Name", "Description", "Durability", "value", "drop chance", "Uncommon", 1.1)
-rare_stick = Weapons("Name", "Description", "Durability", "value", "drop chance", "Rare", 1.2)
-epic_stick = Weapons("Name", "Description", "Durability", "value", "drop chance", "Epic", 1.3)
-legendary_stick = Weapons("Name", "Description", "Durability", "value", "drop chance", "Legendary", 1.4)
-mythic_stick = Weapons("Big Stick of DOOM", 100, "It's still a piece of shit", 666, 10, "Mythic", 1.5)
+common_stick = Weapons("Name", "Description", "Durability", "value", "drop chance", "common", 1, "Mage")
+uncommon_stick = Weapons("Name", "Description", "Durability", "value", "drop chance", "Uncommon", 1.1, "Mage")
+rare_stick = Weapons("Name", "Description", "Durability", "value", "drop chance", "Rare", 1.2, "Mage")
+epic_stick = Weapons("Name", "Description", "Durability", "value", "drop chance", "Epic", 1.3, "Mage")
+legendary_stick = Weapons("Name", "Description", "Durability", "value", "drop chance", "Legendary", 1.4, "Mage")
+mythic_stick = Weapons("Big Stick of DOOM", 100, "It's still a piece of shit", 666, 10, "Mythic", 1.5, "Mage")
 
 stick_inventory = ShopCategory()
 stick_inventory.add_item(common_stick)
@@ -89,12 +89,12 @@ stick_inventory.add_item(mythic_stick)
 
 # SHIELD 
 
-common_shield = Armor("Name", "Description", "Durability", "value", "drop chance", "Commun", 1.5)
-uncommon_shield = Armor("Name", "Description", "Durability", "value", "drop chance", "Uncommun", 1.5)
-rare_shield = Armor("Name", "Description", "Durability", "value", "drop chance", "Rare", 1.5)
-epic_shield = Armor("Name", "Description", "Durability", "value", "drop chance", "Epic", 1.5)
-legendary_shield = Armor("Name", "Description", "Durability", "value", "drop chance", "Legendary", 1.5)
-mythic_shield = Armor("Name", "Description", "Durability", "value", "drop chance", "Mythic", 1.5)
+common_shield = Armor("Name", "Description", "Durability", "value", "drop chance", "Commun", 1.5, "Any")
+uncommon_shield = Armor("Name", "Description", "Durability", "value", "drop chance", "Uncommun", 1.5, "Any")
+rare_shield = Armor("Name", "Description", "Durability", "value", "drop chance", "Rare", 1.5, "Any")
+epic_shield = Armor("Name", "Description", "Durability", "value", "drop chance", "Epic", 1.5, "Any")
+legendary_shield = Armor("Name", "Description", "Durability", "value", "drop chance", "Legendary", 1.5, "Any")
+mythic_shield = Armor("Name", "Description", "Durability", "value", "drop chance", "Mythic", 1.5, "Any")
 
 shield_inventory = ShopCategory()
 shield_inventory.add_item(common_shield)
@@ -106,12 +106,12 @@ shield_inventory.add_item(mythic_shield)
 
 # ARMOR HELMET
 
-common_helmet = Armor("Name", "Description", "Durability", "value", "drop chance", "Commun", 1.5)
-uncommon_helmet = Armor("Name", "Description", "Durability", "value", "drop chance", "Uncommun", 1.5)
-rare_helmet = Armor("Name", "Description", "Durability", "value", "drop chance", "Rare", 1.5)
-epic_helmet = Armor("Name", "Description", "Durability", "value", "drop chance", "Epic", 1.5)
-legendary_helmet = Armor("Name", "Description", "Durability", "value", "drop chance", "Legendary", 1.5)
-mythic_helmet = Armor("Name", "Description", "Durability", "value", "drop chance", "Mythic", 1.5)
+common_helmet = Armor("Name", "Description", "Durability", "value", "drop chance", "Commun", 1.5, "Any")
+uncommon_helmet = Armor("Name", "Description", "Durability", "value", "drop chance", "Uncommun", 1.5, "Any")
+rare_helmet = Armor("Name", "Description", "Durability", "value", "drop chance", "Rare", 1.5, "Any")
+epic_helmet = Armor("Name", "Description", "Durability", "value", "drop chance", "Epic", 1.5, "Any")
+legendary_helmet = Armor("Name", "Description", "Durability", "value", "drop chance", "Legendary", 1.5, "Any")
+mythic_helmet = Armor("Name", "Description", "Durability", "value", "drop chance", "Mythic", 1.5, "Any")
 
 helmet_inventory = ShopCategory()
 helmet_inventory.add_item(common_helmet)
@@ -123,12 +123,12 @@ helmet_inventory.add_item(mythic_helmet)
 
 # ARMOR CHESTPLATE
 
-common_chestplate = Armor("Name", "Description", "Durability", "value", "drop chance", "Commun", 1.5)
-uncommon_chestplate = Armor("Name", "Description", "Durability", "value", "drop chance", "Uncommun", 1.5)
-rare_chestplate = Armor("Name", "Description", "Durability", "value", "drop chance", "Rare", 1.5)
-epic_chestplate = Armor("Name", "Description", "Durability", "value", "drop chance", "Epic", 1.5)
-legendary_chestplate = Armor("Name", "Description", "Durability", "value", "drop chance", "Legendary", 1.5)
-mythic_chestplate = Armor("Name", "Description", "Durability", "value", "drop chance", "Mythic", 1.5)
+common_chestplate = Armor("Name", "Description", "Durability", "value", "drop chance", "Commun", 1.5, "Any")
+uncommon_chestplate = Armor("Name", "Description", "Durability", "value", "drop chance", "Uncommun", 1.5, "Any")
+rare_chestplate = Armor("Name", "Description", "Durability", "value", "drop chance", "Rare", 1.5, "Any")
+epic_chestplate = Armor("Name", "Description", "Durability", "value", "drop chance", "Epic", 1.5, "Any")
+legendary_chestplate = Armor("Name", "Description", "Durability", "value", "drop chance", "Legendary", 1.5, "Any")
+mythic_chestplate = Armor("Name", "Description", "Durability", "value", "drop chance", "Mythic", 1.5, "Any")
 
 chestplate_inventory = ShopCategory()
 chestplate_inventory.add_item(common_chestplate)
@@ -140,12 +140,12 @@ chestplate_inventory.add_item(mythic_chestplate)
 
 # ARMOR LEGGINGS
 
-common_leggings = Armor("Name", "Description", "Durability", "value", "drop chance", "Commun", 1.5)
-uncommon_leggings = Armor("Name", "Description", "Durability", "value", "drop chance", "Uncommun", 1.5)
-rare_leggings = Armor("Name", "Description", "Durability", "value", "drop chance", "Rare", 1.5)
-epic_leggings = Armor("Name", "Description", "Durability", "value", "drop chance", "Epic", 1.5)
-legendary_leggings = Armor("Name", "Description", "Durability", "value", "drop chance", "Legendary", 1.5)
-mythic_leggings = Armor("Name", "Description", "Durability", "value", "drop chance", "Mythic", 1.5)
+common_leggings = Armor("Name", "Description", "Durability", "value", "drop chance", "Commun", 1.5, "Any")
+uncommon_leggings = Armor("Name", "Description", "Durability", "value", "drop chance", "Uncommun", 1.5, "Any")
+rare_leggings = Armor("Name", "Description", "Durability", "value", "drop chance", "Rare", 1.5, "Any")
+epic_leggings = Armor("Name", "Description", "Durability", "value", "drop chance", "Epic", 1.5, "Any")
+legendary_leggings = Armor("Name", "Description", "Durability", "value", "drop chance", "Legendary", 1.5, "Any")
+mythic_leggings = Armor("Name", "Description", "Durability", "value", "drop chance", "Mythic", 1.5, "Any")
 
 leggings_inventory = ShopCategory()
 leggings_inventory.add_item(common_leggings)
@@ -156,12 +156,12 @@ leggings_inventory.add_item(legendary_leggings)
 leggings_inventory.add_item(mythic_leggings)
 # ARMOR BOOTS
 
-common_boots = Armor("Name", "Description", "Durability", "value", "drop chance", "Commun", 1.5)
-uncommon_boots = Armor("Name", "Description", "Durability", "value", "drop chance", "Uncommun", 1.5)
-rare_boots = Armor("Name", "Description", "Durability", "value", "drop chance", "Rare", 1.5)
-epic_boots = Armor("Name", "Description", "Durability", "value", "drop chance", "Epic", 1.5)
-legendary_boots = Armor("Name", "Description", "Durability", "value", "drop chance", "Legendary", 1.5)
-mythic_boots = Armor("Name", "Description", "Durability", "value", "drop chance", "Mythic", 1.5)
+common_boots = Armor("Name", "Description", "Durability", "value", "drop chance", "Commun", 1.5, "Any")
+uncommon_boots = Armor("Name", "Description", "Durability", "value", "drop chance", "Uncommun", 1.5, "Any")
+rare_boots = Armor("Name", "Description", "Durability", "value", "drop chance", "Rare", 1.5, "Any")
+epic_boots = Armor("Name", "Description", "Durability", "value", "drop chance", "Epic", 1.5, "Any")
+legendary_boots = Armor("Name", "Description", "Durability", "value", "drop chance", "Legendary", 1.5, "Any")
+mythic_boots = Armor("Name", "Description", "Durability", "value", "drop chance", "Mythic", 1.5, "Any")
 
 boots_inventory = ShopCategory()
 boots_inventory.add_item(common_boots)
@@ -265,6 +265,7 @@ class Game:
             self.display.swords()
 
             sword_inventory.display_inventory()
+            self.display.nevermind()
             buy_choice = int(input(""))
             if buy_choice == 7:
                 self.categories()
@@ -277,6 +278,7 @@ class Game:
             self.display.knives()
 
             knives_inventory.display_inventory()
+            self.display.nevermind()
             buy_choice = int(input(""))
             if buy_choice == 7:
                 self.categories()
@@ -288,6 +290,7 @@ class Game:
             self.display.hammers()
 
             hammer_inventory.display_inventory()
+            self.display.nevermind()
             buy_choice = int(input(""))
             if buy_choice == 7:
                 self.categories()
@@ -299,6 +302,7 @@ class Game:
             self.display.sticks()
 
             stick_inventory.display_inventory()
+            self.display.nevermind()
             buy_choice = int(input(""))
             if buy_choice == 7:
                 self.categories()
@@ -310,6 +314,7 @@ class Game:
             self.display.shields()
 
             shield_inventory.display_inventory()
+            self.display.nevermind()
             buy_choice = int(input(""))
             if buy_choice == 7:
                 self.categories()
@@ -321,6 +326,7 @@ class Game:
             self.display.helmets()
 
             helmet_inventory.display_inventory()
+            self.display.nevermind()
             buy_choice = int(input(""))
             if buy_choice == 7:
                 self.categories()
@@ -332,6 +338,7 @@ class Game:
             self.display.chestplates()
 
             chestplate_inventory.display_inventory()
+            self.display.nevermind()
             buy_choice = int(input(""))
             if buy_choice == 7:
                 self.categories()
@@ -343,6 +350,7 @@ class Game:
             self.display.leggings()
 
             leggings_inventory.display_inventory()
+            self.display.nevermind()
             buy_choice = int(input(""))
             if buy_choice == 7:
                 self.categories()
@@ -354,6 +362,7 @@ class Game:
             self.display.boots()
 
             boots_inventory.display_inventory()
+            self.display.nevermind()
             buy_choice = int(input(""))
             if buy_choice == 7:
                 self.categories()
@@ -366,9 +375,14 @@ class Game:
 
     def buydecision(self, item):
         if self.player.gold >= item.value:
-            self.player.inventory.add_item(item)
-            self.player.gold -= item.value
-            self.inventory()
+            if self.player.char_class == item.item_class or item.item_class == "Any":
+                self.player.inventory.add_item(item)
+                self.player.gold -= item.value
+                self.inventory()
+            else:
+                self.display.wrongclass(self.player.char_class)
+                sleep(2)
+                self.categories()
         else:
             self.display.cantafford()
             sleep(2)

@@ -54,17 +54,33 @@ class Character:
         self.gold += item.value
 
 class Warrior(Character):
+    def __init__(self, name, base_hp, base_mana, armor, attack1, attack2, gold=0):
+        super().__init__(name, base_hp, base_mana, armor, attack1, attack2, gold=0)
+        self.char_class = "Warrior"
+
     def attack(self, target, amount):
         return super().attack(target, amount) + 3
     
 class Mage(Character):
+    def __init__(self, name, base_hp, base_mana, armor, attack1, attack2, gold=0):
+        super().__init__(name, base_hp, base_mana, armor, attack1, attack2, gold=0)
+        self.char_class = "Mage"
+
     pass
 
 class Thief(Character):
+    def __init__(self, name, base_hp, base_mana, armor, attack1, attack2, gold=0):
+        super().__init__(name, base_hp, base_mana, armor, attack1, attack2, gold=100)
+        self.char_class = "Thief"
+
     def attack(self, target, amount):
         return super().attack(target, amount) + target.armor
     
 class Colossus(Character):
+    def __init__(self, name, base_hp, base_mana, armor, attack1, attack2, gold=0):
+        super().__init__(name, base_hp, base_mana, armor, attack1, attack2, gold=0)
+        self.char_class = "Colossus"
+
     def decrease_hp(self, amount):
         return super().decrease_hp(amount - 3)
     
