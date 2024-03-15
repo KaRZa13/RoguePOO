@@ -18,3 +18,14 @@ class Inventory:
             for item in self.items:
                 print(f"- {item.name} : {item.description}")
 
+class ShopCategory:
+
+    def display_inventory(self):
+        if not self.items:
+            print("Your inventory is empty.")
+        else:
+            print("Inventory :")
+            for item in self.items:
+                print(f"- {item.name} : {item.description} price = {item.value} golds")
+    
+

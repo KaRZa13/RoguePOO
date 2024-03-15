@@ -4,6 +4,7 @@ from player import *
 from dice import Dice
 from attack import Attack
 from items import *
+from inventory import *
 
 HALF = 50
 THREE_QUARTERS = 75
@@ -25,6 +26,14 @@ rare_sword = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's 
 epic_sword = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 100, 25, "Epic", 1.3)
 legendary_sword = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 300, 15, "Legendary", 1.4)
 mythic_sword = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 5, "Mythic", 1.5)
+
+sword_inventory = ShopCategory()
+sword_inventory.add_item(common_sword)
+sword_inventory.add_item(uncommon_sword)
+sword_inventory.add_item(rare_sword)
+sword_inventory.add_item(epic_sword)
+sword_inventory.add_item(legendary_sword)
+sword_inventory.add_item(mythic_sword)
 
 # KNIVES
 
@@ -117,6 +126,7 @@ mythic_mana_potion = Potion("DAAAAAMMMMMNNNN mana potion", "You're definitely in
 class Game:
     def __init__(self):
         self.player = None
+        self.playercolor = None
         self.enemies = []
         self.display = Display()
 
@@ -125,7 +135,61 @@ class Game:
         self.display.title()
         self.display.menu()
         if self.player == None:
-            self.player = self.choose_class()
+            self.choose_class()
+        
+    def hub(self):
+        self.display.clear_console()
+        self.display.title()
+        self.display.village()
+        print(f"[{self.playercolor}]{self.player.name}[/{self.playercolor}] : {self.player.hp}/{self.player.max_hp} [red]HP[/red] - {self.player.gold} [yellow]Gold[/yellow] \n \n ")
+        self.display.printhub()
+        hub_choice = int(input(""))
+        self.hubdecision(hub_choice)
+
+    def hubdecision(self,choice):
+        if choice == 1:
+            self.display.clear_console()
+            self.display.title()
+            self.display.inventory()
+            self.player.inventory.display_inventory()
+            self.display.quitinventory()
+            inventory_choice = int(input(""))
+            self.inventorydecision(inventory_choice)
+        if choice == 2:
+            self.display.clear_console()
+            self.display.title()
+            self.display.shop()
+            self.display.shopcategories()
+
+    def inventorydecision(self,choice):
+        if choice == 1:
+            self.hub()
+        if choice == 2:
+            self.hubdecision(1)
+
+    def shopcategoriesdecision(self,choice):
+        if choice == 1:
+            pass
+        if choice == 2:
+            pass
+        if choice == 3:
+            pass
+        if choice == 4:
+            pass
+        if choice == 5:
+            pass
+        if choice == 6:
+            pass
+        if choice == 7:
+            pass
+        if choice == 8:
+            pass
+        if choice == 9:
+            pass
+        if choice == 10:
+            pass
+        if choice == 11:
+            pass
 
 
     def choose_class(self):
@@ -139,14 +203,16 @@ class Game:
 
         if class_input == 1:
             self.player =  Warrior(name, 20, 0, 3, ATT1,ATT2)
+            self.playercolor = "red"
         elif class_input == 2:
             self.player = Mage(name, 20, 20, 3, ATT1,ATT2)
+            self.playercolor = "blue"
         elif class_input == 3:
             self.player = Thief(name, 20, 0, 3, ATT1,ATT2, 10)
+            self.playercolor = "green"
         elif class_input == 4:
             self.player = Colossus(name, 20, 0, 3, ATT1,ATT2)
+            self.playercolor = "yellow"
         else:
             print("Entrée invalide. Veuillez choisir un numéro entre 1 et 4.")
             return self.choose_class()
-        
-        self.display.printchar(name,CLASS_TYPES[class_input])
