@@ -245,7 +245,7 @@ class Game:
         self.display.title()
         self.display.shop()
         print(f"[{self.playercolor}]{self.player.name}[/{self.playercolor}] : {self.player.hp}/{self.player.max_hp} [red]HP[/red] - {self.player.gold} [yellow]Gold[/yellow] \n \n ")
-        self.display.shopcategories()
+        self.display.shop_categories()
         self.current_area = self.categories()
         category_choice = int(input(""))
         self.shop_categories_decision(category_choice)
@@ -256,7 +256,7 @@ class Game:
         self.display.inventory()
         print(f"[{self.playercolor}]{self.player.name}[/{self.playercolor}] : {self.player.hp}/{self.player.max_hp} [red]HP[/red] - {self.player.gold} [yellow]Gold[/yellow] \n \n ")
         self.player.inventory.display_inventory()
-        self.display.quitinventory()
+        self.display.quit_inventory()
         self.current_area = self.inventory()
         inventory_choice = int(input(""))
         self.inventory_decision(inventory_choice)
@@ -398,7 +398,7 @@ class Game:
                         self.replace_decision(replace)
 
             else:
-                self.display.wrongclass(self.player.char_class)
+                self.display.wrong_class(self.player.char_class)
                 sleep(2)
                 self.categories()
         else:

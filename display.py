@@ -274,7 +274,7 @@ ___) (___| )  \  |  \   /  | (____/\| )  \  |   | |   | (___) || ) \ \__   | |
 """)
 
     @staticmethod
-    def printclass():
+    def print_class():
         p(" \n Choose your class : \n")
         p("1.  [red]Warrior[/red]")
         p("2.  [blue]Mage[/blue]")
@@ -282,11 +282,11 @@ ___) (___| )  \  |  \   /  | (____/\| )  \  |   | |   | (___) || ) \ \__   | |
         p("4.  [yellow]Colossus[/yellow] \n \n")
     
     @staticmethod
-    def printchar(name,charclass):
+    def print_char(name,charclass):
         p("Hello " + name + " the " + charclass + " !")
 
     @staticmethod
-    def printhub():
+    def print_hub():
         p(" \n Where do you want to go ? : \n")
         p("1.  [red]See the inventory[/red]")
         p("2.  [blue]Go to shop[/blue]")
@@ -294,13 +294,13 @@ ___) (___| )  \  |  \   /  | (____/\| )  \  |   | |   | (___) || ) \ \__   | |
         p("4.  [yellow]Dungeon (INSANE!)[/yellow] \n \n")
 
     @staticmethod
-    def quitinventory():
+    def quit_inventory():
         p(" \n Do you want to quit inventory ? \n")
         p("1.  [red]Yes ![/red]")
         p("2.  [blue]Never (If you are angry)[/blue]")
 
     @staticmethod
-    def shopcategories():
+    def shop_categories():
         p(" \n What do you want to buy ? \n")
         p("1.  [red]Swords[/red]")
         p("2.  [red]Knives[/red]")
@@ -315,11 +315,11 @@ ___) (___| )  \  |  \   /  | (____/\| )  \  |   | |   | (___) || ) \ \__   | |
         p("11.  [blue]Nevermind[/blue] \n \n")
 
     @staticmethod
-    def cantafford():
+    def cant_afford():
         p("You can't afford this item (automatically returning to the shop)")
 
     @staticmethod
-    def wrongclass(char_class):
+    def wrong_class(char_class):
         p("A "+char_class+" can't use this type of weapon mate (automatically returning to the shop)")
 
     @staticmethod
@@ -327,7 +327,7 @@ ___) (___| )  \  |  \   /  | (____/\| )  \  |   | |   | (___) || ) \ \__   | |
         p("7.  Nevermind")
 
     @staticmethod
-    def alreadyhave(player,item):
+    def already_have(player,item):
         p("\n You already have a "+item.item_class+" Do you want to replace it ? \n ")
         p("1.  Yes")
         p("2.  No")
