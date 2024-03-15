@@ -55,8 +55,8 @@ mythic_stick = Weapons("Big Stick of DOOM", 100, "It's still a piece of shit", 6
 
 # SHIELD 
 
-commun_shield = Armor("Name", "Description", "Durability", "value", "drop chance", "Commun", 1.5)
-uncommun_shield = Armor("Name", "Description", "Durability", "value", "drop chance", "Uncommun", 1.5)
+common_shield = Armor("Name", "Description", "Durability", "value", "drop chance", "Commun", 1.5)
+uncommon_shield = Armor("Name", "Description", "Durability", "value", "drop chance", "Uncommun", 1.5)
 rare_shield = Armor("Name", "Description", "Durability", "value", "drop chance", "Rare", 1.5)
 epic_shield = Armor("Name", "Description", "Durability", "value", "drop chance", "Epic", 1.5)
 legendary_shield = Armor("Name", "Description", "Durability", "value", "drop chance", "Legendary", 1.5)
@@ -64,7 +64,7 @@ mythic_shield = Armor("Name", "Description", "Durability", "value", "drop chance
 
 # ARMOR HELMET
 
-commun_helmet = Armor("Name", "Description", "Durability", "value", "drop chance", "Commun", 1.5)
+common_helmet = Armor("Name", "Description", "Durability", "value", "drop chance", "Commun", 1.5)
 uncommun_helmet = Armor("Name", "Description", "Durability", "value", "drop chance", "Uncommun", 1.5)
 rare_helmet = Armor("Name", "Description", "Durability", "value", "drop chance", "Rare", 1.5)
 epic_helmet = Armor("Name", "Description", "Durability", "value", "drop chance", "Epic", 1.5)
