@@ -28,7 +28,7 @@ class Display:
     @staticmethod
     def castle():
         print(r"""
-                                 |>>>
+                                  |>>>
                                   |
                     |>>>      _  _|_  _         |>>>
                     |        |;| |;| |;|        |
