@@ -318,6 +318,12 @@ __/ /___     //   / /   ||/ /   ((____     //   / /   / /      ((___/ /   //    
     @staticmethod
     def nevermind():
         p("7.  Nevermind")
+
+    @staticmethod
+    def alreadyhave(player,item):
+        p("\n You already have a "+item.item_class+" Do you want to replace it ? \n ")
+        p("1.  Yes")
+        p("2.  No")
         
     
     

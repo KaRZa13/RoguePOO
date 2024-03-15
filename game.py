@@ -209,6 +209,7 @@ class Game:
         self.playercolor = None
         self.enemies = []
         self.display = Display()
+        self.current_area = None
 
     def start(self):
         self.display.clear_console()
@@ -223,6 +224,7 @@ class Game:
         self.display.village()
         print(f"[{self.playercolor}]{self.player.name}[/{self.playercolor}] : {self.player.hp}/{self.player.max_hp} [red]HP[/red] - {self.player.gold} [yellow]Gold[/yellow] \n \n ")
         self.display.printhub()
+        self.current_area = self.hub()
         hub_choice = int(input(""))
         self.hubdecision(hub_choice)
 
@@ -244,6 +246,7 @@ class Game:
         self.display.shop()
         print(f"[{self.playercolor}]{self.player.name}[/{self.playercolor}] : {self.player.hp}/{self.player.max_hp} [red]HP[/red] - {self.player.gold} [yellow]Gold[/yellow] \n \n ")
         self.display.shopcategories()
+        self.current_area = self.categories()
         category_choice = int(input(""))
         self.shopcategoriesdecision(category_choice)
 
@@ -254,6 +257,7 @@ class Game:
         print(f"[{self.playercolor}]{self.player.name}[/{self.playercolor}] : {self.player.hp}/{self.player.max_hp} [red]HP[/red] - {self.player.gold} [yellow]Gold[/yellow] \n \n ")
         self.player.inventory.display_inventory()
         self.display.quitinventory()
+        self.current_area = self.inventory()
         inventory_choice = int(input(""))
         self.inventorydecision(inventory_choice)
 
@@ -373,12 +377,26 @@ class Game:
         if choice == 11:
             self.hub()
 
+    def replacedecision(self, choice):
+        if choice == 1:
+            '''Remplacer l'item'''
+            pass
+        else: 
+            self.current_area
+
+
     def buydecision(self, item):
         if self.player.gold >= item.value:
             if self.player.char_class == item.item_class or item.item_class == "Any":
-                self.player.inventory.add_item(item)
-                self.player.gold -= item.value
-                self.inventory()
+                    if item not in self.player.inventory.items and item.item_class == "Any":
+                        self.player.inventory.add_item(item)
+                        self.player.gold -= item.value
+                        self.inventory()
+                    else:
+                        self.display.alreadyhave(item)
+                        replace = int(input())
+                        self.replacedecision(replace)
+
             else:
                 self.display.wrongclass(self.player.char_class)
                 sleep(2)
