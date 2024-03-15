@@ -23,10 +23,9 @@ class Armor(Items):
 
 
 class Potion(Items):
-    def __init__(self, name, description, durability, value, drop_chance, amount, tier, type_potion) -> None:
+    def __init__(self, name, description, durability, value, drop_chance, health_amount, mana_amount, tier, type_potion) -> None:
         super().__init__(name, description, durability, value, drop_chance, tier)
-        self.amount = amount
+        self.mana_amount = mana_amount
+        self.health_amount = health_amount
         self.type_potion = type_potion
-        # self.mana = mana
-        # self.health = health
 
