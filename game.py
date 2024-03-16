@@ -453,8 +453,7 @@ class Game:
         print("You arrived in front of a huge abandonned castle")
 
     def new_room(self):
-        self.diplay.clear_console()
-        print("hello")
+        pass
 
     def dungeon(self, choice):
         match choice:
