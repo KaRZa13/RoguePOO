@@ -10,6 +10,10 @@ class Display:
         os.system("cls")
 
     @staticmethod
+    def char_choice():
+        pass
+
+    @staticmethod
     def title():
         print(r""" 
  _______  _______  _______           _______  _______  _______  _______ 
@@ -23,11 +27,35 @@ class Display:
                                                                         
 
 """)
-        
+
     @staticmethod
-    def char_choice():
-        pass
-    
+    def infinity():
+        print("""
+_________ _        _______ _________ _       __________________         
+\__   __/( (    /|(  ____ \\__   __/( (    /|\__   __/\__   __/|\     /|
+   ) (   |  \  ( || (    \/   ) (   |  \  ( |   ) (      ) (   ( \   / )
+   | |   |   \ | || (__       | |   |   \ | |   | |      | |    \ (_) / 
+   | |   | (\ \) ||  __)      | |   | (\ \) |   | |      | |     \   /  
+   | |   | | \   || (         | |   | | \   |   | |      | |      ) (   
+___) (___| )  \  || )      ___) (___| )  \  |___) (___   | |      | |   
+\_______/|/    )_)|/       \_______/|/    )_)\_______/   )_(      \_/      
+                
+""")
+
+    @staticmethod
+    def dungeon():
+        print(r"""
+ ______            _        _______  _______  _______  _       
+(  __  \ |\     /|( (    /|(  ____ \(  ____ \(  ___  )( (    /|
+| (  \  )| )   ( ||  \  ( || (    \/| (    \/| (   ) ||  \  ( |
+| |   ) || |   | ||   \ | || |      | (__    | |   | ||   \ | |
+| |   | || |   | || (\ \) || | ____ |  __)   | |   | || (\ \) |
+| |   ) || |   | || | \   || | \_  )| (      | |   | || | \   |
+| (__/  )| (___) || )  \  || (___) || (____/\| (___) || )  \  |
+(______/ (_______)|/    )_)(_______)(_______/(_______)|/    )_)
+              
+""")
+        
     @staticmethod
     def castle():
         print(r"""
@@ -50,6 +78,7 @@ class Display:
      ____--`~    '--~~__|.    |+++++__|----~    ~`---,              ___
 -~--~                   ~---__|,--~'                  ~~----_____-~'   `~----~~
 """)
+
     @staticmethod
     def skeleton():
         print(r"""
@@ -76,10 +105,32 @@ class Display:
                               )-._.-- (        `-----'
 
 """)
+
+    @staticmethod    
+    def chest():
+        print(r"""
+                    ____...------------...____
+               _.-"` /o/__ ____ __ __  __ \o\_`"-._
+             .'     / /                    \ \     '.
+             |=====/o/======================\o\=====|
+             |____/_/________..____..________\_\____|
+             /   _/ \_     <_o#\__/#o_>     _/ \_   \
+             \_________\####/_________/
+              |===\!/========================\!/===|
+              |   |=|          .---.         |=|   |
+              |===|o|=========/     \========|o|===|
+              |   | |         \() ()/        | |   |
+              |===|o|======{'-.) A (.-'}=====|o|===|
+              | __/ \__     '-.\uuu/.-'    __/ \__ |
+              |==== .'.'^'.'.====|
+              |  _\o/   __  {.' __  '.} _   _\o/  _|
+              `""""-""""""""""""""""""""""""""-""""`
+""")
+
     @staticmethod
     def drake():
         print(r"""
-            __                  __
+             __                  __
             ( _)                ( _)
            / / \\              / /\_\_
           / /   \\            / / | \ \
@@ -279,7 +330,7 @@ ___) (___| )  \  |  \   /  | (____/\| )  \  |   | |   | (___) || ) \ \__   | |
         p("1.  [red]Warrior[/red]")
         p("2.  [blue]Mage[/blue]")
         p("3.  [green]Thief[/green]")
-        p("4.  [yellow]Colossus[/yellow] \n \n")
+        p("4.  [yellow1]Colossus[/yellow1] \n \n")
     
     @staticmethod
     def print_char(name,charclass):
@@ -291,7 +342,7 @@ ___) (___| )  \  |  \   /  | (____/\| )  \  |   | |   | (___) || ) \ \__   | |
         p("1.  [red]See the inventory[/red]")
         p("2.  [blue]Go to shop[/blue]")
         p("3.  [green]Endless cave[/green]")
-        p("4.  [yellow]Dungeon (INSANE!)[/yellow] \n \n")
+        p("4.  [yellow1]Dungeon (INSANE!)[/yellow1] \n \n")
 
     @staticmethod
     def quit_inventory():
@@ -331,13 +382,12 @@ ___) (___| )  \  |  \   /  | (____/\| )  \  |   | |   | (___) || ) \ \__   | |
         p("\n You already have a "+item.item_class+" Do you want to replace it ? \n ")
         p("1.  Yes")
         p("2.  No")
+
+    @staticmethod
+    def difficulty():
+        p("\n Choose how much you want to suffer : \n")
+        p(" - 1 : [green]Not too much[/green] (5 rooms)")
+        p(" - 2 : [yellow1]Just a bit[/yellow1] (10 rooms)")
+        p(" - 3 : [dark_orange]As much as you can[/dark_orange] (20 rooms)")
+        p(" - 4 : [red]A love SM[/red] (50 rooms)")
         
-    
-    
-
-
-
-
-
-        
-    

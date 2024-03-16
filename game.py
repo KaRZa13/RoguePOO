@@ -1,6 +1,6 @@
 from rich import print
 from display import Display
-from player import *
+from character import *
 from dice import Dice
 from attack import Attack
 from items import *
@@ -28,7 +28,7 @@ epic_sword = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's 
 legendary_sword = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 300, 15, "Legendary", 1.4, "Warrior")
 mythic_sword = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 666, 5, "Mythic", 1.5, "Warrior")
 
-sword_inventory = ShopCategory()
+sword_inventory = Shop_Category()
 sword_inventory.add_item(common_sword)
 sword_inventory.add_item(uncommon_sword)
 sword_inventory.add_item(rare_sword)
@@ -45,7 +45,7 @@ epic_knife = Weapons("Name", "Description", "Durability", "value", "drop chance"
 legendary_knife = Weapons("Name", "Description", "Durability", "value", "drop chance", "Legendary", 1.4, "Thief")
 mythic_knife = Weapons("Name", "Description", "Durability", "value", "drop chance", "Mythic", 1.5, "Thief")
 
-knives_inventory = ShopCategory()
+knives_inventory = Shop_Category()
 knives_inventory.add_item(common_knife)
 knives_inventory.add_item(uncommon_knife)
 knives_inventory.add_item(rare_knife)
@@ -62,7 +62,7 @@ epic_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's
 legendary_hammer = Weapons("Big Sword of DOOM", 100, "This sword came from your mom's pussy", 300, 15, "Legendary", 1.4, "Colossus")
 mythic_hammer = Weapons("Name", "Description", "Durability", "value", "drop chance", "Mythic", 1.5, "Colossus")
 
-hammer_inventory = ShopCategory()
+hammer_inventory = Shop_Category()
 hammer_inventory.add_item(common_hammer)
 hammer_inventory.add_item(uncommon_hammer)
 hammer_inventory.add_item(rare_hammer)
@@ -79,7 +79,7 @@ epic_stick = Weapons("Name", "Description", "Durability", "value", "drop chance"
 legendary_stick = Weapons("Name", "Description", "Durability", "value", "drop chance", "Legendary", 1.4, "Mage")
 mythic_stick = Weapons("Big Stick of DOOM", 100, "It's still a piece of shit", 666, 10, "Mythic", 1.5, "Mage")
 
-stick_inventory = ShopCategory()
+stick_inventory = Shop_Category()
 stick_inventory.add_item(common_stick)
 stick_inventory.add_item(uncommon_stick)
 stick_inventory.add_item(rare_stick)
@@ -96,7 +96,7 @@ epic_shield = Armor("Name", "Description", "Durability", "value", "drop chance",
 legendary_shield = Armor("Name", "Description", "Durability", "value", "drop chance", "Legendary", 1.5, "Any")
 mythic_shield = Armor("Name", "Description", "Durability", "value", "drop chance", "Mythic", 1.5, "Any")
 
-shield_inventory = ShopCategory()
+shield_inventory = Shop_Category()
 shield_inventory.add_item(common_shield)
 shield_inventory.add_item(uncommon_shield)
 shield_inventory.add_item(rare_shield)
@@ -113,7 +113,7 @@ epic_helmet = Armor("Name", "Description", "Durability", "value", "drop chance",
 legendary_helmet = Armor("Name", "Description", "Durability", "value", "drop chance", "Legendary", 1.5, "Any")
 mythic_helmet = Armor("Name", "Description", "Durability", "value", "drop chance", "Mythic", 1.5, "Any")
 
-helmet_inventory = ShopCategory()
+helmet_inventory = Shop_Category()
 helmet_inventory.add_item(common_helmet)
 helmet_inventory.add_item(uncommon_helmet)
 helmet_inventory.add_item(rare_helmet)
@@ -130,7 +130,7 @@ epic_chestplate = Armor("Name", "Description", "Durability", "value", "drop chan
 legendary_chestplate = Armor("Name", "Description", "Durability", "value", "drop chance", "Legendary", 1.5, "Any")
 mythic_chestplate = Armor("Name", "Description", "Durability", "value", "drop chance", "Mythic", 1.5, "Any")
 
-chestplate_inventory = ShopCategory()
+chestplate_inventory = Shop_Category()
 chestplate_inventory.add_item(common_chestplate)
 chestplate_inventory.add_item(uncommon_chestplate)
 chestplate_inventory.add_item(rare_chestplate)
@@ -147,7 +147,7 @@ epic_leggings = Armor("Name", "Description", "Durability", "value", "drop chance
 legendary_leggings = Armor("Name", "Description", "Durability", "value", "drop chance", "Legendary", 1.5, "Any")
 mythic_leggings = Armor("Name", "Description", "Durability", "value", "drop chance", "Mythic", 1.5, "Any")
 
-leggings_inventory = ShopCategory()
+leggings_inventory = Shop_Category()
 leggings_inventory.add_item(common_leggings)
 leggings_inventory.add_item(uncommon_leggings)
 leggings_inventory.add_item(rare_leggings)
@@ -164,7 +164,7 @@ epic_boots = Armor("Name", "Description", "Durability", "value", "drop chance", 
 legendary_boots = Armor("Name", "Description", "Durability", "value", "drop chance", "Legendary", 1.5, "Any")
 mythic_boots = Armor("Name", "Description", "Durability", "value", "drop chance", "Mythic", 1.5, "Any")
 
-boots_inventory = ShopCategory()
+boots_inventory = Shop_Category()
 boots_inventory.add_item(common_boots)
 boots_inventory.add_item(uncommon_boots)
 boots_inventory.add_item(rare_boots)
@@ -181,7 +181,7 @@ epic_health_potion = Potion("Huge potion", "Too much for a potion", 1, 666, 10, 
 legendary_health_potion = Potion("Guargantuan potion", "This is stupidly big", 1, 666, 1, 10, 1, "Legendary", "Health")
 mythic_health_potion = Potion("DAAAAAMMMMMNNNN potion", "I can't even quantify this thing", 1, 1, 666, 10, 1, "Mythic", "Health")
 
-health_pot_inventory = ShopCategory()
+health_pot_inventory = Shop_Category()
 health_pot_inventory.add_item(common_health_potion)
 health_pot_inventory.add_item(uncommon_health_potion)
 health_pot_inventory.add_item(rare_health_potion)
@@ -196,7 +196,7 @@ epic_mana_potion = Potion("Huge mana potion", "You don't even have this amount o
 legendary_mana_potion = Potion("Guargantuan mana potion", "Are you stupid ?", 1, 100, 10, 1.5, 100, "Legendary", "Mana")
 mythic_mana_potion = Potion("DAAAAAMMMMMNNNN mana potion", "You're definitely insane", 1, 200, 10, 0, 200, "Mythic", "Mana")
 
-mana_pot_inventory = ShopCategory()
+mana_pot_inventory = Shop_Category()
 mana_pot_inventory.add_item(common_mana_potion)
 mana_pot_inventory.add_item(uncommon_mana_potion)
 mana_pot_inventory.add_item(rare_mana_potion)
@@ -223,16 +223,30 @@ class Game:
         self.display.clear_console()
         self.display.title()
         self.display.village()
-        print(f"[{self.playercolor}]{self.player.name}[/{self.playercolor}] : {self.player.hp}/{self.player.max_hp} [red]HP[/red] - {self.player.gold} [yellow]Gold[/yellow] \n \n ")
+        print(f"[{self.playercolor}]{self.player.name}[/{self.playercolor}] : {self.player.hp}/{self.player.max_hp} [red]HP[/red] - {self.player.gold} [yellow1]Gold[/yellow1] \n \n ")
         self.display.print_hub()
         hub_choice = int(input(""))
         self.hub_decision(hub_choice)
 
     def hub_decision(self,choice):
-        if choice == 1:
-            self.inventory()
-        if choice == 2:
-            self.categories()
+        match choice:
+            case 1:
+                self.inventory()
+            case 2:
+                self.categories()
+            case 3:
+                pass
+            case 4:
+                self.display.clear_console()
+                self.display.title()
+                self.display.dungeon()
+                self.display.difficulty()
+                difficulty_choice = int(input(""))
+                self.dungeon(difficulty_choice)
+            case _:
+                return self.hub()
+
+        
 
     def inventory_decision(self,choice):
         if choice == 1:
@@ -244,7 +258,7 @@ class Game:
         self.display.clear_console()
         self.display.title()
         self.display.shop()
-        print(f"[{self.playercolor}]{self.player.name}[/{self.playercolor}] : {self.player.hp}/{self.player.max_hp} [red]HP[/red] - {self.player.gold} [yellow]Gold[/yellow] \n \n ")
+        print(f"[{self.playercolor}]{self.player.name}[/{self.playercolor}] : {self.player.hp}/{self.player.max_hp} [red]HP[/red] - {self.player.gold} [yellow1]Gold[/yellow1] \n \n ")
         self.display.shop_categories()
         # self.current_area = self.categories()
         category_choice = int(input(""))
@@ -254,7 +268,7 @@ class Game:
         self.display.clear_console()
         self.display.title()
         self.display.inventory()
-        print(f"[{self.playercolor}]{self.player.name}[/{self.playercolor}] : {self.player.hp}/{self.player.max_hp} [red]HP[/red] - {self.player.gold} [yellow]Gold[/yellow] \n \n ")
+        print(f"[{self.playercolor}]{self.player.name}[/{self.playercolor}] : {self.player.hp}/{self.player.max_hp} [red]HP[/red] - {self.player.gold} [yellow1]Gold[/yellow1] \n \n ")
         self.player.inventory.display_inventory()
         self.display.quit_inventory()
         # self.current_area = self.inventory()
@@ -427,7 +441,39 @@ class Game:
             self.playercolor = "green"
         elif class_input == 4:
             self.player = Colossus(name, 20, 0, 3, ATT1,ATT2)
-            self.playercolor = "yellow"
+            self.playercolor = "yellow1"
         else:
             print("Entrée invalide. Veuillez choisir un numéro entre 1 et 4.")
             return self.choose_class()
+        
+
+    def new_adventure(self):
+        self.display.clear_console()
+        self.display.castle()
+        print("You arrived in front of a huge abandonned castle")
+
+    def new_room(self):
+        self.diplay.clear_console()
+        print("hello")
+
+    def dungeon(self, choice):
+        match choice:
+            case 1:
+                self.new_adventure()
+                sleep(5)
+                self.new_room()
+            case 2:
+                self.new_adventure()
+                sleep(5)
+                self.new_room()
+            case 3:
+                self.new_adventure()
+                sleep(5)
+                self.new_room()
+            case 4:
+                self.new_adventure()
+                sleep(5)
+                self.new_room()
+            case _:
+                return self.hub()
+        

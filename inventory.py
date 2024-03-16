@@ -18,7 +18,7 @@ class Inventory:
             for item in self.items:
                 print(f"- {item.name} : {item.description}")
 
-class ShopCategory(Inventory):
+class Shop_Category(Inventory):
 
     def display_inventory(self):
         i = 0
@@ -29,5 +29,10 @@ class ShopCategory(Inventory):
             for item in self.items:
                 i += 1
                 print(f"{i}.  {item.name} : {item.description} price = {item.value} golds")
+
+class Chest(Inventory):
+    pass
+
+    
     
 
