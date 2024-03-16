@@ -5,6 +5,7 @@ from dice import Dice
 from attack import Attack
 from items import *
 from inventory import *
+from room import Room
 from time import sleep
 
 HALF = 50
@@ -174,12 +175,12 @@ boots_inventory.add_item(mythic_boots)
 
 # POTIONS (HEALTH/MANA)
 
-common_health_potion = Potion("Basic potion", "Just a little potion", 1, 666, 10, 1, 1, "Commun", "Health")
-uncommon_health_potion = Potion("Big potion", "Not just a little potion", 1, 666, 10, 1, 1, "Uncommun", "Health")
-rare_health_potion = Potion("Really big potion", "Looks like a beer but it's not", 1, 666, 10, 1, 1, "Rare", "Health")
-epic_health_potion = Potion("Huge potion", "Too much for a potion", 1, 666, 10, 1, 1, "Epic", "Health")
-legendary_health_potion = Potion("Guargantuan potion", "This is stupidly big", 1, 666, 1, 10, 1, "Legendary", "Health")
-mythic_health_potion = Potion("DAAAAAMMMMMNNNN potion", "I can't even quantify this thing", 1, 1, 666, 10, 1, "Mythic", "Health")
+common_health_potion = Potion("Basic potion", "Just a little potion", 1, 10, 40, 10, 0, "Commun", "Health")
+uncommon_health_potion = Potion("Big potion", "Not just a little potion", 1, 20, 30, 25, 0, "Uncommun", "Health")
+rare_health_potion = Potion("Really big potion", "Looks like a beer but it's not", 1, 50, 20, 50, 0, "Rare", "Health")
+epic_health_potion = Potion("Huge potion", "Too much for a potion", 1, 75, 10, 75, 0, "Epic", "Health")
+legendary_health_potion = Potion("Guargantuan potion", "This is stupidly big", 1, 100, 5, 100, 0, "Legendary", "Health")
+mythic_health_potion = Potion("DAAAAAMMMMMNNNN potion", "I can't even quantify this thing", 1, 200, 1, 200, 0, "Mythic", "Health")
 
 health_pot_inventory = Shop_Category()
 health_pot_inventory.add_item(common_health_potion)
@@ -189,12 +190,12 @@ health_pot_inventory.add_item(epic_health_potion)
 health_pot_inventory.add_item(legendary_health_potion)
 health_pot_inventory.add_item(mythic_health_potion)
 
-common_mana_potion = Potion("Basic mana potion", "Same stuff but for mana", 1, 10, 10, 0, 15,"Commun",  "Mana")
-uncommon_mana_potion = Potion("Big mana potion", "You're using too much spells", 1, 20, 10, 0, 25,"Uncommun", "Mana")
-rare_mana_potion = Potion("Really big mana potion", "Do you eat mana ?", 1, 50, 10, 0, 50,"Rare", "Mana")
+common_mana_potion = Potion("Basic mana potion", "Same stuff but for mana", 1, 10, 40, 0, 10,"Commun",  "Mana")
+uncommon_mana_potion = Potion("Big mana potion", "You're using too much spells", 1, 20, 30, 0, 25,"Uncommun", "Mana")
+rare_mana_potion = Potion("Really big mana potion", "Do you eat mana ?", 1, 50, 20, 0, 50,"Rare", "Mana")
 epic_mana_potion = Potion("Huge mana potion", "You don't even have this amount of mana, why ?", 1, 75, 10, 0, 75,"Epic", "Mana")
-legendary_mana_potion = Potion("Guargantuan mana potion", "Are you stupid ?", 1, 100, 10, 1.5, 100, "Legendary", "Mana")
-mythic_mana_potion = Potion("DAAAAAMMMMMNNNN mana potion", "You're definitely insane", 1, 200, 10, 0, 200, "Mythic", "Mana")
+legendary_mana_potion = Potion("Guargantuan mana potion", "Are you stupid ?", 1, 100, 5, 1.5, 100, "Legendary", "Mana")
+mythic_mana_potion = Potion("DAAAAAMMMMMNNNN mana potion", "You're definitely insane", 1, 200, 1, 0, 200, "Mythic", "Mana")
 
 mana_pot_inventory = Shop_Category()
 mana_pot_inventory.add_item(common_mana_potion)
@@ -210,7 +211,7 @@ class Game:
         self.playercolor = None
         self.enemies = []
         self.display = Display()
-        self.current_area = None
+        self.room = Room()
 
     def start(self):
         self.display.clear_console()
@@ -246,8 +247,6 @@ class Game:
             case _:
                 return self.hub()
 
-        
-
     def inventory_decision(self,choice):
         if choice == 1:
             self.hub()
@@ -260,7 +259,6 @@ class Game:
         self.display.shop()
         print(f"[{self.playercolor}]{self.player.name}[/{self.playercolor}] : {self.player.hp}/{self.player.max_hp} [red]HP[/red] - {self.player.gold} [yellow1]Gold[/yellow1] \n \n ")
         self.display.shop_categories()
-        # self.current_area = self.categories()
         category_choice = int(input(""))
         self.shop_categories_decision(category_choice)
 
@@ -271,10 +269,8 @@ class Game:
         print(f"[{self.playercolor}]{self.player.name}[/{self.playercolor}] : {self.player.hp}/{self.player.max_hp} [red]HP[/red] - {self.player.gold} [yellow1]Gold[/yellow1] \n \n ")
         self.player.inventory.display_inventory()
         self.display.quit_inventory()
-        # self.current_area = self.inventory()
         inventory_choice = int(input(""))
         self.inventory_decision(inventory_choice)
-
 
     def shop_categories_decision(self,choice):
         if choice == 1:
@@ -398,7 +394,6 @@ class Game:
         else: 
             self.current_area
 
-
     def buy_decision(self, item):
         if self.player.gold >= item.value:
             if self.player.char_class == item.item_class or item.item_class == "Any":
@@ -419,7 +414,6 @@ class Game:
             self.display.cantafford()
             sleep(2)
             self.categories()
-
 
     def choose_class(self):
 
@@ -446,7 +440,6 @@ class Game:
             print("Entrée invalide. Veuillez choisir un numéro entre 1 et 4.")
             return self.choose_class()
         
-
     def new_adventure(self):
         self.display.clear_console()
         self.display.castle()
@@ -460,19 +453,31 @@ class Game:
             case 1:
                 self.new_adventure()
                 sleep(5)
-                self.new_room()
+                while self.player.is_alive():
+                    for _ in range(4):
+                        pass
+
             case 2:
                 self.new_adventure()
                 sleep(5)
-                self.new_room()
+                while self.player.is_alive():
+                    for _ in range(9):
+                        pass
+
             case 3:
                 self.new_adventure()
                 sleep(5)
-                self.new_room()
+                while self.player.is_alive():
+                    for _ in range(24):
+                        pass
+                        
             case 4:
                 self.new_adventure()
                 sleep(5)
-                self.new_room()
+                while self.player.is_alive():
+                    for _ in range(49):
+                        pass
+
             case _:
                 return self.hub()
         

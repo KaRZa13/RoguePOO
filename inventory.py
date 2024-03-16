@@ -19,6 +19,8 @@ class Inventory:
                 print(f"- {item.name} : {item.description}")
 
 class Shop_Category(Inventory):
+    def __init__(self) -> None:
+        super().__init__()
 
     def display_inventory(self):
         i = 0
@@ -31,8 +33,5 @@ class Shop_Category(Inventory):
                 print(f"{i}.  {item.name} : {item.description} price = {item.value} golds")
 
 class Chest(Inventory):
-    pass
-
-    
-    
-
+    def __init__(self) -> None:
+        super().__init__()

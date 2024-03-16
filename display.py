@@ -15,7 +15,7 @@ class Display:
 
     @staticmethod
     def title():
-        print(r""" 
+        print(r"""
  _______  _______  _______           _______  _______  _______  _______ 
 (  ____ )(  ___  )(  ____ \|\     /|(  ____ \(  ____ )(  ___  )(  ___  )
 | (    )|| (   ) || (    \/| )   ( || (    \/| (    )|| (   ) || (   ) |
@@ -29,16 +29,16 @@ class Display:
 """)
 
     @staticmethod
-    def infinity():
+    def infinite():
         print("""
-_________ _        _______ _________ _       __________________         
-\__   __/( (    /|(  ____ \\__   __/( (    /|\__   __/\__   __/|\     /|
-   ) (   |  \  ( || (    \/   ) (   |  \  ( |   ) (      ) (   ( \   / )
-   | |   |   \ | || (__       | |   |   \ | |   | |      | |    \ (_) / 
-   | |   | (\ \) ||  __)      | |   | (\ \) |   | |      | |     \   /  
-   | |   | | \   || (         | |   | | \   |   | |      | |      ) (   
-___) (___| )  \  || )      ___) (___| )  \  |___) (___   | |      | |   
-\_______/|/    )_)|/       \_______/|/    )_)\_______/   )_(      \_/      
+_________ _        _______ _________ _       __________________ _______ 
+\__   __/( (    /|(  ____ \\__   __/( (    /|\__   __/\__   __/(  ____ \
+   ) (   |  \  ( || (    \/   ) (   |  \  ( |   ) (      ) (   | (    \/
+   | |   |   \ | || (__       | |   |   \ | |   | |      | |   | (__    
+   | |   | (\ \) ||  __)      | |   | (\ \) |   | |      | |   |  __)   
+   | |   | | \   || (         | |   | | \   |   | |      | |   | (      
+___) (___| )  \  || )      ___) (___| )  \  |___) (___   | |   | (____/\
+\_______/|/    )_)|/       \_______/|/    )_)\_______/   )_(   (_______/   
                 
 """)
 
@@ -115,14 +115,14 @@ ___) (___| )  \  || )      ___) (___| )  \  |___) (___   | |      | |
              |=====/o/======================\o\=====|
              |____/_/________..____..________\_\____|
              /   _/ \_     <_o#\__/#o_>     _/ \_   \
-             \_________\####/_________/
+             \________________\####/________________/
               |===\!/========================\!/===|
               |   |=|          .---.         |=|   |
               |===|o|=========/     \========|o|===|
               |   | |         \() ()/        | |   |
               |===|o|======{'-.) A (.-'}=====|o|===|
               | __/ \__     '-.\uuu/.-'    __/ \__ |
-              |==== .'.'^'.'.====|
+              |        |==== .'.'^'.'.====|        |
               |  _\o/   __  {.' __  '.} _   _\o/  _|
               `""""-""""""""""""""""""""""""""-""""`
 """)
@@ -327,10 +327,10 @@ ___) (___| )  \  |  \   /  | (____/\| )  \  |   | |   | (___) || ) \ \__   | |
     @staticmethod
     def print_class():
         p(" \n Choose your class : \n")
-        p("1.  [red]Warrior[/red]")
-        p("2.  [blue]Mage[/blue]")
-        p("3.  [green]Thief[/green]")
-        p("4.  [yellow1]Colossus[/yellow1] \n \n")
+        p(" - 1 : [red]Warrior[/red]")
+        p(" - 2 : [blue]Mage[/blue]")
+        p(" - 3 : [green]Thief[/green]")
+        p(" - 4 : [yellow1]Colossus[/yellow1] \n \n")
     
     @staticmethod
     def print_char(name,charclass):
@@ -339,31 +339,31 @@ ___) (___| )  \  |  \   /  | (____/\| )  \  |   | |   | (___) || ) \ \__   | |
     @staticmethod
     def print_hub():
         p(" \n Where do you want to go ? : \n")
-        p("1.  [red]See the inventory[/red]")
-        p("2.  [blue]Go to shop[/blue]")
-        p("3.  [green]Endless cave[/green]")
-        p("4.  [yellow1]Dungeon (INSANE!)[/yellow1] \n \n")
+        p(" - 1 : [red]See the inventory[/red]")
+        p(" - 2 : [blue]Go to shop[/blue]")
+        p(" - 3 : [green]Endless cave[/green]")
+        p(" - 4 : [yellow1]Dungeon (INSANE!)[/yellow1] \n \n")
 
     @staticmethod
     def quit_inventory():
         p(" \n Do you want to quit inventory ? \n")
-        p("1.  [red]Yes ![/red]")
-        p("2.  [blue]Never (If you are angry)[/blue]")
+        p(" - 1 : [red]Yes ![/red]")
+        p(" - 2 : [blue]Never (If you are angry)[/blue]")
 
     @staticmethod
     def shop_categories():
         p(" \n What do you want to buy ? \n")
-        p("1.  [red]Swords[/red]")
-        p("2.  [red]Knives[/red]")
-        p("3.  [red]Hammer[/red]")
-        p("4.  [red]Mage's sticks[/red]")
-        p("5.  [red]Shields[/red]")
-        p("6.  [red]Helmet[/red]")
-        p("7.  [red]Chestplate[/red]")
-        p("8.  [red]Leggings[/red]")
-        p("9.  [red]Boots[/red]")
-        p("10.  [red]Potions WIP[/red]")
-        p("11.  [blue]Nevermind[/blue] \n \n")
+        p(" - 1 : [red]Swords[/red]")
+        p(" - 2 : [green]Knives[/green]")
+        p(" - 3 : [yellow1]Hammer[/yellow1]")
+        p(" - 4 : [blue]Mage's sticks[/blue]")
+        p(" - 5 : [dark_magenta]Shields[/dark_magenta]")
+        p(" - 6 : [purple4]Helmet[/purple4]")
+        p(" - 7 : [purple4]Chestplate[/purple4]")
+        p(" - 8 : [purple4]Leggings[/purple4]")
+        p(" - 9 : [purple4]Boots[/purple4]")
+        p(" - 10 : [bright_green]Potions WIP[/bright_green]")
+        p(" - 11 : [grey66]Nevermind[/grey66] \n \n")
 
     @staticmethod
     def cant_afford():
@@ -375,13 +375,13 @@ ___) (___| )  \  |  \   /  | (____/\| )  \  |   | |   | (___) || ) \ \__   | |
 
     @staticmethod
     def nevermind():
-        p("7.  Nevermind")
+        p(" - 7 : Nevermind")
 
     @staticmethod
     def already_have(player,item):
         p("\n You already have a "+item.item_class+" Do you want to replace it ? \n ")
-        p("1.  Yes")
-        p("2.  No")
+        p(" - 1 : Yes")
+        p(" - 2 : No")
 
     @staticmethod
     def difficulty():
