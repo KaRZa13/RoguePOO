@@ -390,4 +390,9 @@ ___) (___| )  \  |  \   /  | (____/\| )  \  |   | |   | (___) || ) \ \__   | |
         p(" - 2 : [yellow1]Just a bit[/yellow1] (10 rooms)")
         p(" - 3 : [dark_orange]As much as you can[/dark_orange] (20 rooms)")
         p(" - 4 : [red]A love SM[/red] (50 rooms)")
+
+    @staticmethod
+    def tier():
+        tier = ["Common", "Uncommon", "Rare", "Epic", "Legendary", "Mythic"]
+        
         
