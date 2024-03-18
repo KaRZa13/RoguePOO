@@ -23,6 +23,7 @@ CLASS_TYPES = [0, "Warrior", "Mage", "Thief", "Colossus"]
 DURABILITY_WEAPONS = [25, 50, 100, 200, 500, 666]
 DURABILITY_ARMOR = []
 DAMAGE_MODIFIER = [1, 1.1, 1.2, 1.3, 1.4, 1.5]
+ARMOR_MODIFIER = []
 VALUE_WEAPONS = []
 DROP_CHANCE = []
 
