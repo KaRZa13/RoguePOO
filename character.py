@@ -85,8 +85,9 @@ class Colossus(Character):
         return super().decrease_hp(amount - 3)
     
 class Enemy(Character):
-    def __init__(self, name, base_hp, base_mana, armor, attack1, attack2, gold=0):
+    def __init__(self, name, base_hp, base_mana, armor, attack1, attack2, drop_chances, gold=0):
         super().__init__(name, base_hp, base_mana, armor, attack1, attack2, gold)
+        self.drop_chances = drop_chances
 
 class Boss(Character):
     def __init__(self, name, base_hp, base_mana, armor, attack1, attack2, gold=0):

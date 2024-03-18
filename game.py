@@ -24,7 +24,7 @@ DURABILITY_WEAPONS = [25, 50, 100, 200, 500, 666]
 DURABILITY_ARMOR = []
 DAMAGE_MODIFIER = [1, 1.1, 1.2, 1.3, 1.4, 1.5]
 VALUE_WEAPONS = []
-DROP_CHANCE = []
+RARITY_PROBABILITIES = [1/2, 3/10, 3/20, 1/25, 9/1000, 1/1000]
 
 # SWORDS
 
@@ -79,7 +79,7 @@ hammer_inventory.add_item(mythic_hammer)
 
 # MAGE'S STICK
 
-common_stick = Weapons("Name", "Description", DURABILITY_WEAPONS[0], "value", "drop chance", "Common", DAMAGE_MODIFIER[0], "Mage")
+common_stick = Weapons("Branch", "A piece of wood", DURABILITY_WEAPONS[0], "value", "drop chance", "Common", DAMAGE_MODIFIER[0], "Mage")
 uncommon_stick = Weapons("Name", "Description", DURABILITY_WEAPONS[1], "value", "drop chance", "Uncommon", DAMAGE_MODIFIER[1], "Mage")
 rare_stick = Weapons("Name", "Description", DURABILITY_WEAPONS[2], "value", "drop chance", "Rare", DAMAGE_MODIFIER[2], "Mage")
 epic_stick = Weapons("Name", "Description", DURABILITY_WEAPONS[3], "value", "drop chance", "Epic", DAMAGE_MODIFIER[3], "Mage")
@@ -210,6 +210,33 @@ mana_pot_inventory.add_item(rare_mana_potion)
 mana_pot_inventory.add_item(epic_mana_potion)
 mana_pot_inventory.add_item(legendary_mana_potion)
 mana_pot_inventory.add_item(mythic_mana_potion)
+
+weapons = {
+    "common": [common_sword, common_knife, common_hammer, common_stick],
+    "uncommon": [uncommon_sword, uncommon_knife, uncommon_hammer, uncommon_stick],
+    "rare": [rare_sword, rare_knife, rare_hammer, rare_stick],
+    "epic": [epic_sword, epic_knife, epic_hammer, epic_stick],
+    "legendary": [legendary_sword, legendary_knife, legendary_hammer, legendary_stick],
+    "mythic": [mythic_sword, mythic_knife, mythic_hammer, mythic_stick]
+}
+
+armor = {
+    "common": [common_shield, common_helmet, common_chestplate, common_leggings, common_boots],
+    "uncommon": [uncommon_shield, uncommon_helmet, uncommon_chestplate, uncommon_leggings, uncommon_boots],
+    "rare": [rare_shield, rare_helmet, rare_chestplate, rare_leggings, rare_boots],
+    "epic": [epic_shield, epic_helmet, epic_chestplate, epic_leggings, epic_boots],
+    "legendary": [legendary_shield, legendary_helmet, legendary_chestplate, legendary_leggings, legendary_boots],
+    "mythic": [mythic_shield, mythic_helmet, mythic_chestplate, mythic_leggings, mythic_boots]
+}
+
+potions = {
+    "common": [common_health_potion, common_mana_potion],
+    "uncommon": [uncommon_health_potion, uncommon_mana_potion],
+    "rare": [rare_health_potion, rare_mana_potion],
+    "epic": [epic_health_potion, epic_mana_potion],
+    "legendary": [legendary_health_potion, legendary_mana_potion],
+    "mythic": [mythic_health_potion, mythic_mana_potion]
+}
 
 class Game:
     def __init__(self):
@@ -420,6 +447,9 @@ class Game:
             self.display.cantafford()
             sleep(2)
             self.categories()
+
+    def generate_loot(enemy, dice):
+        pass
 
     def choose_class(self):
 
