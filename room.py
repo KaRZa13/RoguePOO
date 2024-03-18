@@ -22,12 +22,12 @@ class Room:
         roll = self.dice.roll()
         if roll < 10:
             self.event = "Chest"
-        if roll > 12:
+        if 12 < roll < 95:
             self.event = "Enemy"
             roll2 = self.dice.roll()
             if roll2 < 33:
                 self.entities.append(Enemy(ENEMY_TYPES(0), 20, 0, 3, ATT1, ATT2,0,7))
-            if roll2 < 66 and roll2 > 33:
+            if 33 < roll2 < 66:
                 self.entities.append(Enemy(ENEMY_TYPES(1), 15, 0, 5, ATT1, ATT2,0,5))
             if roll > 66:
                 self.entities.append(Enemy(ENEMY_TYPES(2), 25, 0, 3, ATT1, ATT2,0,6))
