@@ -7,6 +7,9 @@ class Items:
         self.drop_chance = drop_chance
         self.tier = tier
 
+    def __str__(self):
+        print(f"{self.name} : {self.description}   {self.durability} durability {self.value} golds")
+
 
 class Weapons(Items):
     def __init__(self, name, description, durability, value, drop_chance, tier, attack_modifier,item_class) -> None:

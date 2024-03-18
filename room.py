@@ -1,6 +1,5 @@
-from inventory import Inventory
 from dice import Dice
-from character import Character,Enemy
+from character import Enemy
 from attack import Attack
 
 ENEMY_TYPES = ["Squeletton", "Zombie", "Golem"]
@@ -13,15 +12,18 @@ ATT2 = Attack("Big attack", 4, HALF, 2.25, HALF, "A big attack , 50/50 either yo
 
 
 class Room:
-    def __init__(self):
-        self.entities = []
+    def __init__(self, game):
+        self.entity = None
         self.event = None
         self.dice = Dice(100)
+        self.game = game
 
     def random_event(self):
         roll = self.dice.roll()
         if roll < 10:
             self.event = "Chest"
+            chest = self.game.create_chest()
+            self.entities.append(chest)
         if roll > 12:
             self.event = "Enemy"
             roll2 = self.dice.roll()
@@ -33,3 +35,8 @@ class Room:
                 self.entities.append(Enemy(ENEMY_TYPES(2), 25, 0, 3, ATT1, ATT2,0,6))
         else : 
             self.event = "Truc de ouf 2/100 chances"
+            chest = self.game.create_chest()
+            self.entities.append(chest)
+    
+    def reset_entities(self):
+        self.entity = None

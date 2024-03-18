@@ -7,6 +7,7 @@ from items import *
 from inventory import *
 from room import Room
 from time import sleep
+import random
 
 HALF = 50
 THREE_QUARTERS = 75
@@ -24,7 +25,8 @@ DURABILITY_WEAPONS = [25, 50, 100, 200, 500, 666]
 DURABILITY_ARMOR = []
 DAMAGE_MODIFIER = [1, 1.1, 1.2, 1.3, 1.4, 1.5]
 VALUE_WEAPONS = []
-RARITY_PROBABILITIES = [1/2, 3/10, 3/20, 1/25, 9/1000, 1/1000]
+RARITY_PROBABILITIES = [0.50, 0.25, 0.15, 0.07, 0.02, 0.01]
+rarity_names = {0: 'common',1: 'uncommon',2: 'rare',3: 'epic',4: 'legendary',5: 'mythic'}
 
 # SWORDS
 
@@ -244,7 +246,7 @@ class Game:
         self.playercolor = None
         self.enemies = []
         self.display = Display()
-        self.room = Room()
+        self.room = Room(self)
 
     def start(self):
         self.display.clear_console()
@@ -262,6 +264,32 @@ class Game:
         hub_choice = int(input(""))
         self.hub_decision(hub_choice)
 
+    def room(self):
+        self.display.clear_console()
+        self.display.title()
+        self.display.infinite()
+        print(f"[{self.playercolor}]{self.player.name}[/{self.playercolor}] : {self.player.hp}/{self.player.max_hp} [red]HP[/red]")
+        self.new_room()
+        if self.room.event == "chest":
+            self.display.chest()
+            self.display.open_chest()
+            chest_choice = int(input())
+            self.chest_decision(chest_choice)
+            
+    def chest_decision(self,choice):
+        if choice == 1:
+            print("This chest contain a : "+str(self.room.entity.self.items[1])+" Do you want to take it and sell your equipped one ?")
+            print("1 - Yes")
+            print("2 - No")
+            replace_choice = int(input())
+            if replace_choice == 1 :
+                self.replace_decision(1)
+            if replace_choice == 2 :
+                self.replace_decision(2)
+        if choice == 2:
+            pass
+        
+
     def hub_decision(self,choice):
         match choice:
             case 1:
@@ -269,7 +297,7 @@ class Game:
             case 2:
                 self.categories()
             case 3:
-                pass
+                self.room()
             case 4:
                 self.display.clear_console()
                 self.display.title()
@@ -448,8 +476,44 @@ class Game:
             sleep(2)
             self.categories()
 
-    def generate_loot(enemy, dice):
-        pass
+    def generate_loot(self):
+        rarity_probabilities = RARITY_PROBABILITIES
+        items_dict = self.random_loot_category()
+        rarity_roll = Dice(1000).roll()  # Supposons que Dice(1000) donne un entier aléatoire entre 1 et 1000
+        rarity_cumulative_prob = 0
+
+        # Déterminer la rareté en fonction des probabilités cumulatives
+        for rarity, probability in enumerate(rarity_probabilities):
+            rarity_cumulative_prob += probability
+            if rarity_roll <= rarity_cumulative_prob * 1000:  # Multiplier par 1000 pour ajuster l'échelle
+                break
+
+        # Choisir un item aléatoire en fonction de la rareté
+        rarity_name = rarity_names[rarity]
+        item_list = items_dict.get(rarity_name, [])
+        item_count = len(item_list)
+        if item_count > 0:
+            selected_item = random.choice(item_list)
+            return selected_item
+        else:
+            return None
+
+    @staticmethod    
+    def random_loot_category():
+        dice = Dice(3)
+        roll = dice.roll()
+        if roll == 1:
+            return weapons
+        if roll == 2:
+            return armor
+        if roll == 3:
+            return potions
+        
+    def create_chest(self):
+        chest = Chest()
+        chest.add_item(self.generate_loot())
+        return chest
+
 
     def choose_class(self):
 
@@ -482,7 +546,7 @@ class Game:
         print("You arrived in front of a huge abandonned castle")
 
     def new_room(self):
-        pass
+        self.room.random_event()
 
     def dungeon(self, choice):
         match choice:
