@@ -442,5 +442,11 @@ ___) (___| )  \  |  \   /  | (____/\| )  \  |   | |   | (___) || ) \ \__   | |
     @staticmethod
     def tier():
         tier = ["Common", "Uncommon", "Rare", "Epic", "Legendary", "Mythic"]
+
+    @staticmethod
+    def open_chest():
+        p("Do you want to open the chest ?")
+        p(" - 1 : [green]Yes[/green]")
+        p(" - 2 : [red]No ! (I'm a boring guy)[/red]")
         
         

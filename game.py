@@ -7,6 +7,7 @@ from items import *
 from inventory import *
 from room import Room
 from time import sleep
+import random
 
 HALF = 50
 THREE_QUARTERS = 75
@@ -25,7 +26,8 @@ DURABILITY_ARMOR = []
 DAMAGE_MODIFIER = [1, 1.1, 1.2, 1.3, 1.4, 1.5]
 ARMOR_MODIFIER = []
 VALUE_WEAPONS = []
-DROP_CHANCE = []
+RARITY_PROBABILITIES = [0.50, 0.25, 0.15, 0.07, 0.02, 0.01]
+rarity_names = {0: 'common',1: 'uncommon',2: 'rare',3: 'epic',4: 'legendary',5: 'mythic'}
 
 # SWORDS
 
@@ -80,7 +82,7 @@ hammer_inventory.add_item(mythic_hammer)
 
 # MAGE'S STICK
 
-common_stick = Weapons("Name", "Description", DURABILITY_WEAPONS[0], "value", "drop chance", "Common", DAMAGE_MODIFIER[0], "Mage")
+common_stick = Weapons("Branch", "A piece of wood", DURABILITY_WEAPONS[0], "value", "drop chance", "Common", DAMAGE_MODIFIER[0], "Mage")
 uncommon_stick = Weapons("Name", "Description", DURABILITY_WEAPONS[1], "value", "drop chance", "Uncommon", DAMAGE_MODIFIER[1], "Mage")
 rare_stick = Weapons("Name", "Description", DURABILITY_WEAPONS[2], "value", "drop chance", "Rare", DAMAGE_MODIFIER[2], "Mage")
 epic_stick = Weapons("Name", "Description", DURABILITY_WEAPONS[3], "value", "drop chance", "Epic", DAMAGE_MODIFIER[3], "Mage")
@@ -212,13 +214,40 @@ mana_pot_inventory.add_item(epic_mana_potion)
 mana_pot_inventory.add_item(legendary_mana_potion)
 mana_pot_inventory.add_item(mythic_mana_potion)
 
+weapons = {
+    "common": [common_sword, common_knife, common_hammer, common_stick],
+    "uncommon": [uncommon_sword, uncommon_knife, uncommon_hammer, uncommon_stick],
+    "rare": [rare_sword, rare_knife, rare_hammer, rare_stick],
+    "epic": [epic_sword, epic_knife, epic_hammer, epic_stick],
+    "legendary": [legendary_sword, legendary_knife, legendary_hammer, legendary_stick],
+    "mythic": [mythic_sword, mythic_knife, mythic_hammer, mythic_stick]
+}
+
+armor = {
+    "common": [common_shield, common_helmet, common_chestplate, common_leggings, common_boots],
+    "uncommon": [uncommon_shield, uncommon_helmet, uncommon_chestplate, uncommon_leggings, uncommon_boots],
+    "rare": [rare_shield, rare_helmet, rare_chestplate, rare_leggings, rare_boots],
+    "epic": [epic_shield, epic_helmet, epic_chestplate, epic_leggings, epic_boots],
+    "legendary": [legendary_shield, legendary_helmet, legendary_chestplate, legendary_leggings, legendary_boots],
+    "mythic": [mythic_shield, mythic_helmet, mythic_chestplate, mythic_leggings, mythic_boots]
+}
+
+potions = {
+    "common": [common_health_potion, common_mana_potion],
+    "uncommon": [uncommon_health_potion, uncommon_mana_potion],
+    "rare": [rare_health_potion, rare_mana_potion],
+    "epic": [epic_health_potion, epic_mana_potion],
+    "legendary": [legendary_health_potion, legendary_mana_potion],
+    "mythic": [mythic_health_potion, mythic_mana_potion]
+}
+
 class Game:
     def __init__(self):
         self.player = None
         self.playercolor = None
         self.enemies = []
         self.display = Display()
-        self.room = Room()
+        self.room = Room(self)
 
     def start(self):
         self.display.clear_console()
@@ -236,6 +265,32 @@ class Game:
         hub_choice = int(input(""))
         self.hub_decision(hub_choice)
 
+    def room(self):
+        self.display.clear_console()
+        self.display.title()
+        self.display.infinite()
+        print(f"[{self.playercolor}]{self.player.name}[/{self.playercolor}] : {self.player.hp}/{self.player.max_hp} [red]HP[/red]")
+        self.new_room()
+        if self.room.event == "chest":
+            self.display.chest()
+            self.display.open_chest()
+            chest_choice = int(input())
+            self.chest_decision(chest_choice)
+            
+    def chest_decision(self,choice):
+        if choice == 1:
+            print("This chest contain a : "+str(self.room.entity.self.items[1])+" Do you want to take it and sell your equipped one ?")
+            print("1 - Yes")
+            print("2 - No")
+            replace_choice = int(input())
+            if replace_choice == 1 :
+                self.replace_decision(1)
+            if replace_choice == 2 :
+                self.replace_decision(2)
+        if choice == 2:
+            pass
+        
+
     def hub_decision(self,choice):
         match choice:
             case 1:
@@ -243,7 +298,7 @@ class Game:
             case 2:
                 self.categories()
             case 3:
-                pass
+                self.room()
             case 4:
                 self.display.clear_console()
                 self.display.title()
@@ -422,6 +477,45 @@ class Game:
             sleep(2)
             self.categories()
 
+    def generate_loot(self):
+        rarity_probabilities = RARITY_PROBABILITIES
+        items_dict = self.random_loot_category()
+        rarity_roll = Dice(1000).roll()  # Supposons que Dice(1000) donne un entier aléatoire entre 1 et 1000
+        rarity_cumulative_prob = 0
+
+        # Déterminer la rareté en fonction des probabilités cumulatives
+        for rarity, probability in enumerate(rarity_probabilities):
+            rarity_cumulative_prob += probability
+            if rarity_roll <= rarity_cumulative_prob * 1000:  # Multiplier par 1000 pour ajuster l'échelle
+                break
+
+        # Choisir un item aléatoire en fonction de la rareté
+        rarity_name = rarity_names[rarity]
+        item_list = items_dict.get(rarity_name, [])
+        item_count = len(item_list)
+        if item_count > 0:
+            selected_item = random.choice(item_list)
+            return selected_item
+        else:
+            return None
+
+    @staticmethod    
+    def random_loot_category():
+        dice = Dice(3)
+        roll = dice.roll()
+        if roll == 1:
+            return weapons
+        if roll == 2:
+            return armor
+        if roll == 3:
+            return potions
+        
+    def create_chest(self):
+        chest = Chest()
+        chest.add_item(self.generate_loot())
+        return chest
+
+
     def choose_class(self):
 
         name = input(" \n Choose your name : ")
@@ -453,7 +547,7 @@ class Game:
         print("You arrived in front of a huge abandonned castle")
 
     def new_room(self):
-        pass
+        self.room.random_event()
 
     def dungeon(self, choice):
         match choice:
