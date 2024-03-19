@@ -21,22 +21,22 @@ CLASS_TYPES = [0, "Warrior", "Mage", "Thief", "Colossus"]
 
 '''#############################################################   ITEMS   #############################################################'''
 
-DURABILITY_WEAPONS = [25, 50, 100, 200, 500, 666]
-DURABILITY_ARMOR = []
-DAMAGE_MODIFIER = [1, 1.1, 1.2, 1.3, 1.4, 1.5]
-ARMOR_MODIFIER = []
-VALUE_WEAPONS = []
-RARITY_PROBABILITIES = [0.50, 0.25, 0.15, 0.07, 0.02, 0.01]
-rarity_names = {0: 'common',1: 'uncommon',2: 'rare',3: 'epic',4: 'legendary',5: 'mythic'}
+durability_weapons = [25, 50, 100, 200, 500, 666]
+durability_armor = []
+damage_modifier = [1, 1.1, 1.2, 1.3, 1.4, 1.5]
+armor_modifier = []
+value_weapons = [15, 30, 50, 100, 200, 500]
+drop_chance = [40, 25, 15, 10, 5, 1]
+rarity_names = {0: 'common', 1: 'uncommon', 2: 'rare', 3: 'epic', 4: 'legendary', 5: 'mythic'}
 
 # SWORDS
 
-common_sword = Weapons("Chocolate sword", "Don't try to eat it, this is not real chocolate... It's not even a real sword", DURABILITY_WEAPONS[0], 15, 70, "Common", DAMAGE_MODIFIER[0], "Warrior")
-uncommon_sword = Weapons("Simple sword", "Just a piece of forged iron", DURABILITY_WEAPONS[1], 30, 40, "Uncommon", DAMAGE_MODIFIER[1], "Warrior")
-rare_sword = Weapons("Knight sword", "Finally a good weapon", DURABILITY_WEAPONS[2], 75, 35, "Rare", DAMAGE_MODIFIER[2], "Warrior")
-epic_sword = Weapons("Claymore", "Big sword for big damage !", DURABILITY_WEAPONS[3], 150, 25, "Epic", DAMAGE_MODIFIER[3], "Warrior")
-legendary_sword = Weapons("Excalibur", "More than just a sword ", DURABILITY_WEAPONS[4], 500, 15, "Legendary", DAMAGE_MODIFIER[4], "Warrior")
-mythic_sword = Weapons("Big Sword of DOOM !", "This sword came from hell, forged buy an ancient demon, anyway... BIIIGGG damage", DURABILITY_WEAPONS[5], 666, 5, "Mythic", DAMAGE_MODIFIER[5], "Warrior")
+common_sword = Weapons("Chocolate sword", "Don't try to eat it, this is not real chocolate... It's not even a real sword", durability_weapons[0], value_weapons[0], 70, "Common", damage_modifier[0], "Warrior")
+uncommon_sword = Weapons("Simple sword", "Just a piece of forged iron", durability_weapons[1], value_weapons[1], 40, "Uncommon", damage_modifier[1], "Warrior")
+rare_sword = Weapons("Knight sword", "Finally a good weapon", durability_weapons[2], value_weapons[2], 35, "Rare", damage_modifier[2], "Warrior")
+epic_sword = Weapons("Claymore", "Big sword for big damage !", durability_weapons[3], value_weapons[3], 25, "Epic", damage_modifier[3], "Warrior")
+legendary_sword = Weapons("Excalibur", "More than just a sword ", durability_weapons[4], value_weapons[4], 15, "Legendary", damage_modifier[4], "Warrior")
+mythic_sword = Weapons("Big Sword of DOOM !", "This sword came from hell, forged buy an ancient demon, anyway... BIIIGGG damage", durability_weapons[5], value_weapons[5], 5, "Mythic", damage_modifier[5], "Warrior")
 
 sword_inventory = Shop_Category()
 sword_inventory.add_item(common_sword)
@@ -48,12 +48,12 @@ sword_inventory.add_item(mythic_sword)
 
 # KNIVES
 
-common_knife = Weapons("The Opinel", "Perfect for cheese", DURABILITY_WEAPONS[0], "value", "drop chance", "Common", DAMAGE_MODIFIER[0], "Thief")
-uncommon_knife = Weapons("Name", "Description", DURABILITY_WEAPONS[1], "value", "drop chance", "Uncommon", DAMAGE_MODIFIER[1], "Thief")
-rare_knife = Weapons("Name", "Description", DURABILITY_WEAPONS[2], "value", "drop chance", "Rare", DAMAGE_MODIFIER[2], "Thief")
-epic_knife = Weapons("Name", "Description", DURABILITY_WEAPONS[3], "value", "drop chance", "Epic", DAMAGE_MODIFIER[3], "Thief")
-legendary_knife = Weapons("Name", "Description", DURABILITY_WEAPONS[4], "value", "drop chance", "Legendary", DAMAGE_MODIFIER[4], "Thief")
-mythic_knife = Weapons("Big Knife of DOOM", DURABILITY_WEAPONS[5], "Durability", "value", "drop chance", "Mythic", DAMAGE_MODIFIER[5], "Thief")
+common_knife = Weapons("The Opinel", "Perfect for cheese", durability_weapons[0], value_weapons[0], "drop chance", "Common", damage_modifier[0], "Thief")
+uncommon_knife = Weapons("Kitchen knife", "Better than the opinel, it's perfect for big meat", durability_weapons[1], value_weapons[1], "drop chance", "Uncommon", damage_modifier[1], "Thief")
+rare_knife = Weapons("Butcher knife", "Really big one", durability_weapons[2], value_weapons[2], "drop chance", "Rare", damage_modifier[2], "Thief")
+epic_knife = Weapons("Hunting knife", "This knife is use for any kind of animals or living thing", durability_weapons[3], value_weapons[3], "drop chance", "Epic", damage_modifier[3], "Thief")
+legendary_knife = Weapons("Buttlefly knife Fade FN Statrack", "Description", durability_weapons[4], value_weapons[4], "drop chance", "Legendary", damage_modifier[4], "Thief")
+mythic_knife = Weapons("Big Knife of DOOM", "Exactly the same as the sword but it's a knife", durability_weapons[5], value_weapons[5], "drop chance", "Mythic", damage_modifier[5], "Thief")
 
 knives_inventory = Shop_Category()
 knives_inventory.add_item(common_knife)
@@ -65,12 +65,12 @@ knives_inventory.add_item(mythic_knife)
 
 # HAMMER
 
-common_hammer = Weapons("Name", "Description", DURABILITY_WEAPONS[0], "value", "drop chance", "Common", DAMAGE_MODIFIER[0], "Colossus")
-uncommon_hammer = Weapons("Name", "Description", DURABILITY_WEAPONS[1], "value", "drop chance", "Uncommon", DAMAGE_MODIFIER[1], "Colossus")
-rare_hammer = Weapons("Name", "Description", DURABILITY_WEAPONS[2], "value", "drop chance", "Rare", DAMAGE_MODIFIER[2], "Colossus")
-epic_hammer = Weapons("Name", "Description", DURABILITY_WEAPONS[3], "value", "drop chance", "Epic", DAMAGE_MODIFIER[3], "Colossus")
-legendary_hammer = Weapons("Name", "Description", DURABILITY_WEAPONS[4], "value", "drop chance", "Legendary", DAMAGE_MODIFIER[4], "Colossus")
-mythic_hammer = Weapons("Big Hammer of DOOM !", "Description", DURABILITY_WEAPONS[5], "value", "drop chance", "Mythic", DAMAGE_MODIFIER[5], "Colossus")
+common_hammer = Weapons("Name", "Description", durability_weapons[0], value_weapons[0], "drop chance", "Common", damage_modifier[0], "Colossus")
+uncommon_hammer = Weapons("Name", "Description", durability_weapons[1], value_weapons[1], "drop chance", "Uncommon", damage_modifier[1], "Colossus")
+rare_hammer = Weapons("Name", "Description", durability_weapons[2], value_weapons[2], "drop chance", "Rare", damage_modifier[2], "Colossus")
+epic_hammer = Weapons("Name", "Description", durability_weapons[3], value_weapons[3], "drop chance", "Epic", damage_modifier[3], "Colossus")
+legendary_hammer = Weapons("Name", "Description", durability_weapons[4], value_weapons[4], "drop chance", "Legendary", damage_modifier[4], "Colossus")
+mythic_hammer = Weapons("Big Hammer of DOOM !", "Description", durability_weapons[5], value_weapons[5], "drop chance", "Mythic", damage_modifier[5], "Colossus")
 
 hammer_inventory = Shop_Category()
 hammer_inventory.add_item(common_hammer)
@@ -82,12 +82,12 @@ hammer_inventory.add_item(mythic_hammer)
 
 # MAGE'S STICK
 
-common_stick = Weapons("Branch", "A piece of wood", DURABILITY_WEAPONS[0], "value", "drop chance", "Common", DAMAGE_MODIFIER[0], "Mage")
-uncommon_stick = Weapons("Name", "Description", DURABILITY_WEAPONS[1], "value", "drop chance", "Uncommon", DAMAGE_MODIFIER[1], "Mage")
-rare_stick = Weapons("Name", "Description", DURABILITY_WEAPONS[2], "value", "drop chance", "Rare", DAMAGE_MODIFIER[2], "Mage")
-epic_stick = Weapons("Name", "Description", DURABILITY_WEAPONS[3], "value", "drop chance", "Epic", DAMAGE_MODIFIER[3], "Mage")
-legendary_stick = Weapons("Name", "Description", DURABILITY_WEAPONS[4], "value", "drop chance", "Legendary", DAMAGE_MODIFIER[4], "Mage")
-mythic_stick = Weapons("Big Stick of DOOM !", "It's still a piece of shit", DURABILITY_WEAPONS[5],  666, 10, "Mythic", DAMAGE_MODIFIER[5], "Mage")
+common_stick = Weapons("Branch", "A piece of wood", durability_weapons[0], value_weapons[0], "drop chance", "Common", damage_modifier[0], "Mage")
+uncommon_stick = Weapons("Name", "Description", durability_weapons[1], "value", "drop chance", "Uncommon", damage_modifier[1], "Mage")
+rare_stick = Weapons("Name", "Description", durability_weapons[2], "value", "drop chance", "Rare", damage_modifier[2], "Mage")
+epic_stick = Weapons("Name", "Description", durability_weapons[3], "value", "drop chance", "Epic", damage_modifier[3], "Mage")
+legendary_stick = Weapons("Name", "Description", durability_weapons[4], "value", "drop chance", "Legendary", damage_modifier[4], "Mage")
+mythic_stick = Weapons("Big Stick of DOOM !", "It's still a piece of shit", durability_weapons[5],  666, 10, "Mythic", damage_modifier[5], "Mage")
 
 stick_inventory = Shop_Category()
 stick_inventory.add_item(common_stick)
@@ -478,15 +478,15 @@ class Game:
             self.categories()
 
     def generate_loot(self):
-        rarity_probabilities = RARITY_PROBABILITIES
+        rarity_probabilities = drop_chance
         items_dict = self.random_loot_category()
-        rarity_roll = Dice(1000).roll()  # Supposons que Dice(1000) donne un entier aléatoire entre 1 et 1000
+        rarity_roll = Dice(100).roll()  # Supposons que Dice(100) donne un entier aléatoire entre 1 et 1000
         rarity_cumulative_prob = 0
 
         # Déterminer la rareté en fonction des probabilités cumulatives
         for rarity, probability in enumerate(rarity_probabilities):
             rarity_cumulative_prob += probability
-            if rarity_roll <= rarity_cumulative_prob * 1000:  # Multiplier par 1000 pour ajuster l'échelle
+            if rarity_roll <= rarity_cumulative_prob * 100:  # Multiplier par 1000 pour ajuster l'échelle
                 break
 
         # Choisir un item aléatoire en fonction de la rareté
