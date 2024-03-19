@@ -83,11 +83,11 @@ hammer_inventory.add_item(mythic_hammer)
 # MAGE'S STICK
 
 common_stick = Weapons("Branch", "A piece of wood", durability_weapons[0], value_weapons[0], "drop chance", "Common", damage_modifier[0], "Mage")
-uncommon_stick = Weapons("Name", "Description", durability_weapons[1], "value", "drop chance", "Uncommon", damage_modifier[1], "Mage")
-rare_stick = Weapons("Name", "Description", durability_weapons[2], "value", "drop chance", "Rare", damage_modifier[2], "Mage")
-epic_stick = Weapons("Name", "Description", durability_weapons[3], "value", "drop chance", "Epic", damage_modifier[3], "Mage")
-legendary_stick = Weapons("Name", "Description", durability_weapons[4], "value", "drop chance", "Legendary", damage_modifier[4], "Mage")
-mythic_stick = Weapons("Big Stick of DOOM !", "It's still a piece of shit", durability_weapons[5],  666, 10, "Mythic", damage_modifier[5], "Mage")
+uncommon_stick = Weapons("Name", "Description", durability_weapons[1], value_weapons[1], "drop chance", "Uncommon", damage_modifier[1], "Mage")
+rare_stick = Weapons("Name", "Description", durability_weapons[2],  value_weapons[2], "drop chance", "Rare", damage_modifier[2], "Mage")
+epic_stick = Weapons("Name", "Description", durability_weapons[3],  value_weapons[3], "drop chance", "Epic", damage_modifier[3], "Mage")
+legendary_stick = Weapons("Name", "Description", durability_weapons[4],  value_weapons[4], "drop chance", "Legendary", damage_modifier[4], "Mage")
+mythic_stick = Weapons("Big Stick of DOOM !", "It's still a piece of shit", durability_weapons[5],   value_weapons[5], 10, "Mythic", damage_modifier[5], "Mage")
 
 stick_inventory = Shop_Category()
 stick_inventory.add_item(common_stick)
