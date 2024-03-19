@@ -448,5 +448,16 @@ ___) (___| )  \  |  \   /  | (____/\| )  \  |   | |   | (___) || ) \ \__   | |
         p("Do you want to open the chest ?")
         p(" - 1 : [green]Yes[/green]")
         p(" - 2 : [red]No ! (I'm a boring guy)[/red]")
+
+    @staticmethod
+    def next_room():
+        p("You finished this room , what do you want to do now ?")
+        p(" - 1 Return to the village")
+        p(" - 2 Continue the endless cave")
         
+    @staticmethod
+    def wich_attack(attack1, attack2):
+        p(f"Wich attack do you want to do ?")
+        p(f" - 1 {attack1.name}")
+        p(f" - 2 {attack2.name}")
         

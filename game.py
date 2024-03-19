@@ -265,7 +265,7 @@ class Game:
         hub_choice = int(input(""))
         self.hub_decision(hub_choice)
 
-    def room(self):
+    def create_room(self):
         self.display.clear_console()
         self.display.title()
         self.display.infinite()
@@ -276,17 +276,78 @@ class Game:
             self.display.open_chest()
             chest_choice = int(input())
             self.chest_decision(chest_choice)
+        if self.room.event == "enemy":
+            self.fight()
+
+    def fight(self):
+        running = True
+        while running :
+            if self.room.enemy == "skeleton":
+                self.display.clear_console()
+                self.display.skeleton()
+            if self.room.enemy == "zombie":
+                self.display.clear_console()
+                self.display.zombie()
+            if self.room.enemy == "goblin":
+                self.display.clear_console()
+                self.display.goblin()
+            print(f"[red]{self.room.entity.name}[/red] : {self.room.entity.hp}/{self.room.entity.max_hp} [red]HP[/red] \n")
+            print(f"[{self.playercolor}]{self.player.name}[/{self.playercolor}] : {self.player.hp}/{self.player.max_hp} [red]HP[/red]")
+            self.display.wich_attack(self.player.attack1, self.player.attack2)
+            choice = int(input(""))
+            if choice == 1:
+                self.player.attack(self.room.entity,self.player.attack1.calculate_damages())
+            if choice == 2:
+                self.player.attack(self.room.entity,self.player.attack2.calculate_damages())
+            if self.room.entity.is_alive():
+                self.room.entity.attack(self.player,self.room.entity.random_attack())
+            if not self.player.is_alive() or not self.room.entity.is_alive():
+                running = False
+        self.display.clear_console()
+        print(f"[red]{self.room.entity.name}[/red] : {self.room.entity.hp}/{self.room.entity.max_hp} [red]HP[/red] \n")
+        print(f"[{self.playercolor}]{self.player.name}[/{self.playercolor}] : {self.player.hp}/{self.player.max_hp} [red]HP[/red]")
+        self.finished_fight()
+
+    def enemy_dropped(self):
+        dice = Dice(100)
+        roll = dice.roll()
+        if roll > self.room.entity.drop_chances:
+            return self.generate_loot()
+
+    def finished_fight(self):
+        drop = self.enemy_dropped()
+        if drop == None:
+            pass
+        else:
+            print(f"The enemy dropped a {drop.name} do you want to take it ?")
+            print(" - 1 Yes")
+            print(" - 2 No")
+            choice = int(input(""))
+            pass
+            
+
+
+    def next_room(self):
+        self.display.next_room()
+        choice = int(input())
+        self.next_room_decision(choice)
+
+    def next_room_decision(self, choice):
+        if choice == 2:
+            self.create_room()
+        if choice == 1:
+            self.hub()
             
     def chest_decision(self,choice):
         if choice == 1:
-            print("This chest contain a : "+str(self.room.entity.self.items[1])+" Do you want to take it and sell your equipped one ?")
+            print(f"This chest contain a {self.room.entity.items[0].name} Do you want to take it (and sell your equipped one ?)")
             print("1 - Yes")
             print("2 - No")
             replace_choice = int(input())
             if replace_choice == 1 :
-                self.replace_decision(1)
+                self.replace_decision_room(1)
             if replace_choice == 2 :
-                self.replace_decision(2)
+                self.replace_decision_room(2)
         if choice == 2:
             pass
         
@@ -298,7 +359,7 @@ class Game:
             case 2:
                 self.categories()
             case 3:
-                self.room()
+                self.create_room()
             case 4:
                 self.display.clear_console()
                 self.display.title()
@@ -455,6 +516,13 @@ class Game:
             pass
         else: 
             self.current_area
+
+    def replace_decision_room(self, choice):
+        if choice == 1:
+            '''Remplacer l'item'''
+            pass
+        else: 
+            self.next_room()
 
     def buy_decision(self, item):
         if self.player.gold >= item.value:

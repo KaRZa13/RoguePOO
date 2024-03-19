@@ -1,5 +1,6 @@
 from rich import print
 from inventory import Inventory
+from dice import Dice
 
 class Character:
 
@@ -23,31 +24,20 @@ class Character:
         return self.hp > 0
     
     def show_healthbar(self):
-        print(f"[{'♥' * self.hp}{'♡' * (self.hp_max - self.hp)}] {self.hp}/{self.hp_max}hp")
+        print(f"[{'♥' * self.hp}{'♡' * (self.max_hp - self.hp)}] {self.hp}/{self.max_hp}hp")
 
     def decrease_hp(self, amount):
-        self.hp -= amount - self.armor
+        if amount > 0:
+            self.hp -= int(amount) - self.armor
         if self.hp < 0:
             self.hp = 0
-        self.show_healthbar()
 
     def attack(self, target, amount):
-        print(f"{target.name} has been attacked by {self.name} and took {amount} damages !")
         target.decrease_hp(amount)
         
 
     def increase_hp(self, amount):
         self.hp += amount
-
-    def choose_attack(self):
-        print(f"Choose between your attacks : \n \n \
-        1.  [red]{self.attack1.name}[/red] : [blue]{self.attack1.description}[/blue] \n \n \
-        2.  [red]{self.attack2.name}[/red] : [blue]{self.attack2.description}[/blue]")
-        choice = int(input())
-        if choice == 1 :
-            return self.attack1
-        else:
-            return self.attack2 
     
     def sell_item(self, item):
         self.inventory.items.remove(item)
@@ -74,7 +64,7 @@ class Thief(Character):
         self.char_class = "Thief"
 
     def attack(self, target, amount):
-        return super().attack(target, amount) + target.armor
+        target.decrease_hp(amount + target.armor)
     
 class Colossus(Character):
     def __init__(self, name, base_hp, base_mana, armor, attack1, attack2, gold=0):
@@ -89,6 +79,12 @@ class Enemy(Character):
         super().__init__(name, base_hp, base_mana, armor, attack1, attack2, gold)
         self.drop_chances = drop_chances
 
+    def random_attack(self):
+        dice = Dice(2)
+        if dice.roll() == 1:
+            return self.attack1.calculate_damages()
+        else:
+            return self.attack2.calculate_damages()
 class Boss(Character):
     def __init__(self, name, base_hp, base_mana, armor, attack1, attack2, gold=0):
         super().__init__(name, base_hp, base_mana, armor, attack1, attack2, gold)

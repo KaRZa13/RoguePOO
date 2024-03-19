@@ -12,10 +12,10 @@ class Attack:
     def calculate_damages(self):
         roll = self.dice.roll()
         if roll > self.crit_chaces:
-            return self.damages * self.crit_multiplier, "Incredible attack !"
+            return self.damages * self.crit_multiplier
         elif roll < self.miss_chaces:
-            return 0, "Attack missed the target"
+            return 0
         else:
-            return self.damages, "Good one !"
+            return self.damages
 
     

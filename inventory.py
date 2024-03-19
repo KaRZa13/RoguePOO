@@ -35,3 +35,6 @@ class Shop_Category(Inventory):
 class Chest(Inventory):
     def __init__(self) -> None:
         super().__init__()
+
+    def __str__(self) -> str:
+        return(f"{self.items[0].name} : {self.items[0].description}")
