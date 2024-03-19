@@ -6,9 +6,3 @@ game = Game()
 game.start()
 
 game.hub()
-
-
-
- 
-
-

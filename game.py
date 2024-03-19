@@ -233,7 +233,7 @@ class Game:
             '''Remplacer l'item'''
             pass
         else: 
-            self.current_area
+            pass
 
     def buy_decision(self, item):
         if self.player.gold >= item.value:
@@ -244,9 +244,14 @@ class Game:
                     self.shop_categories_decision()
                 else:
                     self.display.already_have(item)
-                    replace = int(input())
-                    self.replace_decision(replace)
-
+                    choice = int(input())
+                    match choice:
+                        case 1:
+                            self.player.inventory.remove_item(item)
+                        case 2:
+                            pass
+                        case _:
+                            pass
             else:
                self.display.wrong_class(self.player.char_class)
                sleep(2)
