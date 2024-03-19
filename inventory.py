@@ -1,3 +1,5 @@
+from rich import print
+
 
 class Inventory:
     def __init__(self) -> None:
@@ -30,7 +32,7 @@ class Shop_Category(Inventory):
             print("Shop :")
             for item in self.items:
                 i += 1
-                print(f"{i}.  {item.name} : {item.description} price = {item.value} golds")
+                print(f" - {i} : [{item.color}]{item.name}[/{item.color}] : Price = {item.value} [yellow1]G[/yellow1]")
 
 class Chest(Inventory):
     def __init__(self) -> None:

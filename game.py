@@ -1,12 +1,10 @@
 from rich import print
 from display import Display
-from character import *
 from dice import Dice
 from attack import Attack
-from items import *
-from inventory import *
 from room import Room
 from time import sleep
+from init import *
 import random
 
 HALF = 50
@@ -18,228 +16,6 @@ ATT1 = Attack("Normal attack", 6, THREE_QUARTERS, 1.25, QUARTER, "Just a normal 
 ATT2 = Attack("Big attack", 4, HALF, 2.25, HALF, "A big attack , 50/50 either you destroy the opponent or you just miss your attack", ATTACK_DICE)
 
 CLASS_TYPES = [0, "Warrior", "Mage", "Thief", "Colossus"]
-
-'''#############################################################   ITEMS   #############################################################'''
-
-durability_weapons = [25, 50, 100, 200, 500, 666]
-durability_armor = []
-damage_modifier = [1, 1.1, 1.2, 1.3, 1.4, 1.5]
-armor_modifier = []
-value_weapons = [15, 30, 50, 100, 200, 500]
-drop_chance = [40, 25, 15, 10, 5, 1]
-rarity_names = {0: 'common', 1: 'uncommon', 2: 'rare', 3: 'epic', 4: 'legendary', 5: 'mythic'}
-
-# SWORDS
-
-common_sword = Weapons("Chocolate sword", "Don't try to eat it, this is not real chocolate... It's not even a real sword", durability_weapons[0], value_weapons[0], 70, "Common", damage_modifier[0], "Warrior")
-uncommon_sword = Weapons("Simple sword", "Just a piece of forged iron", durability_weapons[1], value_weapons[1], 40, "Uncommon", damage_modifier[1], "Warrior")
-rare_sword = Weapons("Knight sword", "Finally a good weapon", durability_weapons[2], value_weapons[2], 35, "Rare", damage_modifier[2], "Warrior")
-epic_sword = Weapons("Claymore", "Big sword for big damage !", durability_weapons[3], value_weapons[3], 25, "Epic", damage_modifier[3], "Warrior")
-legendary_sword = Weapons("Excalibur", "More than just a sword ", durability_weapons[4], value_weapons[4], 15, "Legendary", damage_modifier[4], "Warrior")
-mythic_sword = Weapons("Big Sword of DOOM !", "This sword came from hell, forged buy an ancient demon, anyway... BIIIGGG damage", durability_weapons[5], value_weapons[5], 5, "Mythic", damage_modifier[5], "Warrior")
-
-sword_inventory = Shop_Category()
-sword_inventory.add_item(common_sword)
-sword_inventory.add_item(uncommon_sword)
-sword_inventory.add_item(rare_sword)
-sword_inventory.add_item(epic_sword)
-sword_inventory.add_item(legendary_sword)
-sword_inventory.add_item(mythic_sword)
-
-# KNIVES
-
-common_knife = Weapons("The Opinel", "Perfect for cheese", durability_weapons[0], value_weapons[0], "drop chance", "Common", damage_modifier[0], "Thief")
-uncommon_knife = Weapons("Kitchen knife", "Better than the opinel, it's perfect for big meat", durability_weapons[1], value_weapons[1], "drop chance", "Uncommon", damage_modifier[1], "Thief")
-rare_knife = Weapons("Butcher knife", "Really big one", durability_weapons[2], value_weapons[2], "drop chance", "Rare", damage_modifier[2], "Thief")
-epic_knife = Weapons("Hunting knife", "This knife is use for any kind of animals or living thing", durability_weapons[3], value_weapons[3], "drop chance", "Epic", damage_modifier[3], "Thief")
-legendary_knife = Weapons("Buttlefly knife Fade FN Statrack", "Description", durability_weapons[4], value_weapons[4], "drop chance", "Legendary", damage_modifier[4], "Thief")
-mythic_knife = Weapons("Big Knife of DOOM", "Exactly the same as the sword but it's a knife", durability_weapons[5], value_weapons[5], "drop chance", "Mythic", damage_modifier[5], "Thief")
-
-knives_inventory = Shop_Category()
-knives_inventory.add_item(common_knife)
-knives_inventory.add_item(uncommon_knife)
-knives_inventory.add_item(rare_knife)
-knives_inventory.add_item(epic_knife)
-knives_inventory.add_item(legendary_knife)
-knives_inventory.add_item(mythic_knife)
-
-# HAMMER
-
-common_hammer = Weapons("Name", "Description", durability_weapons[0], value_weapons[0], "drop chance", "Common", damage_modifier[0], "Colossus")
-uncommon_hammer = Weapons("Name", "Description", durability_weapons[1], value_weapons[1], "drop chance", "Uncommon", damage_modifier[1], "Colossus")
-rare_hammer = Weapons("Name", "Description", durability_weapons[2], value_weapons[2], "drop chance", "Rare", damage_modifier[2], "Colossus")
-epic_hammer = Weapons("Name", "Description", durability_weapons[3], value_weapons[3], "drop chance", "Epic", damage_modifier[3], "Colossus")
-legendary_hammer = Weapons("Name", "Description", durability_weapons[4], value_weapons[4], "drop chance", "Legendary", damage_modifier[4], "Colossus")
-mythic_hammer = Weapons("Big Hammer of DOOM !", "Description", durability_weapons[5], value_weapons[5], "drop chance", "Mythic", damage_modifier[5], "Colossus")
-
-hammer_inventory = Shop_Category()
-hammer_inventory.add_item(common_hammer)
-hammer_inventory.add_item(uncommon_hammer)
-hammer_inventory.add_item(rare_hammer)
-hammer_inventory.add_item(epic_hammer)
-hammer_inventory.add_item(legendary_hammer)
-hammer_inventory.add_item(mythic_hammer)
-
-# MAGE'S STICK
-
-common_stick = Weapons("Branch", "A piece of wood", durability_weapons[0], value_weapons[0], "drop chance", "Common", damage_modifier[0], "Mage")
-uncommon_stick = Weapons("Name", "Description", durability_weapons[1], value_weapons[1], "drop chance", "Uncommon", damage_modifier[1], "Mage")
-rare_stick = Weapons("Name", "Description", durability_weapons[2],  value_weapons[2], "drop chance", "Rare", damage_modifier[2], "Mage")
-epic_stick = Weapons("Name", "Description", durability_weapons[3],  value_weapons[3], "drop chance", "Epic", damage_modifier[3], "Mage")
-legendary_stick = Weapons("Name", "Description", durability_weapons[4],  value_weapons[4], "drop chance", "Legendary", damage_modifier[4], "Mage")
-mythic_stick = Weapons("Big Stick of DOOM !", "It's still a piece of shit", durability_weapons[5],   value_weapons[5], 10, "Mythic", damage_modifier[5], "Mage")
-
-stick_inventory = Shop_Category()
-stick_inventory.add_item(common_stick)
-stick_inventory.add_item(uncommon_stick)
-stick_inventory.add_item(rare_stick)
-stick_inventory.add_item(epic_stick)
-stick_inventory.add_item(legendary_stick)
-stick_inventory.add_item(mythic_stick)
-
-# SHIELD 
-
-common_shield = Armor("Name", "Description", "Durability", "value", "drop chance", "Common", 1.5, "Any")
-uncommon_shield = Armor("Name", "Description", "Durability", "value", "drop chance", "UnCommon", 1.5, "Any")
-rare_shield = Armor("Name", "Description", "Durability", "value", "drop chance", "Rare", 1.5, "Any")
-epic_shield = Armor("Name", "Description", "Durability", "value", "drop chance", "Epic", 1.5, "Any")
-legendary_shield = Armor("Name", "Description", "Durability", "value", "drop chance", "Legendary", 1.5, "Any")
-mythic_shield = Armor("Name", "Description", "Durability", "value", "drop chance", "Mythic", 1.5, "Any")
-
-shield_inventory = Shop_Category()
-shield_inventory.add_item(common_shield)
-shield_inventory.add_item(uncommon_shield)
-shield_inventory.add_item(rare_shield)
-shield_inventory.add_item(epic_shield)
-shield_inventory.add_item(legendary_shield)
-shield_inventory.add_item(mythic_shield)
-
-# ARMOR HELMET
-
-common_helmet = Armor("Name", "Description", "Durability", "value", "drop chance", "Common", 1.5, "Any")
-uncommon_helmet = Armor("Name", "Description", "Durability", "value", "drop chance", "UnCommon", 1.5, "Any")
-rare_helmet = Armor("Name", "Description", "Durability", "value", "drop chance", "Rare", 1.5, "Any")
-epic_helmet = Armor("Name", "Description", "Durability", "value", "drop chance", "Epic", 1.5, "Any")
-legendary_helmet = Armor("Name", "Description", "Durability", "value", "drop chance", "Legendary", 1.5, "Any")
-mythic_helmet = Armor("Name", "Description", "Durability", "value", "drop chance", "Mythic", 1.5, "Any")
-
-helmet_inventory = Shop_Category()
-helmet_inventory.add_item(common_helmet)
-helmet_inventory.add_item(uncommon_helmet)
-helmet_inventory.add_item(rare_helmet)
-helmet_inventory.add_item(epic_helmet)
-helmet_inventory.add_item(legendary_helmet)
-helmet_inventory.add_item(mythic_helmet)
-
-# ARMOR CHESTPLATE
-
-common_chestplate = Armor("Name", "Description", "Durability", "value", "drop chance", "Common", 1.5, "Any")
-uncommon_chestplate = Armor("Name", "Description", "Durability", "value", "drop chance", "UnCommon", 1.5, "Any")
-rare_chestplate = Armor("Name", "Description", "Durability", "value", "drop chance", "Rare", 1.5, "Any")
-epic_chestplate = Armor("Name", "Description", "Durability", "value", "drop chance", "Epic", 1.5, "Any")
-legendary_chestplate = Armor("Name", "Description", "Durability", "value", "drop chance", "Legendary", 1.5, "Any")
-mythic_chestplate = Armor("Name", "Description", "Durability", "value", "drop chance", "Mythic", 1.5, "Any")
-
-chestplate_inventory = Shop_Category()
-chestplate_inventory.add_item(common_chestplate)
-chestplate_inventory.add_item(uncommon_chestplate)
-chestplate_inventory.add_item(rare_chestplate)
-chestplate_inventory.add_item(epic_chestplate)
-chestplate_inventory.add_item(legendary_chestplate)
-chestplate_inventory.add_item(mythic_chestplate)
-
-# ARMOR LEGGINGS
-
-common_leggings = Armor("Name", "Description", "Durability", "value", "drop chance", "Common", 1.5, "Any")
-uncommon_leggings = Armor("Name", "Description", "Durability", "value", "drop chance", "Uncommon", 1.5, "Any")
-rare_leggings = Armor("Name", "Description", "Durability", "value", "drop chance", "Rare", 1.5, "Any")
-epic_leggings = Armor("Name", "Description", "Durability", "value", "drop chance", "Epic", 1.5, "Any")
-legendary_leggings = Armor("Name", "Description", "Durability", "value", "drop chance", "Legendary", 1.5, "Any")
-mythic_leggings = Armor("Name", "Description", "Durability", "value", "drop chance", "Mythic", 1.5, "Any")
-
-leggings_inventory = Shop_Category()
-leggings_inventory.add_item(common_leggings)
-leggings_inventory.add_item(uncommon_leggings)
-leggings_inventory.add_item(rare_leggings)
-leggings_inventory.add_item(epic_leggings)
-leggings_inventory.add_item(legendary_leggings)
-leggings_inventory.add_item(mythic_leggings)
-
-# ARMOR BOOTS
-
-common_boots = Armor("Name", "Description", "Durability", "value", "drop chance", "Common", 1.5, "Any")
-uncommon_boots = Armor("Name", "Description", "Durability", "value", "drop chance", "Uncommon", 1.5, "Any")
-rare_boots = Armor("Name", "Description", "Durability", "value", "drop chance", "Rare", 1.5, "Any")
-epic_boots = Armor("Name", "Description", "Durability", "value", "drop chance", "Epic", 1.5, "Any")
-legendary_boots = Armor("Name", "Description", "Durability", "value", "drop chance", "Legendary", 1.5, "Any")
-mythic_boots = Armor("Name", "Description", "Durability", "value", "drop chance", "Mythic", 1.5, "Any")
-
-boots_inventory = Shop_Category()
-boots_inventory.add_item(common_boots)
-boots_inventory.add_item(uncommon_boots)
-boots_inventory.add_item(rare_boots)
-boots_inventory.add_item(epic_boots)
-boots_inventory.add_item(legendary_boots)
-boots_inventory.add_item(mythic_boots)
-
-# POTIONS (HEALTH/MANA)
-
-common_health_potion = Potion("Basic potion", "Just a little potion", 1, 10, 40, 10, 0, "Common", "Health")
-uncommon_health_potion = Potion("Big potion", "Not just a little potion", 1, 20, 30, 25, 0, "Uncommon", "Health")
-rare_health_potion = Potion("Really big potion", "Looks like a beer but it's not", 1, 50, 20, 50, 0, "Rare", "Health")
-epic_health_potion = Potion("Huge potion", "Too much for a potion", 1, 75, 10, 75, 0, "Epic", "Health")
-legendary_health_potion = Potion("Guargantuan potion", "This is stupidly big", 1, 100, 5, 100, 0, "Legendary", "Health")
-mythic_health_potion = Potion("DAAAAAMMMMMNNNN potion", "I can't even quantify this thing", 1, 200, 1, 200, 0, "Mythic", "Health")
-
-health_pot_inventory = Shop_Category()
-health_pot_inventory.add_item(common_health_potion)
-health_pot_inventory.add_item(uncommon_health_potion)
-health_pot_inventory.add_item(rare_health_potion)
-health_pot_inventory.add_item(epic_health_potion)
-health_pot_inventory.add_item(legendary_health_potion)
-health_pot_inventory.add_item(mythic_health_potion)
-
-common_mana_potion = Potion("Basic mana potion", "Same stuff but for mana", 1, 10, 40, 0, 10,"Common",  "Mana")
-uncommon_mana_potion = Potion("Big mana potion", "You're using too much spells", 1, 20, 30, 0, 25,"Uncommon", "Mana")
-rare_mana_potion = Potion("Really big mana potion", "Do you eat mana ?", 1, 50, 20, 0, 50,"Rare", "Mana")
-epic_mana_potion = Potion("Huge mana potion", "You don't even have this amount of mana, why ?", 1, 75, 10, 0, 75,"Epic", "Mana")
-legendary_mana_potion = Potion("Guargantuan mana potion", "Are you stupid ?", 1, 100, 5, 1.5, 100, "Legendary", "Mana")
-mythic_mana_potion = Potion("DAAAAAMMMMMNNNN mana potion", "You're definitely insane", 1, 200, 1, 0, 200, "Mythic", "Mana")
-
-mana_pot_inventory = Shop_Category()
-mana_pot_inventory.add_item(common_mana_potion)
-mana_pot_inventory.add_item(uncommon_mana_potion)
-mana_pot_inventory.add_item(rare_mana_potion)
-mana_pot_inventory.add_item(epic_mana_potion)
-mana_pot_inventory.add_item(legendary_mana_potion)
-mana_pot_inventory.add_item(mythic_mana_potion)
-
-weapons = {
-    "common": [common_sword, common_knife, common_hammer, common_stick],
-    "uncommon": [uncommon_sword, uncommon_knife, uncommon_hammer, uncommon_stick],
-    "rare": [rare_sword, rare_knife, rare_hammer, rare_stick],
-    "epic": [epic_sword, epic_knife, epic_hammer, epic_stick],
-    "legendary": [legendary_sword, legendary_knife, legendary_hammer, legendary_stick],
-    "mythic": [mythic_sword, mythic_knife, mythic_hammer, mythic_stick]
-}
-
-armor = {
-    "common": [common_shield, common_helmet, common_chestplate, common_leggings, common_boots],
-    "uncommon": [uncommon_shield, uncommon_helmet, uncommon_chestplate, uncommon_leggings, uncommon_boots],
-    "rare": [rare_shield, rare_helmet, rare_chestplate, rare_leggings, rare_boots],
-    "epic": [epic_shield, epic_helmet, epic_chestplate, epic_leggings, epic_boots],
-    "legendary": [legendary_shield, legendary_helmet, legendary_chestplate, legendary_leggings, legendary_boots],
-    "mythic": [mythic_shield, mythic_helmet, mythic_chestplate, mythic_leggings, mythic_boots]
-}
-
-potions = {
-    "common": [common_health_potion, common_mana_potion],
-    "uncommon": [uncommon_health_potion, uncommon_mana_potion],
-    "rare": [rare_health_potion, rare_mana_potion],
-    "epic": [epic_health_potion, epic_mana_potion],
-    "legendary": [legendary_health_potion, legendary_mana_potion],
-    "mythic": [mythic_health_potion, mythic_mana_potion]
-}
 
 class Game:
     def __init__(self):
@@ -350,7 +126,6 @@ class Game:
                 self.replace_decision_room(2)
         if choice == 2:
             pass
-        
 
     def hub_decision(self,choice):
         match choice:
@@ -396,119 +171,123 @@ class Game:
         self.inventory_decision(inventory_choice)
 
     def shop_categories_decision(self,choice):
-        if choice == 1:
-            self.display.clear_console()
-            self.display.title()
-            self.display.swords()
+        match choice:
+            case 1:
+                self.display.clear_console()
+                self.display.title()
+                self.display.swords()
 
-            sword_inventory.display_inventory()
-            self.display.nevermind()
-            buy_choice = int(input(""))
-            if buy_choice == 7:
-                self.categories()
-            else:
-                self.buy_decision(sword_inventory.items[(buy_choice - 1)])
+                sword_inventory.display_inventory()
+                self.display.nevermind()
+                buy_choice = int(input(""))
+                if buy_choice == 7:
+                    self.categories()
+                else:
+                    self.buy_decision(sword_inventory.items[(buy_choice - 1)])
+        
+            case 2:
+                self.display.clear_console()
+                self.display.title()
+                self.display.knives()
 
-        if choice == 2:
-            self.display.clear_console()
-            self.display.title()
-            self.display.knives()
+                knives_inventory.display_inventory()
+                self.display.nevermind()
+                buy_choice = int(input(""))
+                if buy_choice == 7:
+                    self.categories()
+                else:
+                    self.buy_decision(knives_inventory.items[(buy_choice - 1)])
+            case 3:
+                self.display.clear_console()
+                self.display.title()
+                self.display.hammers()
 
-            knives_inventory.display_inventory()
-            self.display.nevermind()
-            buy_choice = int(input(""))
-            if buy_choice == 7:
-                self.categories()
-            else:
-                self.buy_decision(knives_inventory.items[(buy_choice - 1)])
-        if choice == 3:
-            self.display.clear_console()
-            self.display.title()
-            self.display.hammers()
+                hammer_inventory.display_inventory()
+                self.display.nevermind()
+                buy_choice = int(input(""))
+                if buy_choice == 7:
+                    self.categories()
+                else:
+                    self.buy_decision(hammer_inventory.items[(buy_choice - 1)])
+            case 4:
+                self.display.clear_console()
+                self.display.title()
+                self.display.sticks()
 
-            hammer_inventory.display_inventory()
-            self.display.nevermind()
-            buy_choice = int(input(""))
-            if buy_choice == 7:
-                self.categories()
-            else:
-                self.buy_decision(hammer_inventory.items[(buy_choice - 1)])
-        if choice == 4:
-            self.display.clear_console()
-            self.display.title()
-            self.display.sticks()
+                stick_inventory.display_inventory()
+                self.display.nevermind()
+                buy_choice = int(input(""))
+                if buy_choice == 7:
+                    self.categories()
+                else:
+                    self.buy_decision(stick_inventory.items[(buy_choice - 1)])
+            case 5:
+                self.display.clear_console()
+                self.display.title()
+                self.display.shields()
 
-            stick_inventory.display_inventory()
-            self.display.nevermind()
-            buy_choice = int(input(""))
-            if buy_choice == 7:
-                self.categories()
-            else:
-                self.buy_decision(stick_inventory.items[(buy_choice - 1)])
-        if choice == 5:
-            self.display.clear_console()
-            self.display.title()
-            self.display.shields()
+                shield_inventory.display_inventory()
+                self.display.nevermind()
+                buy_choice = int(input(""))
+                if buy_choice == 7:
+                    self.categories()
+                else:
+                    self.buy_decision(shield_inventory.items[(buy_choice - 1)])
+            case 6:
+                self.display.clear_console()
+                self.display.title()
+                self.display.helmets()
 
-            shield_inventory.display_inventory()
-            self.display.nevermind()
-            buy_choice = int(input(""))
-            if buy_choice == 7:
-                self.categories()
-            else:
-                self.buy_decision(shield_inventory.items[(buy_choice - 1)])
-        if choice == 6:
-            self.display.clear_console()
-            self.display.title()
-            self.display.helmets()
+                helmet_inventory.display_inventory()
+                self.display.nevermind()
+                buy_choice = int(input(""))
+                if buy_choice == 7:
+                    self.categories()
+                else:
+                    self.buy_decision(helmet_inventory.items[(buy_choice - 1)])
+            case 7:
+                self.display.clear_console()
+                self.display.title()
+                self.display.chestplates()
 
-            helmet_inventory.display_inventory()
-            self.display.nevermind()
-            buy_choice = int(input(""))
-            if buy_choice == 7:
-                self.categories()
-            else:
-                self.buy_decision(helmet_inventory.items[(buy_choice - 1)])
-        if choice == 7:
-            self.display.clear_console()
-            self.display.title()
-            self.display.chestplates()
+                chestplate_inventory.display_inventory()
+                self.display.nevermind()
+                buy_choice = int(input(""))
+                if buy_choice == 7:
+                    self.categories()
+                else:
+                    self.buy_decision(chestplate_inventory.items[(buy_choice - 1)])
+            case 8:
+                self.display.clear_console()
+                self.display.title()
+                self.display.leggings()
 
-            chestplate_inventory.display_inventory()
-            self.display.nevermind()
-            buy_choice = int(input(""))
-            if buy_choice == 7:
-                self.categories()
-            else:
-                self.buy_decision(chestplate_inventory.items[(buy_choice - 1)])
-        if choice == 8:
-            self.display.clear_console()
-            self.display.title()
-            self.display.leggings()
+                leggings_inventory.display_inventory()
+                self.display.nevermind()
+                buy_choice = int(input(""))
+                if buy_choice == 7:
+                    self.categories()
+                else:
+                    self.buy_decision(leggings_inventory.items[(buy_choice - 1)])
+            case 9:
+                self.display.clear_console()
+                self.display.title()
+                self.display.boots()
 
-            leggings_inventory.display_inventory()
-            self.display.nevermind()
-            buy_choice = int(input(""))
-            if buy_choice == 7:
-                self.categories()
-            else:
-                self.buy_decision(leggings_inventory.items[(buy_choice - 1)])
-        if choice == 9:
-            self.display.clear_console()
-            self.display.title()
-            self.display.boots()
-
-            boots_inventory.display_inventory()
-            self.display.nevermind()
-            buy_choice = int(input(""))
-            if buy_choice == 7:
-                self.categories()
-            else:
-                self.buy_decision(boots_inventory.items[(buy_choice - 1)])
-        if choice == 10:
-            pass
-        if choice == 11:
-            self.hub()
+                boots_inventory.display_inventory()
+                self.display.nevermind()
+                buy_choice = int(input(""))
+                if buy_choice == 7:
+                    self.categories()
+                else:
+                    self.buy_decision(boots_inventory.items[(buy_choice - 1)])
+            case 10:
+                pass
+            case 11:
+                self.hub()
+            case _:
+                print("Wrong entry")
+                return self.shop_categories_decision(choice)
 
     def replace_decision(self, choice):
         if choice == 1:
@@ -527,23 +306,28 @@ class Game:
     def buy_decision(self, item):
         if self.player.gold >= item.value:
             if self.player.char_class == item.item_class or item.item_class == "Any":
-                    if item not in self.player.inventory.items and item.item_class == "Any":
-                        self.player.inventory.add_item(item)
-                        self.player.gold -= item.value
-                        self.inventory()
-                    else:
-                        self.display.alreadyhave(item)
-                        replace = int(input())
-                        self.replace_decision(replace)
-
+                if item not in self.player.inventory.items and item.item_class == "Any":
+                    self.player.inventory.add_item(item)
+                    self.player.gold -= item.value
+                    self.shop_categories_decision()
+                else:
+                    self.display.already_have(item)
+                    choice = int(input())
+                    match choice:
+                        case 1:
+                            self.player.inventory.remove_item(item)
+                        case 2:
+                            pass
+                        case _:
+                            pass
             else:
-                self.display.wrong_class(self.player.char_class)
-                sleep(2)
-                self.categories()
+               self.display.wrong_class(self.player.char_class)
+               sleep(2)
+               self.categories()
         else:
-            self.display.cantafford()
-            sleep(2)
-            self.categories()
+           self.display.cant_afford()
+           sleep(2)
+           self.categories()
 
     def generate_loot(self):
         rarity_probabilities = drop_chance
@@ -567,47 +351,43 @@ class Game:
         else:
             return None
 
-    @staticmethod    
+    @staticmethod
     def random_loot_category():
         dice = Dice(3)
         roll = dice.roll()
-        if roll == 1:
-            return weapons
-        if roll == 2:
-            return armor
-        if roll == 3:
-            return potions
+        match roll:
+            case 1:
+                return weapons
+            case 2:
+                return armor
+            case 3:
+                return potions
         
     def create_chest(self):
         chest = Chest()
         chest.add_item(self.generate_loot())
         return chest
 
-
     def choose_class(self):
-
         name = input(" \n Choose your name : ")
-
         self.display.print_class()
-
         class_input = int(input(""))
-
-
-        if class_input == 1:
-            self.player =  Warrior(name, 20, 0, 3, ATT1,ATT2)
-            self.playercolor = "red"
-        elif class_input == 2:
-            self.player = Mage(name, 20, 20, 3, ATT1,ATT2)
-            self.playercolor = "blue"
-        elif class_input == 3:
-            self.player = Thief(name, 20, 0, 3, ATT1,ATT2, 10)
-            self.playercolor = "green"
-        elif class_input == 4:
-            self.player = Colossus(name, 20, 0, 3, ATT1,ATT2)
-            self.playercolor = "yellow1"
-        else:
-            print("Entrée invalide. Veuillez choisir un numéro entre 1 et 4.")
-            return self.choose_class()
+        match class_input:
+            case 1:
+                self.player =  Warrior(name, 20, 0, 3, ATT1,ATT2)
+                self.playercolor = "red"
+            case 2:
+                self.player = Mage(name, 20, 20, 3, ATT1,ATT2)
+                self.playercolor = "blue"
+            case 3:
+                self.player = Thief(name, 20, 0, 3, ATT1,ATT2, 10)
+                self.playercolor = "green"
+            case 4:
+                self.player = Colossus(name, 20, 0, 3, ATT1,ATT2)
+                self.playercolor = "yellow1"
+            case _:
+                print("Entrée invalide. Veuillez choisir un numéro entre 1 et 4.")
+                return self.choose_class()
         
     def new_adventure(self):
         self.display.clear_console()
@@ -625,28 +405,23 @@ class Game:
                 while self.player.is_alive():
                     for _ in range(4):
                         pass
-
             case 2:
                 self.new_adventure()
                 sleep(5)
                 while self.player.is_alive():
                     for _ in range(9):
                         pass
-
             case 3:
                 self.new_adventure()
                 sleep(5)
                 while self.player.is_alive():
                     for _ in range(24):
                         pass
-                        
             case 4:
                 self.new_adventure()
                 sleep(5)
                 while self.player.is_alive():
                     for _ in range(49):
                         pass
-
             case _:
                 return self.hub()
-        

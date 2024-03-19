@@ -35,7 +35,6 @@ class Character:
     def attack(self, target, amount):
         target.decrease_hp(amount)
         
-
     def increase_hp(self, amount):
         self.hp += amount
     
