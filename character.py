@@ -35,7 +35,6 @@ class Character:
         print(f"{target.name} has been attacked by {self.name} and took {amount} damages !")
         target.decrease_hp(amount)
         
-
     def increase_hp(self, amount):
         self.hp += amount
 

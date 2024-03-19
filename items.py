@@ -1,3 +1,12 @@
+COLORS = {
+    "Common" : "white",
+    "Uncommon" : "green4",
+    "Rare" : "blue1",
+    "Epic" : "purple",
+    "Legendary" : "yellow1",
+    "Mythic" :  "red1",
+}
+
 class Items:
     def __init__(self, name, description, durability, value, drop_chance, tier) -> None:
         self.name = name
@@ -6,10 +15,10 @@ class Items:
         self.value = value
         self.drop_chance = drop_chance
         self.tier = tier
+        self.color = COLORS[self.tier]
 
     def __str__(self):
         print(f"{self.name} : {self.description}   {self.durability} durability {self.value} golds")
-
 
 class Weapons(Items):
     def __init__(self, name, description, durability, value, drop_chance, tier, attack_modifier,item_class) -> None:
