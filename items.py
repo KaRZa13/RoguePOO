@@ -18,7 +18,7 @@ class Items:
         self.color = COLORS[self.tier]
 
     def __str__(self):
-        print(f"{self.name} : {self.description}   {self.durability} durability {self.value} golds")
+        print(f"{self.name} : {self.description}   {self.durability} durability {self.value} 🪙")
 
 class Weapons(Items):
     def __init__(self, name, description, durability, value, drop_chance, tier, attack_modifier,item_class, tools_type) -> None:

@@ -18,13 +18,10 @@ class Character:
 
 
     def __str__(self):
-        return f"I am {self.name} I have {self.hp} hp and my attacks are {self.attack1.name} and {self.attack2.name}"
+        return f"I am {self.name} I have {self.hp} ❤️ and my attacks are {self.attack1.name} and {self.attack2.name}"
     
     def is_alive(self):
         return self.hp > 0
-    
-    def show_healthbar(self):
-        print(f"[{'♥' * self.hp}{'♡' * (self.max_hp - self.hp)}] {self.hp}/{self.max_hp}hp")
 
     def decrease_hp(self, amount):
         if amount > 0:
