@@ -256,9 +256,7 @@ class Game:
                     self.player.gold -= item.value
                     self.shop_categories()
                 else:
-                    self.display.already_have(item)
-                    choice = int(input())
-                    self.replace_decision(choice, item)
+                    self.replace_decision(item)
             else:
                self.display.wrong_class(self.player.char_class)
                sleep(2)
@@ -268,28 +266,31 @@ class Game:
            sleep(2)
            self.shop_categories()
 
-    def replace_decision(self, choice, new_item):
+    def replace_decision(self, new_item):
         added = False
-        if choice == 1:
-            for item in self.player.inventory.items:
-                if new_item.item_type == None:
-                    self.player.inventory.add_item(new_item)
-                    self.next_room()
-                elif new_item.item_type == item.item_type:
-                    added = True
+        for item in self.player.inventory.items:
+            if new_item.item_type == None:
+                self.player.inventory.add_item(new_item)
+                self.shop_categories()
+            elif new_item.item_type == item.item_type:
+                added = True
+                self.display.already_have_item(item)
+                choice = int(input())
+                if choice == 1:
                     self.player.inventory.remove_item(item)
                     self.player.inventory.add_item(new_item)
-                    self.next_room()
-            if added == False:
-                if new_item.item_class == self.player.char_class or new_item.item_class == "Any":
-                    self.player.inventory.add_item(new_item)
-                    self.next_room()
+                    self.shop_categories()
                 else:
-                    self.display.wrong_class
-                    sleep(2)
-                    self.next_room()
-        else: 
-            self.shop_categories()
+                    self.shop_categories()
+        if added == False:
+            if new_item.item_class == self.player.char_class or new_item.item_class == "Any":
+                self.player.inventory.add_item(new_item)
+                self.shop_categories()
+            else:
+                self.display.wrong_class
+                sleep(2)
+                self.shop_categories()
+
         if added == False:
             self.player.inventory.add_item(new_item)
             self.shop_categories()
@@ -369,6 +370,7 @@ class Game:
 
     def finished_fight(self):
         drop = self.enemy_dropped()
+        self.player.gold += 5
         if drop == None:
             print("You defeated the enemy !")
             sleep(3)
@@ -402,11 +404,11 @@ class Game:
             print("2 - No")
             replace_choice = int(input())
             if replace_choice == 1 :
-                self.replace_decision_room(1)
+                self.replace_decision_room(self.room.entity.items[0])
             if replace_choice == 2 :
-                self.replace_decision_room(2)
+                self.next_room()
         if choice == 2:
-            pass
+            self.next_room()
 
     def generate_loot(self):
         rarity_probabilities = drop_chance
@@ -449,10 +451,14 @@ class Game:
                 self.player.inventory.add_item(new_item)
                 self.next_room()
             elif new_item.item_type == item.item_type:
-                added = True
-                self.player.inventory.remove_item(item)
-                self.player.inventory.add_item(new_item)
-                self.next_room()
+                if new_item.item_class == self.player.char_class or new_item.item_class == "Any":
+                    added = True
+                    self.player.inventory.remove_item(item)
+                    self.player.inventory.add_item(new_item)
+                    self.next_room()
+                else:
+                    print("Wrong class for this item , returning to the choice")
+                    self.next_room()
         if added == False:
             if new_item.item_class == self.player.char_class or new_item.item_class == "Any":
                 self.player.inventory.add_item(new_item)

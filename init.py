@@ -140,7 +140,7 @@ epic_knife = Weapons("Hunting knife",
                      "Knife")
 
 legendary_knife = Weapons("Buttlefly knife Fade FN Statrack", 
-                          "Description", 
+                          "100% Fade this is worth a few minimal wages", 
                           durability_weapons[4], 
                           value_weapons[4], 
                           "drop chance", 
@@ -171,8 +171,8 @@ knives_inventory.add_item(mythic_knife)
 
 # HAMMER
 
-common_hammer = Weapons("Name", 
-                        "Description", 
+common_hammer = Weapons("Toy hammer", 
+                        "Have you ever been a child ?", 
                         durability_weapons[0], 
                         value_weapons[0], 
                         "drop chance", 
@@ -182,8 +182,8 @@ common_hammer = Weapons("Name",
                         "Weapon",
                         "Hammer")
 
-uncommon_hammer = Weapons("Name", 
-                          "Description", 
+uncommon_hammer = Weapons("DIY Hammer", 
+                          "It's meant for nails but it works on zombies too", 
                           durability_weapons[1], 
                           value_weapons[1], 
                           "drop chance", 
@@ -193,8 +193,8 @@ uncommon_hammer = Weapons("Name",
                           "Weapon",
                           "Hammer")
 
-rare_hammer = Weapons("Name", 
-                      "Description", 
+rare_hammer = Weapons("Torbjörn hammer", 
+                      "You want to repair your turret , right ?", 
                       durability_weapons[2], 
                       value_weapons[2], 
                       "drop chance", 
@@ -204,8 +204,8 @@ rare_hammer = Weapons("Name",
                       "Weapon",
                       "Hammer")
 
-epic_hammer = Weapons("Name", 
-                      "Description", 
+epic_hammer = Weapons("War hammer 40000", 
+                      "Not the game bro", 
                       durability_weapons[3], 
                       value_weapons[3], 
                       "drop chance", 
@@ -215,8 +215,8 @@ epic_hammer = Weapons("Name",
                       "Weapon",
                       "Hammer")
 
-legendary_hammer = Weapons("Name", 
-                           "Description", 
+legendary_hammer = Weapons("Mjöllnir", 
+                           "It's a pretty cool hammer tho", 
                            durability_weapons[4], 
                            value_weapons[4], 
                            "drop chance", 
@@ -227,7 +227,7 @@ legendary_hammer = Weapons("Name",
                            "Hammer")
 
 mythic_hammer = Weapons("Big Hammer of DOOM !", 
-                        "Description", 
+                        "You know the Burj Khalifa ? This hammer if BIGGER", 
                         durability_weapons[5], 
                         value_weapons[5], 
                         "drop chance", 
@@ -247,8 +247,8 @@ hammer_inventory.add_item(mythic_hammer)
 
 # MAGE'S STICK
 
-common_stick = Weapons("Branch", 
-                       "A piece of wood", 
+common_stick = Weapons("Thorn", 
+                       "More efficient than you think mostly in MMA", 
                        durability_weapons[0], 
                        value_weapons[0], 
                        "drop chance", 
@@ -258,8 +258,8 @@ common_stick = Weapons("Branch",
                        "Weapon",
                        "Stick")
 
-uncommon_stick = Weapons("Name", 
-                         "Description", 
+uncommon_stick = Weapons("Branch", 
+                         "A piece of wood", 
                          durability_weapons[1], 
                          value_weapons[1], 
                          "drop chance", 
@@ -269,8 +269,8 @@ uncommon_stick = Weapons("Name",
                          "Weapon",
                          "Stick")
 
-rare_stick = Weapons("Name", 
-                     "Description", 
+rare_stick = Weapons("Makeup stick", 
+                     "You have to be well made-up to be a mage", 
                      durability_weapons[2], 
                      value_weapons[2], 
                      "drop chance", 
@@ -280,8 +280,8 @@ rare_stick = Weapons("Name",
                      "Weapon",
                      "Stick")
 
-epic_stick = Weapons("Name", 
-                     "Description", 
+epic_stick = Weapons("The Baguette", 
+                     "Oui oui baguette", 
                      durability_weapons[3], 
                       value_weapons[3], 
                      "drop chance", 
@@ -291,8 +291,8 @@ epic_stick = Weapons("Name",
                      "Weapon",
                      "Stick")
 
-legendary_stick = Weapons("Name", 
-                          "Description", 
+legendary_stick = Weapons("Elderberry wand", 
+                          "Let the magic begin", 
                           durability_weapons[4], 
                           value_weapons[4], 
                           "drop chance", 
@@ -323,8 +323,8 @@ stick_inventory.add_item(mythic_stick)
 
 # SHIELD 
 
-common_shield = Armor("Name", 
-                      "Description", 
+common_shield = Armor("Cardboard shield", 
+                      "Yes , I was a child too ...", 
                       durability_armor[0], 
                       value_armor[0], 
                       "drop chance", 
@@ -367,8 +367,8 @@ epic_shield = Armor("Name",
                       "Armor",
                       "Shield")
 
-legendary_shield = Armor("Name", 
-                      "Description", 
+legendary_shield = Armor("Reinhardt shield", 
+                      "It's pretty big , no ?", 
                       durability_armor[4], 
                       value_armor[4], 
                       "drop chance", 
@@ -378,8 +378,8 @@ legendary_shield = Armor("Name",
                       "Armor",
                       "Shield")
 
-mythic_shield = Armor("Name", 
-                      "Description", 
+mythic_shield = Armor("Big shield of DOOM !", 
+                      "What are you doing with this in your hands ?", 
                       durability_armor[5], 
                       value_armor[5], 
                       "drop chance", 
