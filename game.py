@@ -72,17 +72,39 @@ class Game:
             self.display.wich_attack(self.player.attack1, self.player.attack2)
             choice = int(input(""))
             if choice == 1:
-                self.player.attack(self.room.entity,self.player.attack1.calculate_damages())
+                self.player.attack(self.room.entity,self.player.attack1.calculate_damages(self.player))
             if choice == 2:
-                self.player.attack(self.room.entity,self.player.attack2.calculate_damages())
+                self.player.attack(self.room.entity,self.player.attack2.calculate_damages(self.player))
+            if choice == 3:
+                pot_inv = Inventory()
+                for item in self.player.inventory.items:
+                    if item.type == "Potion":
+                        pot_inv.add_item(item)
+                if len(pot_inv.items) != 0:
+                    pot_inv.display_inventory()
+                    pot_choice = int(input())
+                    print(f"{pot_inv.items[pot_choice - 1].health_amount}")
+                    self.player.increase_hp(pot_inv.items[pot_choice - 1].health_amount)
+                    self.player.inventory.items.remove(pot_inv.items[pot_choice - 1])
+                else :
+                    print("You don't have any potions (choose an attack)")
+                    sleep(2)
+                    self.fight()
+                    return 0
             if self.room.entity.is_alive():
                 self.room.entity.attack(self.player,self.room.entity.random_attack())
             if not self.player.is_alive() or not self.room.entity.is_alive():
                 running = False
-        self.display.clear_console()
-        print(f"[red]{self.room.entity.name}[/red] : {self.room.entity.hp}/{self.room.entity.max_hp} ❤️ \n")
-        print(f"[{self.playercolor}]{self.player.name}[/{self.playercolor}] : {self.player.hp}/{self.player.max_hp} ❤️")
-        self.finished_fight()
+        if self.player.is_alive():
+            self.display.clear_console()
+            print(f"[red]{self.room.entity.name}[/red] : {self.room.entity.hp}/{self.room.entity.max_hp} ❤️ \n")
+            print(f"[{self.playercolor}]{self.player.name}[/{self.playercolor}] : {self.player.hp}/{self.player.max_hp} ❤️")
+            self.finished_fight()
+        if not self.player.is_alive():
+            print("You have been defeated , what a shame !(returning to the village)")
+            sleep(3)
+            self.player.hp = self.player.max_hp
+            self.hub()
 
     def enemy_dropped(self):
         dice = Dice(100)
@@ -93,13 +115,19 @@ class Game:
     def finished_fight(self):
         drop = self.enemy_dropped()
         if drop == None:
-            pass
+            print("You defeated the enemy !")
+            sleep(3)
+            self.next_room()
         else:
-            print(f"The enemy dropped a {drop.name} do you want to take it ?")
+            print(f"The enemy dropped a {drop.name} do you want to take it ?(It will replace your current one if you have one)")
             print(" - 1 Yes")
             print(" - 2 No")
             choice = int(input(""))
-            pass
+            if choice == 1:
+                self.replace_decision_room(drop)
+                self.next_room()
+            if choice == 2:
+                self.next_room()
             
 
 
@@ -121,11 +149,11 @@ class Game:
             print("2 - No")
             replace_choice = int(input())
             if replace_choice == 1 :
-                self.replace_decision_room(1)
+                self.replace_decision_room(self.room.entity.items[0])
             if replace_choice == 2 :
-                self.replace_decision_room(2)
+                self.next_room()
         if choice == 2:
-            pass
+            self.next_room()
 
     def hub_decision(self,choice):
         match choice:
@@ -282,7 +310,18 @@ class Game:
                 else:
                     self.buy_decision(boots_inventory.items[(buy_choice - 1)])
             case 10:
-                pass
+                self.display.clear_console()
+                self.display.title()
+                self.display.boots()
+
+                health_pot_inventory.display_inventory()
+                self.display.nevermind()
+                buy_choice = int(input(""))
+                if buy_choice == 7:
+                    self.categories()
+                else:
+                    self.buy_decision(health_pot_inventory.items[(buy_choice - 1)])
+            
             case 11:
                 self.hub()
             case _:
@@ -290,21 +329,50 @@ class Game:
                 return self.shop_categories_decision(choice)
 
     def replace_decision(self, choice, new_item):
+        added = False
         if choice == 1:
-            for item in self.player.inventory:
-                if new_item.type == item.type:
+            for item in self.player.inventory.items:
+                if new_item.item_type == None:
+                    self.player.inventory.add_item(new_item)
+                    self.next_room()
+                elif new_item.item_type == item.item_type:
+                    added = True
                     self.player.inventory.remove_item(item)
                     self.player.inventory.add_item(new_item)
-                    self.categories()
+                    self.next_room()
+            if added == False:
+                if new_item.item_class == self.player.char_class:
+                    self.player.inventory.add_item(new_item)
+                    self.next_room()
+                else:
+                    self.display.wrong_class
+                    sleep(2)
+                    self.next_room()
         else: 
             self.categories()
+        if added == False:
+            self.player.inventory.add_item(new_item)
+            self.categories()
 
-    def replace_decision_room(self, choice):
-        if choice == 1:
-            '''Remplacer l'item'''
-            pass
-        else: 
-            self.next_room()
+    def replace_decision_room(self, new_item):
+        added = False
+        for item in self.player.inventory.items:
+            if new_item.item_type == None:
+                self.player.inventory.add_item(new_item)
+                self.next_room()
+            elif new_item.item_type == item.item_type:
+                added = True
+                self.player.inventory.remove_item(item)
+                self.player.inventory.add_item(new_item)
+                self.next_room()
+        if added == False:
+            if new_item.item_class == self.player.char_class:
+                self.player.inventory.add_item(new_item)
+                self.next_room()
+            else:
+                self.display.wrong_class
+                sleep(2)
+                self.next_room()
 
     def buy_decision(self, item):
         if self.player.gold >= item.value:
@@ -312,7 +380,7 @@ class Game:
                 if item not in self.player.inventory.items and item.item_class == "Any":
                     self.player.inventory.add_item(item)
                     self.player.gold -= item.value
-                    self.shop_categories_decision()
+                    self.categories()
                 else:
                     self.display.already_have(item)
                     choice = int(input())
@@ -333,13 +401,13 @@ class Game:
         rarity_cumulative_prob = 0
 
         # Déterminer la rareté en fonction des probabilités cumulatives
-        for rarity, probability in enumerate(rarity_probabilities):
+        for rarityi, probability in enumerate(rarity_probabilities):
             rarity_cumulative_prob += probability
             if rarity_roll <= rarity_cumulative_prob * 100:  # Multiplier par 1000 pour ajuster l'échelle
                 break
 
         # Choisir un item aléatoire en fonction de la rareté
-        rarity_name = rarity[rarity]
+        rarity_name = rarity[rarityi]
         item_list = items_dict.get(rarity_name, [])
         item_count = len(item_list)
         if item_count > 0:

@@ -446,7 +446,7 @@ ___) (___| )  \  |  \   /  | (____/\| )  \  |   | |   | (___) || ) \ \__   | |
         p(" - 7 : Nevermind")
 
     @staticmethod
-    def already_have(player,item):
+    def already_have(item):
         p("\n You already have a "+item.item_class+" Do you want to replace it ? \n ")
         p(" - 1 : Yes")
         p(" - 2 : No")
@@ -480,4 +480,5 @@ ___) (___| )  \  |  \   /  | (____/\| )  \  |   | |   | (___) || ) \ \__   | |
         p(f"Wich attack do you want to do ?")
         p(f" - 1 {attack1.name}")
         p(f" - 2 {attack2.name}")
+        p(f" - 3 Drink a potion")
         
