@@ -6,10 +6,15 @@ from items import *
 
 durability_weapons = [25, 50, 100, 200, 500, 666]
 durability_armor = [25, 50, 100, 200, 500, 666]
+durability_potion = 1
 damage_modifier = [1, 1.1, 1.2, 1.3, .4, 1.5]
 armor_modifier = [1, 1.1, 1.2, 1.3, 1.4, 1.5]
+health_amount = []
+mana_amount = []
 value_weapons = [15, 30, 50, 100, 200, 500]
 value_armor = [20, 35, 75, 150, 300, 600]
+value_potions = [10, 20, 50, 75, 100, 200]
+
 drop_chance = [50, 25, 17, 12, 5, 1]
 rarity = ["Common", "Uncommon", "Rare", "Epic", "Legendary", "Mythic"]
 
@@ -646,8 +651,8 @@ boots_inventory.add_item(mythic_boots)
 
 common_health_potion = Potion("Basic potion", 
                               "Just a little potion", 
-                              1, 
-                              10, 
+                              durability_potion, 
+                              value_potions[0], 
                               40, 
                               10, 
                               0, 
@@ -657,8 +662,8 @@ common_health_potion = Potion("Basic potion",
 
 uncommon_health_potion = Potion("Big potion", 
                                 "Not just a little potion", 
-                                1, 
-                                20, 
+                                durability_potion, 
+                                value_potions[1], 
                                 30, 
                                 25, 
                                 0, 
@@ -668,8 +673,8 @@ uncommon_health_potion = Potion("Big potion",
 
 rare_health_potion = Potion("Really big potion", 
                             "Looks like a beer but it's not", 
-                            1, 
-                            50, 
+                            durability_potion, 
+                            value_potions[2], 
                             20, 
                             50, 
                             0, 
@@ -679,8 +684,8 @@ rare_health_potion = Potion("Really big potion",
 
 epic_health_potion = Potion("Huge potion", 
                             "Too much for a potion", 
-                            1, 
-                            75, 
+                            durability_potion, 
+                            value_potions[3], 
                             10, 
                             75, 
                             0, 
@@ -690,8 +695,8 @@ epic_health_potion = Potion("Huge potion",
 
 legendary_health_potion = Potion("Guargantuan potion", 
                                  "This is stupidly big", 
-                                 1, 
-                                 100, 
+                                 durability_potion, 
+                                 value_potions[4], 
                                  5, 
                                  100, 
                                  0, 
@@ -701,8 +706,8 @@ legendary_health_potion = Potion("Guargantuan potion",
 
 mythic_health_potion = Potion("DAAAAAMMMMMNNNN potion", 
                               "I can't even quantify this thing", 
-                              1, 
-                              200, 
+                              durability_potion, 
+                              value_potions[5], 
                               1, 
                               200, 
                               0, 
@@ -721,8 +726,8 @@ health_pot_inventory.add_item(mythic_health_potion)
 
 common_mana_potion = Potion("Basic mana potion", 
                             "Same stuff but for mana", 
-                            1, 
-                            10, 
+                            durability_potion, 
+                            value_potions[0], 
                             40, 
                             0, 
                             10,
@@ -732,8 +737,8 @@ common_mana_potion = Potion("Basic mana potion",
 
 uncommon_mana_potion = Potion("Big mana potion", 
                               "You're using too much spells", 
-                              1, 
-                              20, 
+                              durability_potion, 
+                              value_potions[1], 
                               30, 
                               0, 
                               25,
@@ -743,8 +748,8 @@ uncommon_mana_potion = Potion("Big mana potion",
 
 rare_mana_potion = Potion("Really big mana potion", 
                           "Do you eat mana ?", 
-                          1, 
-                          50, 
+                          durability_potion, 
+                          value_potions[2], 
                           20, 
                           0, 
                           50,
@@ -754,8 +759,8 @@ rare_mana_potion = Potion("Really big mana potion",
 
 epic_mana_potion = Potion("Huge mana potion", 
                           "You don't even have this amount of mana, why ?", 
-                          1, 
-                          75, 
+                          durability_potion, 
+                          value_potions[3], 
                           10, 
                           0, 
                           75,
@@ -765,8 +770,8 @@ epic_mana_potion = Potion("Huge mana potion",
 
 legendary_mana_potion = Potion("Guargantuan mana potion", 
                                "Are you stupid ?", 
-                               1, 
-                               100, 
+                               durability_potion, 
+                               value_potions[4], 
                                5, 
                                1.5, 
                                100, 
@@ -776,8 +781,8 @@ legendary_mana_potion = Potion("Guargantuan mana potion",
 
 mythic_mana_potion = Potion("DAAAAAMMMMMNNNN mana potion", 
                             "You're definitely insane", 
-                            1, 
-                            200, 
+                            durability_potion, 
+                            value_potions[5], 
                             1, 
                             0, 
                             200, 

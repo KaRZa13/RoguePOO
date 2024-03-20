@@ -108,6 +108,7 @@ ___) (___| )  \  || )      ___) (___| )  \  |___) (___   | |   | (____/\
                  .===+=*+*+==:.                
 
 """)
+    
     @staticmethod
     def zombie():
         print(r"""
@@ -147,6 +148,7 @@ ___) (___| )  \  || )      ___) (___| )  \  |___) (___   | |   | (____/\
                 :%#####%%#######.=##*+=:
 ⠀⠀⠀⠀
 """)
+    
     @staticmethod
     def skeleton():
         print(r"""
@@ -393,6 +395,15 @@ ___) (___| )  \  |  \   /  | (____/\| )  \  |   | |   | (___) || ) \ \__   | |
 """)
 
     @staticmethod
+    def potions():
+        print(r"""
+ ____   __  ____  __  __   __ _  ____ 
+(  _ \ /  \(_  _)(  )/  \ (  ( \/ ___)
+ ) __/(  O ) )(   )((  O )/    /\___ \
+(__)   \__/ (__) (__)\__/ \_)__)(____/
+""")
+
+    @staticmethod
     def print_class():
         p(" \n Choose your class : \n")
         p(" - 1 : [red]Warrior[/red]")
@@ -446,7 +457,7 @@ ___) (___| )  \  |  \   /  | (____/\| )  \  |   | |   | (___) || ) \ \__   | |
         p(" - 7 : Nevermind")
 
     @staticmethod
-    def already_have(player,item):
+    def already_have(item):
         p("\n You already have a "+item.item_class+" Do you want to replace it ? \n ")
         p(" - 1 : Yes")
         p(" - 2 : No")

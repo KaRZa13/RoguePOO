@@ -32,6 +32,27 @@ class Game:
         if self.player == None:
             self.choose_class()
 
+    def choose_class(self):
+        name = input(" \n Choose your name : ")
+        self.display.print_class()
+        class_input = int(input(""))
+        match class_input:
+            case 1:
+                self.player =  Warrior(name, 20, 0, 3, ATT1,ATT2)
+                self.playercolor = "red"
+            case 2:
+                self.player = Mage(name, 20, 20, 3, ATT1,ATT2)
+                self.playercolor = "blue"
+            case 3:
+                self.player = Thief(name, 20, 0, 3, ATT1,ATT2, 10)
+                self.playercolor = "green"
+            case 4:
+                self.player = Colossus(name, 20, 0, 3, ATT1,ATT2)
+                self.playercolor = "yellow1"
+            case _:
+                print("Wrong entry, choose a number between 1 and 4.")
+                return self.choose_class()
+
     def hub(self):
         self.display.clear_console()
         self.display.title()
@@ -40,6 +61,206 @@ class Game:
         self.display.print_hub()
         hub_choice = int(input(""))
         self.hub_decision(hub_choice)
+
+    def hub_decision(self,choice):
+        match choice:
+            case 1:
+                self.inventory()
+            case 2:
+                self.shop_categories()
+            case 3:
+                self.create_room()
+            case 4:
+                self.display.clear_console()
+                self.display.title()
+                self.display.dungeon()
+                self.display.difficulty()
+                difficulty_choice = int(input(""))
+                self.dungeon(difficulty_choice)
+            case _:
+                return self.hub()
+
+    def inventory(self):
+        self.display.clear_console()
+        self.display.title()
+        self.display.inventory()
+        print(f"[{self.playercolor}]{self.player.name}[/{self.playercolor}] : {self.player.hp}/{self.player.max_hp} ❤️ - {self.player.gold} 🪙 \n \n ")
+        self.player.inventory.display_inventory()
+        self.display.quit_inventory()
+        inventory_choice = int(input(""))
+        self.inventory_decision(inventory_choice)
+
+    def inventory_decision(self,choice):
+        if choice == 1:
+            self.hub()
+        if choice == 2:
+            self.hub_decision(1)
+
+    def shop_categories(self):
+        self.display.clear_console()
+        self.display.title()
+        self.display.shop()
+        print(f"[{self.playercolor}]{self.player.name}[/{self.playercolor}] : {self.player.hp}/{self.player.max_hp} ❤️ - {self.player.gold} 🪙 \n \n ")
+        self.display.shop_categories()
+        category_choice = int(input(""))
+        self.shop_categories_decision(category_choice)
+
+    def shop_categories_decision(self,choice):
+        match choice:
+            case 1:
+                self.display.clear_console()
+                self.display.title()
+                self.display.swords()
+
+                sword_inventory.display_inventory()
+                self.display.nevermind()
+                buy_choice = int(input(""))
+                if buy_choice == 7:
+                    self.shop_categories()
+                else:
+                    self.buy_decision(sword_inventory.items[(buy_choice - 1)])
+        
+            case 2:
+                self.display.clear_console()
+                self.display.title()
+                self.display.knives()
+
+                knives_inventory.display_inventory()
+                self.display.nevermind()
+                buy_choice = int(input(""))
+                if buy_choice == 7:
+                    self.shop_categories()
+                else:
+                    self.buy_decision(knives_inventory.items[(buy_choice - 1)])
+            case 3:
+                self.display.clear_console()
+                self.display.title()
+                self.display.hammers()
+
+                hammer_inventory.display_inventory()
+                self.display.nevermind()
+                buy_choice = int(input(""))
+                if buy_choice == 7:
+                    self.shop_categories()
+                else:
+                    self.buy_decision(hammer_inventory.items[(buy_choice - 1)])
+            case 4:
+                self.display.clear_console()
+                self.display.title()
+                self.display.sticks()
+
+                stick_inventory.display_inventory()
+                self.display.nevermind()
+                buy_choice = int(input(""))
+                if buy_choice == 7:
+                    self.shop_categories()
+                else:
+                    self.buy_decision(stick_inventory.items[(buy_choice - 1)])
+            case 5:
+                self.display.clear_console()
+                self.display.title()
+                self.display.shields()
+
+                shield_inventory.display_inventory()
+                self.display.nevermind()
+                buy_choice = int(input(""))
+                if buy_choice == 7:
+                    self.shop_categories()
+                else:
+                    self.buy_decision(shield_inventory.items[(buy_choice - 1)])
+            case 6:
+                self.display.clear_console()
+                self.display.title()
+                self.display.helmets()
+
+                helmet_inventory.display_inventory()
+                self.display.nevermind()
+                buy_choice = int(input(""))
+                if buy_choice == 7:
+                    self.shop_categories()
+                else:
+                    self.buy_decision(helmet_inventory.items[(buy_choice - 1)])
+            case 7:
+                self.display.clear_console()
+                self.display.title()
+                self.display.chestplates()
+
+                chestplate_inventory.display_inventory()
+                self.display.nevermind()
+                buy_choice = int(input(""))
+                if buy_choice == 7:
+                    self.shop_categories()
+                else:
+                    self.buy_decision(chestplate_inventory.items[(buy_choice - 1)])
+            case 8:
+                self.display.clear_console()
+                self.display.title()
+                self.display.leggings()
+
+                leggings_inventory.display_inventory()
+                self.display.nevermind()
+                buy_choice = int(input(""))
+                if buy_choice == 7:
+                    self.shop_categories()
+                else:
+                    self.buy_decision(leggings_inventory.items[(buy_choice - 1)])
+            case 9:
+                self.display.clear_console()
+                self.display.title()
+                self.display.boots()
+
+                boots_inventory.display_inventory()
+                self.display.nevermind()
+                buy_choice = int(input(""))
+                if buy_choice == 7:
+                    self.shop_categories()
+                else:
+                    self.buy_decision(boots_inventory.items[(buy_choice - 1)])
+            case 10:
+                pass
+            case 11:
+                self.hub()
+            case _:
+                print("Wrong entry")
+                return self.shop_categories_decision(choice)
+
+    def buy_decision(self, item):
+        if self.player.gold >= item.value:
+            if self.player.char_class == item.item_class or item.item_class == "Any":
+                if item not in self.player.inventory.items and item.item_class == "Any":
+                    self.player.inventory.add_item(item)
+                    self.player.gold -= item.value
+                    self.shop_categories_decision()
+                else:
+                    self.display.already_have(item)
+                    choice = int(input())
+                    self.replace_decision(choice, item)
+            else:
+               self.display.wrong_class(self.player.char_class)
+               sleep(2)
+               self.shop_categories()
+        else:
+           self.display.cant_afford()
+           sleep(2)
+           self.shop_categories()
+
+    def replace_decision(self, choice, new_item):
+        if choice == 1:
+            for item in self.player.inventory:
+                if new_item.type == item.type:
+                    self.player.inventory.remove_item(item)
+                    self.player.inventory.add_item(new_item)
+                    self.shop_categories()
+        else: 
+            self.shop_categories()
+
+    def new_adventure(self):
+        self.display.clear_console()
+        self.display.castle()
+        print("You arrived in front of a huge abandonned castle")
+
+    def new_room(self):
+        self.room.random_event()
 
     def create_room(self):
         self.display.clear_console()
@@ -84,12 +305,6 @@ class Game:
         print(f"[{self.playercolor}]{self.player.name}[/{self.playercolor}] : {self.player.hp}/{self.player.max_hp} ❤️")
         self.finished_fight()
 
-    def enemy_dropped(self):
-        dice = Dice(100)
-        roll = dice.roll()
-        if roll > self.room.entity.drop_chances:
-            return self.generate_loot()
-
     def finished_fight(self):
         drop = self.enemy_dropped()
         if drop == None:
@@ -100,20 +315,18 @@ class Game:
             print(" - 2 No")
             choice = int(input(""))
             pass
-            
 
+    def enemy_dropped(self):
+        dice = Dice(100)
+        roll = dice.roll()
+        if roll > self.room.entity.drop_chances:
+            return self.generate_loot()
 
-    def next_room(self):
-        self.display.next_room()
-        choice = int(input())
-        self.next_room_decision(choice)
+    def create_chest(self):
+        chest = Chest()
+        chest.add_item(self.generate_loot())
+        return chest
 
-    def next_room_decision(self, choice):
-        if choice == 2:
-            self.create_room()
-        if choice == 1:
-            self.hub()
-            
     def chest_decision(self,choice):
         if choice == 1:
             print(f"This chest contain a {self.room.entity.items[0].name} Do you want to take it (and sell your equipped one ?)")
@@ -126,205 +339,6 @@ class Game:
                 self.replace_decision_room(2)
         if choice == 2:
             pass
-
-    def hub_decision(self,choice):
-        match choice:
-            case 1:
-                self.inventory()
-            case 2:
-                self.categories()
-            case 3:
-                self.create_room()
-            case 4:
-                self.display.clear_console()
-                self.display.title()
-                self.display.dungeon()
-                self.display.difficulty()
-                difficulty_choice = int(input(""))
-                self.dungeon(difficulty_choice)
-            case _:
-                return self.hub()
-
-    def inventory_decision(self,choice):
-        if choice == 1:
-            self.hub()
-        if choice == 2:
-            self.hub_decision(1)
-    
-    def categories(self):
-        self.display.clear_console()
-        self.display.title()
-        self.display.shop()
-        print(f"[{self.playercolor}]{self.player.name}[/{self.playercolor}] : {self.player.hp}/{self.player.max_hp} ❤️ - {self.player.gold} 🪙 \n \n ")
-        self.display.shop_categories()
-        category_choice = int(input(""))
-        self.shop_categories_decision(category_choice)
-
-    def inventory(self):
-        self.display.clear_console()
-        self.display.title()
-        self.display.inventory()
-        print(f"[{self.playercolor}]{self.player.name}[/{self.playercolor}] : {self.player.hp}/{self.player.max_hp} ❤️ - {self.player.gold} 🪙 \n \n ")
-        self.player.inventory.display_inventory()
-        self.display.quit_inventory()
-        inventory_choice = int(input(""))
-        self.inventory_decision(inventory_choice)
-
-    def shop_categories_decision(self,choice):
-        match choice:
-            case 1:
-                self.display.clear_console()
-                self.display.title()
-                self.display.swords()
-
-                sword_inventory.display_inventory()
-                self.display.nevermind()
-                buy_choice = int(input(""))
-                if buy_choice == 7:
-                    self.categories()
-                else:
-                    self.buy_decision(sword_inventory.items[(buy_choice - 1)])
-        
-            case 2:
-                self.display.clear_console()
-                self.display.title()
-                self.display.knives()
-
-                knives_inventory.display_inventory()
-                self.display.nevermind()
-                buy_choice = int(input(""))
-                if buy_choice == 7:
-                    self.categories()
-                else:
-                    self.buy_decision(knives_inventory.items[(buy_choice - 1)])
-            case 3:
-                self.display.clear_console()
-                self.display.title()
-                self.display.hammers()
-
-                hammer_inventory.display_inventory()
-                self.display.nevermind()
-                buy_choice = int(input(""))
-                if buy_choice == 7:
-                    self.categories()
-                else:
-                    self.buy_decision(hammer_inventory.items[(buy_choice - 1)])
-            case 4:
-                self.display.clear_console()
-                self.display.title()
-                self.display.sticks()
-
-                stick_inventory.display_inventory()
-                self.display.nevermind()
-                buy_choice = int(input(""))
-                if buy_choice == 7:
-                    self.categories()
-                else:
-                    self.buy_decision(stick_inventory.items[(buy_choice - 1)])
-            case 5:
-                self.display.clear_console()
-                self.display.title()
-                self.display.shields()
-
-                shield_inventory.display_inventory()
-                self.display.nevermind()
-                buy_choice = int(input(""))
-                if buy_choice == 7:
-                    self.categories()
-                else:
-                    self.buy_decision(shield_inventory.items[(buy_choice - 1)])
-            case 6:
-                self.display.clear_console()
-                self.display.title()
-                self.display.helmets()
-
-                helmet_inventory.display_inventory()
-                self.display.nevermind()
-                buy_choice = int(input(""))
-                if buy_choice == 7:
-                    self.categories()
-                else:
-                    self.buy_decision(helmet_inventory.items[(buy_choice - 1)])
-            case 7:
-                self.display.clear_console()
-                self.display.title()
-                self.display.chestplates()
-
-                chestplate_inventory.display_inventory()
-                self.display.nevermind()
-                buy_choice = int(input(""))
-                if buy_choice == 7:
-                    self.categories()
-                else:
-                    self.buy_decision(chestplate_inventory.items[(buy_choice - 1)])
-            case 8:
-                self.display.clear_console()
-                self.display.title()
-                self.display.leggings()
-
-                leggings_inventory.display_inventory()
-                self.display.nevermind()
-                buy_choice = int(input(""))
-                if buy_choice == 7:
-                    self.categories()
-                else:
-                    self.buy_decision(leggings_inventory.items[(buy_choice - 1)])
-            case 9:
-                self.display.clear_console()
-                self.display.title()
-                self.display.boots()
-
-                boots_inventory.display_inventory()
-                self.display.nevermind()
-                buy_choice = int(input(""))
-                if buy_choice == 7:
-                    self.categories()
-                else:
-                    self.buy_decision(boots_inventory.items[(buy_choice - 1)])
-            case 10:
-                pass
-            case 11:
-                self.hub()
-            case _:
-                print("Wrong entry")
-                return self.shop_categories_decision(choice)
-
-    def replace_decision(self, choice, new_item):
-        if choice == 1:
-            for item in self.player.inventory:
-                if new_item.type == item.type:
-                    self.player.inventory.remove_item(item)
-                    self.player.inventory.add_item(new_item)
-                    self.categories()
-        else: 
-            self.categories()
-
-    def replace_decision_room(self, choice):
-        if choice == 1:
-            '''Remplacer l'item'''
-            pass
-        else: 
-            self.next_room()
-
-    def buy_decision(self, item):
-        if self.player.gold >= item.value:
-            if self.player.char_class == item.item_class or item.item_class == "Any":
-                if item not in self.player.inventory.items and item.item_class == "Any":
-                    self.player.inventory.add_item(item)
-                    self.player.gold -= item.value
-                    self.shop_categories_decision()
-                else:
-                    self.display.already_have(item)
-                    choice = int(input())
-                    self.replace_decision(choice, item)
-            else:
-               self.display.wrong_class(self.player.char_class)
-               sleep(2)
-               self.categories()
-        else:
-           self.display.cant_afford()
-           sleep(2)
-           self.categories()
 
     def generate_loot(self):
         rarity_probabilities = drop_chance
@@ -359,40 +373,24 @@ class Game:
                 return armor
             case 3:
                 return potions
-        
-    def create_chest(self):
-        chest = Chest()
-        chest.add_item(self.generate_loot())
-        return chest
 
-    def choose_class(self):
-        name = input(" \n Choose your name : ")
-        self.display.print_class()
-        class_input = int(input(""))
-        match class_input:
-            case 1:
-                self.player =  Warrior(name, 20, 0, 3, ATT1,ATT2)
-                self.playercolor = "red"
-            case 2:
-                self.player = Mage(name, 20, 20, 3, ATT1,ATT2)
-                self.playercolor = "blue"
-            case 3:
-                self.player = Thief(name, 20, 0, 3, ATT1,ATT2, 10)
-                self.playercolor = "green"
-            case 4:
-                self.player = Colossus(name, 20, 0, 3, ATT1,ATT2)
-                self.playercolor = "yellow1"
-            case _:
-                print("Wrong entry, choose a number between 1 and 4.")
-                return self.choose_class()
-        
-    def new_adventure(self):
-        self.display.clear_console()
-        self.display.castle()
-        print("You arrived in front of a huge abandonned castle")
+    def replace_decision_room(self, choice):
+        if choice == 1:
+            '''Remplacer l'item'''
+            pass
+        else: 
+            self.next_room()
 
-    def new_room(self):
-        self.room.random_event()
+    def next_room(self):
+        self.display.next_room()
+        choice = int(input())
+        self.next_room_decision(choice)
+
+    def next_room_decision(self, choice):
+        if choice == 2:
+            self.create_room()
+        if choice == 1:
+            self.hub()
 
     def dungeon(self, choice):
         match choice:
@@ -422,3 +420,6 @@ class Game:
                         pass
             case _:
                 return self.hub()
+
+    def infinite(self):
+        pass
