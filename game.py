@@ -293,6 +293,7 @@ class Game:
     def create_room(self):
         self.display.clear_console()
         self.display.room()
+        print("You")
 
         print(f"[{self.playercolor}]{self.player.name}[/{self.playercolor}] : {self.player.hp}/{self.player.max_hp} ❤️")
         self.new_room()
@@ -310,12 +311,15 @@ class Game:
             if self.room.enemy == "skeleton":
                 self.display.clear_console()
                 self.display.skeleton()
+                print("You're facing a skeleton, what you do ?")
             if self.room.enemy == "zombie":
                 self.display.clear_console()
                 self.display.zombie()
+                print("You're facing a zombie, what you do ?")
             if self.room.enemy == "goblin":
                 self.display.clear_console()
                 self.display.goblin()
+                print("You're facing a goblin, what you do ?")
             print(f"[red]{self.room.entity.name}[/red] : {self.room.entity.hp}/{self.room.entity.max_hp} ❤️ \n")
             print(f"[{self.playercolor}]{self.player.name}[/{self.playercolor}] : {self.player.hp}/{self.player.max_hp} ❤️")
             self.display.wich_attack(self.player.attack1, self.player.attack2)
@@ -464,6 +468,7 @@ class Game:
         if choice == 2:
             self.create_room()
         if choice == 1:
+            self.player.hp = self.player.max_hp
             self.hub()
 
     def dungeon(self, choice):
