@@ -30,7 +30,7 @@ class Character:
                 mult += item.armor_modifier
         if mult == 0:
             mult = 1
-        if amount > 0:
+        if int(amount) - (self.armor*mult) > 0:
             self.hp -= int(amount) - (self.armor*mult)
         if self.hp < 0:
             self.hp = 0
@@ -53,7 +53,7 @@ class Warrior(Character):
         self.char_class = "Warrior"
 
     def attack(self, target, amount):
-        return super().attack(target, amount) + 3
+        target.decrease_hp(amount + target.armor)
     
 class Mage(Character):
     def __init__(self, name, base_hp, base_mana, armor, attack1, attack2, gold=0):

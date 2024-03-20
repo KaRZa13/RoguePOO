@@ -381,6 +381,7 @@ class Game:
 
     def finished_fight(self):
         drop = self.enemy_dropped()
+        self.player.gold += 5
         if drop == None:
             print("You defeated the enemy !")
             sleep(3)
@@ -415,11 +416,11 @@ class Game:
             print("2 - No")
             replace_choice = int(input())
             if replace_choice == 1 :
-                self.replace_decision_room(1)
+                self.replace_decision_room(self.room.entity.items[0])
             if replace_choice == 2 :
-                self.replace_decision_room(2)
+                self.next_room()
         if choice == 2:
-            pass
+            self.next_room()
 
     def generate_loot(self):
         rarity_probabilities = drop_chance
@@ -462,10 +463,14 @@ class Game:
                 self.player.inventory.add_item(new_item)
                 self.next_room()
             elif new_item.item_type == item.item_type:
-                added = True
-                self.player.inventory.remove_item(item)
-                self.player.inventory.add_item(new_item)
-                self.next_room()
+                if new_item.item_class == self.player.char_class or new_item.item_class == "Any":
+                    added = True
+                    self.player.inventory.remove_item(item)
+                    self.player.inventory.add_item(new_item)
+                    self.next_room()
+                else:
+                    print("Wrong class for this item , returning to the choice")
+                    self.next_room()
         if added == False:
             if new_item.item_class == self.player.char_class or new_item.item_class == "Any":
                 self.player.inventory.add_item(new_item)
