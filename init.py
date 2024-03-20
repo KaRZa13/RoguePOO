@@ -28,6 +28,7 @@ common_sword = Weapons("Chocolate sword",
                        rarity[0], 
                        damage_modifier[0], 
                        "Warrior", 
+                       "Weapon",
                        "Sword")
 
 uncommon_sword = Weapons("Simple sword", 
@@ -38,6 +39,7 @@ uncommon_sword = Weapons("Simple sword",
                          rarity[1], 
                          damage_modifier[1], 
                          "Warrior", 
+                         "Weapon",
                          "Sword")
 
 rare_sword = Weapons("Knight sword", 
@@ -48,6 +50,7 @@ rare_sword = Weapons("Knight sword",
                      rarity[2], 
                      damage_modifier[2], 
                      "Warrior", 
+                     "Weapon",
                      "Sword")
 
 epic_sword = Weapons("Claymore", 
@@ -58,6 +61,7 @@ epic_sword = Weapons("Claymore",
                      rarity[3], 
                      damage_modifier[3], 
                      "Warrior", 
+                     "Weapon",
                      "Sword")
 
 legendary_sword = Weapons("Excalibur", 
@@ -67,6 +71,7 @@ legendary_sword = Weapons("Excalibur",
                           15, rarity[4], 
                           damage_modifier[4], 
                           "Warrior", 
+                          "Weapon",
                           "Sword")
 
 mythic_sword = Weapons("Big Sword of DOOM !", 
@@ -77,6 +82,7 @@ mythic_sword = Weapons("Big Sword of DOOM !",
                        rarity[5], 
                        damage_modifier[5], 
                        "Warrior", 
+                       "Weapon",
                        "Sword")
 
 sword_inventory = Shop_Category()
@@ -97,6 +103,7 @@ common_knife = Weapons("The Opinel",
                        rarity[0], 
                        damage_modifier[0], 
                        "Thief", 
+                       "Weapon",
                        "Knife")
 
 uncommon_knife = Weapons("Kitchen knife", 
@@ -107,6 +114,7 @@ uncommon_knife = Weapons("Kitchen knife",
                          rarity[1], 
                          damage_modifier[1], 
                          "Thief", 
+                         "Weapon",
                          "Knife")
 
 rare_knife = Weapons("Butcher knife", 
@@ -117,6 +125,7 @@ rare_knife = Weapons("Butcher knife",
                      rarity[2], 
                      damage_modifier[2], 
                      "Thief", 
+                     "Weapon",
                      "Knife")
 
 epic_knife = Weapons("Hunting knife", 
@@ -127,6 +136,7 @@ epic_knife = Weapons("Hunting knife",
                      rarity[3], 
                      damage_modifier[3], 
                      "Thief", 
+                     "Weapon",
                      "Knife")
 
 legendary_knife = Weapons("Buttlefly knife Fade FN Statrack", 
@@ -137,6 +147,7 @@ legendary_knife = Weapons("Buttlefly knife Fade FN Statrack",
                           rarity[4], 
                           damage_modifier[4], 
                           "Thief", 
+                          "Weapon",
                           "Knife")
 
 mythic_knife = Weapons("Big Knife of DOOM", 
@@ -147,6 +158,7 @@ mythic_knife = Weapons("Big Knife of DOOM",
                        rarity[5], 
                        damage_modifier[5], 
                        "Thief", 
+                       "Weapon",
                        "Knife")
 
 knives_inventory = Shop_Category()
@@ -167,6 +179,7 @@ common_hammer = Weapons("Name",
                         rarity[0], 
                         damage_modifier[0], 
                         "Colossus", 
+                        "Weapon",
                         "Hammer")
 
 uncommon_hammer = Weapons("Name", 
@@ -177,6 +190,7 @@ uncommon_hammer = Weapons("Name",
                           rarity[1], 
                           damage_modifier[1], 
                           "Colossus", 
+                          "Weapon",
                           "Hammer")
 
 rare_hammer = Weapons("Name", 
@@ -187,6 +201,7 @@ rare_hammer = Weapons("Name",
                       rarity[2], 
                       damage_modifier[2], 
                       "Colossus", 
+                      "Weapon",
                       "Hammer")
 
 epic_hammer = Weapons("Name", 
@@ -197,6 +212,7 @@ epic_hammer = Weapons("Name",
                       rarity[3], 
                       damage_modifier[3], 
                       "Colossus", 
+                      "Weapon",
                       "Hammer")
 
 legendary_hammer = Weapons("Name", 
@@ -207,6 +223,7 @@ legendary_hammer = Weapons("Name",
                            rarity[4], 
                            damage_modifier[4], 
                            "Colossus", 
+                           "Weapon",
                            "Hammer")
 
 mythic_hammer = Weapons("Big Hammer of DOOM !", 
@@ -217,6 +234,7 @@ mythic_hammer = Weapons("Big Hammer of DOOM !",
                         rarity[5], 
                         damage_modifier[5], 
                         "Colossus", 
+                        "Weapon",
                         "Hammer")
 
 hammer_inventory = Shop_Category()
@@ -237,6 +255,7 @@ common_stick = Weapons("Branch",
                        rarity[0], 
                        damage_modifier[0], 
                        "Mage", 
+                       "Weapon",
                        "Stick")
 
 uncommon_stick = Weapons("Name", 
@@ -247,6 +266,7 @@ uncommon_stick = Weapons("Name",
                          rarity[1], 
                          damage_modifier[1], 
                          "Mage", 
+                         "Weapon",
                          "Stick")
 
 rare_stick = Weapons("Name", 
@@ -257,6 +277,7 @@ rare_stick = Weapons("Name",
                      rarity[2], 
                      damage_modifier[2], 
                      "Mage", 
+                     "Weapon",
                      "Stick")
 
 epic_stick = Weapons("Name", 
@@ -267,6 +288,7 @@ epic_stick = Weapons("Name",
                      rarity[3], 
                      damage_modifier[3], 
                      "Mage", 
+                     "Weapon",
                      "Stick")
 
 legendary_stick = Weapons("Name", 
@@ -277,6 +299,7 @@ legendary_stick = Weapons("Name",
                           rarity[4], 
                           damage_modifier[4], 
                           "Mage", 
+                          "Weapon",
                           "Stick")
 
 mythic_stick = Weapons("Big Stick of DOOM !", 
@@ -287,6 +310,7 @@ mythic_stick = Weapons("Big Stick of DOOM !",
                        rarity[5], 
                        damage_modifier[5], 
                        "Mage", 
+                       "Weapon",
                        "Stick")
 
 stick_inventory = Shop_Category()
@@ -307,6 +331,7 @@ common_shield = Armor("Name",
                       rarity[0], 
                       armor_modifier[0], 
                       "Any", 
+                      "Armor",
                       "Shield")
 
 uncommon_shield = Armor("Name", 
@@ -317,6 +342,7 @@ uncommon_shield = Armor("Name",
                       rarity[1], 
                       armor_modifier[1], 
                       "Any", 
+                      "Armor",
                       "Shield")
 
 rare_shield = Armor("Name", 
@@ -327,6 +353,7 @@ rare_shield = Armor("Name",
                       rarity[2], 
                       armor_modifier[2], 
                       "Any", 
+                      "Armor",
                       "Shield")
 
 epic_shield = Armor("Name", 
@@ -337,6 +364,7 @@ epic_shield = Armor("Name",
                       rarity[3], 
                       armor_modifier[3], 
                       "Any", 
+                      "Armor",
                       "Shield")
 
 legendary_shield = Armor("Name", 
@@ -347,6 +375,7 @@ legendary_shield = Armor("Name",
                       rarity[4], 
                       armor_modifier[4], 
                       "Any", 
+                      "Armor",
                       "Shield")
 
 mythic_shield = Armor("Name", 
@@ -357,6 +386,7 @@ mythic_shield = Armor("Name",
                       rarity[5], 
                       armor_modifier[5], 
                       "Any", 
+                      "Armor",
                       "Shield")
 
 shield_inventory = Shop_Category()
@@ -377,47 +407,52 @@ common_helmet = Armor("Common helmet",
                       rarity[0], 
                       armor_modifier[0], 
                       "Any", 
-                      "Helmet")
+                      "Armor",
+                      "Shield")
 
 uncommon_helmet = Armor("Uncommon helmet", 
-                        "Description", 
-                        durability_armor[1], 
-                        value_armor[1], 
-                        "drop chance", 
-                        rarity[1], 
-                        armor_modifier[1], 
-                        "Any", 
-                        "Helmet")
+                      "Description", 
+                      durability_armor[1], 
+                      value_armor[1], 
+                      "drop chance", 
+                      rarity[1], 
+                      armor_modifier[1], 
+                      "Any", 
+                      "Armor",
+                      "Helmet")
 
 rare_helmet = Armor("Rare helmet", 
-                    "Description", 
-                    durability_armor[2], 
-                    value_armor[2], 
-                    "drop chance", 
-                    rarity[2], 
-                    armor_modifier[2], 
-                    "Any", 
-                    "Helmet")
+                      "Description", 
+                      durability_armor[2], 
+                      value_armor[2], 
+                      "drop chance", 
+                      rarity[2], 
+                      armor_modifier[2], 
+                      "Any", 
+                      "Armor",
+                      "Helmet")
 
 epic_helmet = Armor("Epic helmet", 
-                    "Description", 
-                    durability_armor[3], 
-                    value_armor[3], 
-                    "drop chance", 
-                    rarity[3], 
-                    armor_modifier[3], 
-                    "Any", 
-                    "Helmet")
+                      "Description", 
+                      durability_armor[3], 
+                      value_armor[3], 
+                      "drop chance", 
+                      rarity[3], 
+                      armor_modifier[3], 
+                      "Any", 
+                      "Armor",
+                      "Helmet")
 
 legendary_helmet = Armor("Legendary helmet", 
-                         "Description", 
-                         durability_armor[4], 
-                         value_armor[4], 
-                         "drop chance", 
-                         rarity[4], 
-                         armor_modifier[4], 
-                         "Any", 
-                         "Helmet")
+                      "Description", 
+                      durability_armor[4], 
+                      value_armor[4], 
+                      "drop chance", 
+                      rarity[4], 
+                      armor_modifier[4], 
+                      "Any", 
+                      "Armor",
+                      "Helmet")
 
 mythic_helmet = Armor("Mythic helmet", 
                       "Description", 
@@ -427,6 +462,7 @@ mythic_helmet = Armor("Mythic helmet",
                       rarity[5], 
                       armor_modifier[5], 
                       "Any", 
+                      "Armor",
                       "Helmet")
 
 helmet_inventory = Shop_Category()
@@ -447,47 +483,52 @@ common_chestplate = Armor("Common chestplate",
                           rarity[0], 
                           armor_modifier[0], 
                           "Any", 
+                          "Armor",
                           "Chestplate")
 
 uncommon_chestplate = Armor("Uncommon chestplate", 
-                            "Description", 
-                            durability_armor[1], 
-                            value_armor[1], 
-                            "drop chance", 
-                            rarity[1], 
-                            armor_modifier[1], 
-                            "Any", 
-                            "Chestplate")
+                          "Description", 
+                          durability_armor[1], 
+                          value_armor[1], 
+                          "drop chance", 
+                          rarity[1], 
+                          armor_modifier[1], 
+                          "Any", 
+                          "Armor",
+                          "Chestplate")
 
 rare_chestplate = Armor("Rare chestplate", 
-                        "Description", 
-                        durability_armor[2], 
-                        value_armor[2], 
-                        "drop chance", 
-                        rarity[2], 
-                        armor_modifier[2], 
-                        "Any", 
-                        "Chestplate")
+                          "Description", 
+                          durability_armor[2], 
+                          value_armor[2], 
+                          "drop chance", 
+                          rarity[2], 
+                          armor_modifier[2], 
+                          "Any", 
+                          "Armor",
+                          "Chestplate")
 
 epic_chestplate = Armor("Epic chestplate", 
-                        "Description", 
-                        durability_armor[3], 
-                        value_armor[3], 
-                        "drop chance", 
-                        rarity[3], 
-                        armor_modifier[3], 
-                        "Any", 
-                        "Chestplate")
+                          "Description", 
+                          durability_armor[3], 
+                          value_armor[3], 
+                          "drop chance", 
+                          rarity[3], 
+                          armor_modifier[3], 
+                          "Any", 
+                          "Armor",
+                          "Chestplate")
 
 legendary_chestplate = Armor("Legendary chestplate", 
-                             "Description", 
-                             durability_armor[4], 
-                             value_armor[4], 
-                             "drop chance", 
-                             rarity[4], 
-                             armor_modifier[4], 
-                             "Any", 
-                             "Chestplate")
+                          "Description", 
+                          durability_armor[4], 
+                          value_armor[4], 
+                          "drop chance", 
+                          rarity[4], 
+                          armor_modifier[4], 
+                          "Any", 
+                          "Armor",
+                          "Chestplate")
 
 mythic_chestplate = Armor("Mythic helmet", 
                           "Description", 
@@ -497,6 +538,7 @@ mythic_chestplate = Armor("Mythic helmet",
                           rarity[5], 
                           armor_modifier[5], 
                           "Any", 
+                          "Armor",
                           "Chestplate")
 
 chestplate_inventory = Shop_Category()
@@ -517,47 +559,52 @@ common_leggings = Armor("Common leggings",
                         rarity[0], 
                         armor_modifier[0], 
                         "Any", 
+                        "Armor",
                         "Leggings")
 
 uncommon_leggings = Armor("Uncommon leggings", 
-                          "Description", 
-                          durability_armor[1], 
-                          value_armor[1], 
-                          "drop chance", 
-                          rarity[1], 
-                          armor_modifier[1], 
-                          "Any", 
-                          "Leggings")
+                        "Description", 
+                        durability_armor[1], 
+                        value_armor[1], 
+                        "drop chance", 
+                        rarity[1], 
+                        armor_modifier[1], 
+                        "Any", 
+                        "Armor",
+                        "Leggings")
 
 rare_leggings = Armor("Rare leggings", 
-                      "Description", 
-                      durability_armor[2], 
-                      value_armor[2], 
-                      "drop chance", 
-                      rarity[2], 
-                      armor_modifier[2], 
-                      "Any", 
-                      "Leggings")
+                        "Description", 
+                        durability_armor[2], 
+                        value_armor[2], 
+                        "drop chance", 
+                        rarity[2], 
+                        armor_modifier[2], 
+                        "Any", 
+                        "Armor",
+                        "Leggings")
 
 epic_leggings = Armor("Epic leggings", 
-                      "Description", 
-                      durability_armor[3], 
-                      value_armor[3], 
-                      "drop chance", 
-                      rarity[3], 
-                      armor_modifier[3], 
-                      "Any", 
-                      "Leggings")
+                        "Description", 
+                        durability_armor[3], 
+                        value_armor[3], 
+                        "drop chance", 
+                        rarity[3], 
+                        armor_modifier[3], 
+                        "Any", 
+                        "Armor",
+                        "Leggings")
 
 legendary_leggings = Armor("Legendary leggings", 
-                           "Description", 
-                           durability_armor[4], 
-                           value_armor[4], 
-                           "drop chance", 
-                           rarity[4], 
-                           armor_modifier[4], 
-                           "Any", 
-                           "Leggings")
+                        "Description", 
+                        durability_armor[4], 
+                        value_armor[4], 
+                        "drop chance", 
+                        rarity[4], 
+                        armor_modifier[4], 
+                        "Any", 
+                        "Armor",
+                        "Leggings")
 
 mythic_leggings = Armor("Mythic leggings", 
                         "Description", 
@@ -567,6 +614,7 @@ mythic_leggings = Armor("Mythic leggings",
                         rarity[5], 
                         armor_modifier[5], 
                         "Any", 
+                        "Armor",
                         "Leggings")
 
 leggings_inventory = Shop_Category()
@@ -587,47 +635,52 @@ common_boots = Armor("Common boots",
                      rarity[0], 
                      armor_modifier[0], 
                      "Any", 
+                     "Armor",
                      "Boots")
 
 uncommon_boots = Armor("Uncommon boots", 
-                       "Description", 
-                       durability_armor[1], 
-                       value_armor[1], 
-                       "drop chance", 
-                       rarity[1], 
-                       armor_modifier[1], 
-                       "Any", 
-                       "Boots")
+                     "Description", 
+                     durability_armor[1], 
+                     value_armor[1], 
+                     "drop chance", 
+                     rarity[1], 
+                     armor_modifier[1], 
+                     "Any", 
+                     "Armor",
+                     "Boots")
 
 rare_boots = Armor("Rare boots", 
-                   "Description", 
-                   durability_armor[2], 
-                   value_armor[2], 
-                   "drop chance", 
-                   rarity[2], 
-                   armor_modifier[2], 
-                   "Any", 
-                   "Boots")
+                     "Description", 
+                     durability_armor[2], 
+                     value_armor[2], 
+                     "drop chance", 
+                     rarity[2], 
+                     armor_modifier[2], 
+                     "Any", 
+                     "Armor",
+                     "Boots")
 
 epic_boots = Armor("Epic boots", 
-                   "Description", 
-                   durability_armor[3], 
-                   value_armor[3], 
-                   "drop chance", 
-                   rarity[3], 
-                   armor_modifier[3], 
-                   "Any", 
-                   "Boots")
+                     "Description", 
+                     durability_armor[3], 
+                     value_armor[3], 
+                     "drop chance", 
+                     rarity[3], 
+                     armor_modifier[3], 
+                     "Any", 
+                     "Armor",
+                     "Boots")
 
 legendary_boots = Armor("Legendary boots", 
-                        "Description", 
-                        durability_armor[4], 
-                        value_armor[4], 
-                        "drop chance", 
-                        rarity[4], 
-                        armor_modifier[4], 
-                        "Any", 
-                        "Boots")
+                     "Description", 
+                     durability_armor[4], 
+                     value_armor[4], 
+                     "drop chance", 
+                     rarity[4], 
+                     armor_modifier[4], 
+                     "Any", 
+                     "Armor",
+                     "Boots")
 
 mythic_boots = Armor("Mythic boots", 
                      "Description", 
@@ -637,6 +690,7 @@ mythic_boots = Armor("Mythic boots",
                      rarity[5], 
                      armor_modifier[5], 
                      "Any", 
+                     "Armor",
                      "Boots")
 
 boots_inventory = Shop_Category()
@@ -658,51 +712,57 @@ common_health_potion = Potion("Basic potion",
                               0, 
                               rarity[0], 
                               "Health", 
-                              "Potion")
+                              "Potion",
+                              None)
+                              
 
 uncommon_health_potion = Potion("Big potion", 
-                                "Not just a little potion", 
-                                durability_potion, 
-                                value_potions[1], 
-                                30, 
-                                25, 
-                                0, 
-                                rarity[1], 
-                                "Health", 
-                                "Potion")
+                              "Not just a little potion", 
+                              1, 
+                              20, 
+                              30, 
+                              25, 
+                              0, 
+                              rarity[1], 
+                              "Health", 
+                              "Potion",
+                              None)
 
 rare_health_potion = Potion("Really big potion", 
-                            "Looks like a beer but it's not", 
-                            durability_potion, 
-                            value_potions[2], 
-                            20, 
-                            50, 
-                            0, 
-                            rarity[2], 
-                            "Health", 
-                            "Potion")
+                              "Looks like a beer but it's not", 
+                              1, 
+                              50, 
+                              20, 
+                              50, 
+                              0, 
+                              rarity[2], 
+                              "Health", 
+                              "Potion",
+                              None)
 
 epic_health_potion = Potion("Huge potion", 
-                            "Too much for a potion", 
-                            durability_potion, 
-                            value_potions[3], 
-                            10, 
-                            75, 
-                            0, 
-                            rarity[3], 
-                            "Health", 
-                            "Potion")
+                              "Too much for a potion", 
+                              1, 
+                              75, 
+                              10, 
+                              75, 
+                              0, 
+                              rarity[3], 
+                              "Health", 
+                              "Potion",
+                              None)
 
 legendary_health_potion = Potion("Guargantuan potion", 
-                                 "This is stupidly big", 
-                                 durability_potion, 
-                                 value_potions[4], 
-                                 5, 
-                                 100, 
-                                 0, 
-                                 rarity[4], 
-                                 "Health", 
-                                 "Potion")
+                              "This is stupidly big", 
+                              1, 
+                              100, 
+                              5, 
+                              100, 
+                              0, 
+                              rarity[4], 
+                              "Health", 
+                              "Potion",
+                              None)
 
 mythic_health_potion = Potion("DAAAAAMMMMMNNNN potion", 
                               "I can't even quantify this thing", 
@@ -713,7 +773,8 @@ mythic_health_potion = Potion("DAAAAAMMMMMNNNN potion",
                               0, 
                               rarity[5], 
                               "Health", 
-                              "Potion")
+                              "Potion",
+                              None)
 
 
 health_pot_inventory = Shop_Category()
@@ -733,51 +794,56 @@ common_mana_potion = Potion("Basic mana potion",
                             10,
                             rarity[0], 
                             "Mana", 
-                            "Potion")
+                            "Potion",
+                            None)
 
 uncommon_mana_potion = Potion("Big mana potion", 
-                              "You're using too much spells", 
-                              durability_potion, 
-                              value_potions[1], 
-                              30, 
-                              0, 
-                              25,
-                              rarity[1], 
-                              "Mana", 
-                              "Potion")
+                            "You're using too much spells", 
+                            1, 
+                            20, 
+                            30, 
+                            0, 
+                            25,
+                            rarity[1], 
+                            "Mana", 
+                            "Potion",
+                            None)
 
 rare_mana_potion = Potion("Really big mana potion", 
-                          "Do you eat mana ?", 
-                          durability_potion, 
-                          value_potions[2], 
-                          20, 
-                          0, 
-                          50,
-                          rarity[2], 
-                          "Mana", 
-                          "Potion")
+                            "Do you eat mana ?", 
+                            1, 
+                            50, 
+                            20, 
+                            0, 
+                            50,
+                            rarity[2], 
+                            "Mana", 
+                            "Potion",
+                            None)
 
 epic_mana_potion = Potion("Huge mana potion", 
-                          "You don't even have this amount of mana, why ?", 
-                          durability_potion, 
-                          value_potions[3], 
-                          10, 
-                          0, 
-                          75,
-                          rarity[3], 
-                          "Mana", 
-                          "Potion")
+                            "You don't even have this amount of mana, why ?", 
+                            1, 
+                            75, 
+                            10, 
+                            0, 
+                            75,
+                            rarity[3], 
+                            "Mana", 
+                            "Potion",
+                            None)
 
 legendary_mana_potion = Potion("Guargantuan mana potion", 
-                               "Are you stupid ?", 
-                               durability_potion, 
-                               value_potions[4], 
-                               5, 
-                               1.5, 
-                               100, 
-                               rarity[4], 
-                               "Mana", 
-                               "Potion")
+                            "Are you stupid ?", 
+                            1, 
+                            100, 
+                            5, 
+                            1.5, 
+                            100, 
+                            rarity[4], 
+                            "Mana", 
+                            "Potion",
+                            None)
 
 mythic_mana_potion = Potion("DAAAAAMMMMMNNNN mana potion", 
                             "You're definitely insane", 
@@ -788,7 +854,8 @@ mythic_mana_potion = Potion("DAAAAAMMMMMNNNN mana potion",
                             200, 
                             rarity[5], 
                             "Mana", 
-                            "Potion")
+                            "Potion",
+                            None)
 
 mana_pot_inventory = Shop_Category()
 mana_pot_inventory.add_item(common_mana_potion)
@@ -817,10 +884,10 @@ armor = {
 }
 
 potions = {
-    rarity[0]: [common_health_potion, common_mana_potion],
-    rarity[1]: [uncommon_health_potion, uncommon_mana_potion],
-    rarity[2]: [rare_health_potion, rare_mana_potion],
-    rarity[3]: [epic_health_potion, epic_mana_potion],
-    rarity[4]: [legendary_health_potion, legendary_mana_potion],
-    rarity[4]: [mythic_health_potion, mythic_mana_potion]
+    rarity[0]: [common_health_potion],
+    rarity[1]: [uncommon_health_potion],
+    rarity[2]: [rare_health_potion],
+    rarity[3]: [epic_health_potion],
+    rarity[4]: [legendary_health_potion],
+    rarity[4]: [mythic_health_potion]
 }

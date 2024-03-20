@@ -24,8 +24,14 @@ class Character:
         return self.hp > 0
 
     def decrease_hp(self, amount):
+        mult = 0
+        for item in self.inventory.items:
+            if item.type == "Armor":
+                mult += item.armor_modifier
+        if mult == 0:
+            mult = 1
         if amount > 0:
-            self.hp -= int(amount) - self.armor
+            self.hp -= int(amount) - (self.armor*mult)
         if self.hp < 0:
             self.hp = 0
 
@@ -34,6 +40,8 @@ class Character:
         
     def increase_hp(self, amount):
         self.hp += amount
+        if self.hp > self.max_hp:
+            self.hp = self.max_hp
     
     def sell_item(self, item):
         self.inventory.items.remove(item)
@@ -78,9 +86,9 @@ class Enemy(Character):
     def random_attack(self):
         dice = Dice(2)
         if dice.roll() == 1:
-            return self.attack1.calculate_damages()
+            return self.attack1.calculate_damages(self)
         else:
-            return self.attack2.calculate_damages()
+            return self.attack2.calculate_damages(self)
 class Boss(Character):
     def __init__(self, name, base_hp, base_mana, armor, attack1, attack2, gold=0):
         super().__init__(name, base_hp, base_mana, armor, attack1, attack2, gold)

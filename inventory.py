@@ -13,12 +13,14 @@ class Inventory:
 
 
     def display_inventory(self):
+        i = 0
         if not self.items:
             print("Your inventory is empty.")
         else:
             print("Inventory :")
             for item in self.items:
-                print(f"- {item.name} : {item.description}")
+                i+=1
+                print(f"- {i} {item.name} : {item.description}")
 
 class Shop_Category(Inventory):
     def __init__(self) -> None:
@@ -40,3 +42,13 @@ class Chest(Inventory):
 
     def __str__(self) -> str:
         return(f"{self.items[0].name} : {self.items[0].description}")
+    
+class Pots(Inventory):
+    def __init__(self) -> None:
+        super().__init__()
+
+    def display_inventory(self):
+        print("Wich one do you want to drink ?")
+        for item in self.items:
+            i += 1
+            print(f" - {i} : [{item.color}]{item.name}[/{item.color}]")

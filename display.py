@@ -526,4 +526,5 @@ ___) (___| )  \  |  \   /  | (____/\| )  \  |   | |   | (___) || ) \ \__   | |
         p(f"Wich attack do you want to do ?")
         p(f" - 1 {attack1.name}")
         p(f" - 2 {attack2.name}")
+        p(f" - 3 Drink a potion")
         
