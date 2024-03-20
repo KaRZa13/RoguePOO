@@ -61,18 +61,7 @@ class Game:
         self.display.print_hub()
         hub_choice = int(input(""))
         self.hub_decision(hub_choice)
-            
-    def next_room(self):
-        self.display.next_room()
-        choice = int(input())
-        self.next_room_decision(choice)
 
-    def next_room_decision(self, choice):
-        if choice == 2:
-            self.create_room()
-        if choice == 1:
-            self.hub()
-            
     def chest_decision(self,choice):
         if choice == 1:
             print(f"This chest contain a {self.room.entity.items[0].name} Do you want to take it (and sell your equipped one ?)")
@@ -400,7 +389,6 @@ class Game:
         roll = dice.roll()
         if roll > self.room.entity.drop_chances:
             return self.generate_loot()
-
 
     def create_chest(self):
         chest = Chest()
