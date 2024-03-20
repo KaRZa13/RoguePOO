@@ -69,7 +69,7 @@ class Game:
             case 2:
                 self.shop_categories()
             case 3:
-                self.create_room()
+                self.infinite()
             case 4:
                 self.display.clear_console()
                 self.display.title()
@@ -264,8 +264,8 @@ class Game:
 
     def create_room(self):
         self.display.clear_console()
-        self.display.title()
-        self.display.infinite()
+        self.display.room()
+
         print(f"[{self.playercolor}]{self.player.name}[/{self.playercolor}] : {self.player.hp}/{self.player.max_hp} ❤️")
         self.new_room()
         if self.room.event == "chest":
@@ -397,9 +397,12 @@ class Game:
             case 1:
                 self.new_adventure()
                 sleep(5)
+                self.display.clear_console()
+                self.display.room()
+                sleep(5)
                 while self.player.is_alive():
                     for _ in range(4):
-                        pass
+                        break
             case 2:
                 self.new_adventure()
                 sleep(5)
@@ -422,4 +425,11 @@ class Game:
                 return self.hub()
 
     def infinite(self):
-        pass
+        self.display.clear_console()
+        self.display.title()
+        self.display.infinite()
+        sleep(3)
+        self.display.clear_console()
+        self.new_adventure()
+        sleep(4)
+        self.create_room()
