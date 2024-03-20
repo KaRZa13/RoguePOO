@@ -62,19 +62,6 @@ class Game:
         hub_choice = int(input(""))
         self.hub_decision(hub_choice)
 
-    def chest_decision(self,choice):
-        if choice == 1:
-            print(f"This chest contain a {self.room.entity.items[0].name} Do you want to take it (and sell your equipped one ?)")
-            print("1 - Yes")
-            print("2 - No")
-            replace_choice = int(input())
-            if replace_choice == 1 :
-                self.replace_decision_room(self.room.entity.items[0])
-            if replace_choice == 2 :
-                self.next_room()
-        if choice == 2:
-            self.next_room()
-
     def hub_decision(self,choice):
         match choice:
             case 1:
