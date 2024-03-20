@@ -1,6 +1,16 @@
 from character import *
 from inventory import *
 from items import *
+from dice import Dice
+from attack import Attack
+
+'''############################################################   ATTACKS   #############################################################'''
+
+damage = [4, 6]
+
+ATT1 = Attack("Normal attack", damage[0], 75, 1.25, 25, "Just a normal sword strike", Dice(100))
+ATT2 = Attack("Big attack", damage[1], 55, 2.25, 40, "A big attack , 50/50 either you destroy the opponent or you just miss your attack", Dice(100))
+
 
 '''#############################################################   ITEMS   #############################################################'''
 
@@ -193,7 +203,7 @@ uncommon_hammer = Weapons("DIY Hammer",
                           "Weapon",
                           "Hammer")
 
-rare_hammer = Weapons("Torbjörn hammer", 
+rare_hammer = Weapons("Torbjörn's hammer", 
                       "You want to repair your turret , right ?", 
                       durability_weapons[2], 
                       value_weapons[2], 
@@ -216,7 +226,7 @@ epic_hammer = Weapons("War hammer 40000",
                       "Hammer")
 
 legendary_hammer = Weapons("Mjöllnir", 
-                           "It's a pretty cool hammer tho", 
+                           "Be carefull, Thor is chasing you. Stealing is bad", 
                            durability_weapons[4], 
                            value_weapons[4], 
                            "drop chance", 
@@ -292,7 +302,7 @@ epic_stick = Weapons("The Baguette",
                      "Stick")
 
 legendary_stick = Weapons("Elderberry wand", 
-                          "Let the magic begin", 
+                          "You're a wizard Harry", 
                           durability_weapons[4], 
                           value_weapons[4], 
                           "drop chance", 

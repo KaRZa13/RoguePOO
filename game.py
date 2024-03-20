@@ -1,21 +1,10 @@
 from rich import print
 from display import Display
-from dice import Dice
-from attack import Attack
 from room import Room
 from time import sleep
 from init import *
 import random
 
-HALF = 50
-THREE_QUARTERS = 75
-QUARTER = 25
-
-ATTACK_DICE = Dice(100)
-ATT1 = Attack("Normal attack", 6, THREE_QUARTERS, 1.25, QUARTER, "Just a normal sword strike", ATTACK_DICE)
-ATT2 = Attack("Big attack", 4, HALF, 2.25, HALF, "A big attack , 50/50 either you destroy the opponent or you just miss your attack", ATTACK_DICE)
-
-CLASS_TYPES = [0, "Warrior", "Mage", "Thief", "Colossus"]
 
 class Game:
     def __init__(self):
@@ -115,10 +104,15 @@ class Game:
                 sword_inventory.display_inventory()
                 self.display.nevermind()
                 buy_choice = int(input(""))
-                if buy_choice == 7:
-                    self.shop_categories()
-                else:
-                    self.buy_decision(sword_inventory.items[(buy_choice - 1)])
+                match buy_choice:
+                    case buy_choice if 1 <= buy_choice <= 6:
+                        self.buy_decision(health_pot_inventory.items[(buy_choice - 1)])
+                    case 7:
+                        self.shop_categories()
+                    case _:
+                        print("Wrong entry (automatically returning to the shop)")
+                        sleep(3)
+                        self.shop_categories()
         
             case 2:
                 self.display.clear_console()
@@ -128,10 +122,15 @@ class Game:
                 knives_inventory.display_inventory()
                 self.display.nevermind()
                 buy_choice = int(input(""))
-                if buy_choice == 7:
-                    self.shop_categories()
-                else:
-                    self.buy_decision(knives_inventory.items[(buy_choice - 1)])
+                match buy_choice:
+                    case buy_choice if 1 <= buy_choice <= 6:
+                        self.buy_decision(health_pot_inventory.items[(buy_choice - 1)])
+                    case 7:
+                        self.shop_categories()
+                    case _:
+                        print("Wrong entry (automatically returning to the shop)")
+                        sleep(3)
+                        self.shop_categories()
             case 3:
                 self.display.clear_console()
                 self.display.title()
@@ -140,10 +139,15 @@ class Game:
                 hammer_inventory.display_inventory()
                 self.display.nevermind()
                 buy_choice = int(input(""))
-                if buy_choice == 7:
-                    self.shop_categories()
-                else:
-                    self.buy_decision(hammer_inventory.items[(buy_choice - 1)])
+                match buy_choice:
+                    case buy_choice if 1 <= buy_choice <= 6:
+                        self.buy_decision(health_pot_inventory.items[(buy_choice - 1)])
+                    case 7:
+                        self.shop_categories()
+                    case _:
+                        print("Wrong entry (automatically returning to the shop)")
+                        sleep(3)
+                        self.shop_categories()
             case 4:
                 self.display.clear_console()
                 self.display.title()
@@ -152,10 +156,15 @@ class Game:
                 stick_inventory.display_inventory()
                 self.display.nevermind()
                 buy_choice = int(input(""))
-                if buy_choice == 7:
-                    self.shop_categories()
-                else:
-                    self.buy_decision(stick_inventory.items[(buy_choice - 1)])
+                match buy_choice:
+                    case buy_choice if 1 <= buy_choice <= 6:
+                        self.buy_decision(health_pot_inventory.items[(buy_choice - 1)])
+                    case 7:
+                        self.shop_categories()
+                    case _:
+                        print("Wrong entry (automatically returning to the shop)")
+                        sleep(3)
+                        self.shop_categories()
             case 5:
                 self.display.clear_console()
                 self.display.title()
@@ -164,10 +173,15 @@ class Game:
                 shield_inventory.display_inventory()
                 self.display.nevermind()
                 buy_choice = int(input(""))
-                if buy_choice == 7:
-                    self.shop_categories()
-                else:
-                    self.buy_decision(shield_inventory.items[(buy_choice - 1)])
+                match buy_choice:
+                    case buy_choice if 1 <= buy_choice <= 6:
+                        self.buy_decision(health_pot_inventory.items[(buy_choice - 1)])
+                    case 7:
+                        self.shop_categories()
+                    case _:
+                        print("Wrong entry (automatically returning to the shop)")
+                        sleep(3)
+                        self.shop_categories()
             case 6:
                 self.display.clear_console()
                 self.display.title()
@@ -176,10 +190,15 @@ class Game:
                 helmet_inventory.display_inventory()
                 self.display.nevermind()
                 buy_choice = int(input(""))
-                if buy_choice == 7:
-                    self.shop_categories()
-                else:
-                    self.buy_decision(helmet_inventory.items[(buy_choice - 1)])
+                match buy_choice:
+                    case buy_choice if 1 <= buy_choice <= 6:
+                        self.buy_decision(health_pot_inventory.items[(buy_choice - 1)])
+                    case 7:
+                        self.shop_categories()
+                    case _:
+                        print("Wrong entry (automatically returning to the shop)")
+                        sleep(3)
+                        self.shop_categories()
             case 7:
                 self.display.clear_console()
                 self.display.title()
@@ -188,10 +207,15 @@ class Game:
                 chestplate_inventory.display_inventory()
                 self.display.nevermind()
                 buy_choice = int(input(""))
-                if buy_choice == 7:
-                    self.shop_categories()
-                else:
-                    self.buy_decision(chestplate_inventory.items[(buy_choice - 1)])
+                match buy_choice:
+                    case buy_choice if 1 <= buy_choice <= 6:
+                        self.buy_decision(health_pot_inventory.items[(buy_choice - 1)])
+                    case 7:
+                        self.shop_categories()
+                    case _:
+                        print("Wrong entry (automatically returning to the shop)")
+                        sleep(3)
+                        self.shop_categories()
             case 8:
                 self.display.clear_console()
                 self.display.title()
@@ -200,10 +224,15 @@ class Game:
                 leggings_inventory.display_inventory()
                 self.display.nevermind()
                 buy_choice = int(input(""))
-                if buy_choice == 7:
-                    self.shop_categories()
-                else:
-                    self.buy_decision(leggings_inventory.items[(buy_choice - 1)])
+                match buy_choice:
+                    case buy_choice if 1 <= buy_choice <= 6:
+                        self.buy_decision(health_pot_inventory.items[(buy_choice - 1)])
+                    case 7:
+                        self.shop_categories()
+                    case _:
+                        print("Wrong entry (automatically returning to the shop)")
+                        sleep(3)
+                        self.shop_categories()
             case 9:
                 self.display.clear_console()
                 self.display.title()
@@ -212,10 +241,15 @@ class Game:
                 boots_inventory.display_inventory()
                 self.display.nevermind()
                 buy_choice = int(input(""))
-                if buy_choice == 7:
-                    self.shop_categories()
-                else:
-                    self.buy_decision(boots_inventory.items[(buy_choice - 1)])
+                match buy_choice:
+                    case buy_choice if 1 <= buy_choice <= 6:
+                        self.buy_decision(health_pot_inventory.items[(buy_choice - 1)])
+                    case 7:
+                        self.shop_categories()
+                    case _:
+                        print("Wrong entry (automatically returning to the shop)")
+                        sleep(3)
+                        self.shop_categories()
             case 10:
                 self.display.clear_console()
                 self.display.title()
@@ -224,16 +258,21 @@ class Game:
                 health_pot_inventory.display_inventory()
                 self.display.nevermind()
                 buy_choice = int(input(""))
-                if buy_choice == 7:
-                    self.shop_categories()
-                else:
-                    self.buy_decision(health_pot_inventory.items[(buy_choice - 1)])
-            
+                match buy_choice:
+                    case buy_choice if 1 <= buy_choice <= 6:
+                        self.buy_decision(health_pot_inventory.items[(buy_choice - 1)])
+                    case 7:
+                        self.shop_categories()
+                    case _:
+                        print("Wrong entry (automatically returning to the shop)")
+                        sleep(3)
+                        self.shop_categories()
             case 11:
                 self.hub()
             case _:
-                print("Wrong entry")
-                return self.shop_categories_decision(choice)
+                print("Wrong entry (automatically returning to the shop)")
+                sleep(3)
+                self.shop_categories()
 
     def buy_decision(self, item):
         if self.player.gold >= item.value:
@@ -285,18 +324,16 @@ class Game:
     def new_adventure(self):
         self.display.clear_console()
         self.display.castle()
-        print("You arrived in front of a huge abandonned castle")
+        sleep(4)
+        self.display.clear_console()
+        self.display.room()
 
     def new_room(self):
         self.room.random_event()
 
     def create_room(self):
-        self.display.clear_console()
-        self.display.room()
-        print("You")
-
         print(f"[{self.playercolor}]{self.player.name}[/{self.playercolor}] : {self.player.hp}/{self.player.max_hp} ❤️")
-        self.new_room()
+        self.room.random_event()
         if self.room.event == "chest":
             self.display.chest()
             self.display.open_chest()
@@ -308,42 +345,48 @@ class Game:
     def fight(self):
         running = True
         while running :
-            if self.room.enemy == "skeleton":
-                self.display.clear_console()
-                self.display.skeleton()
-                print("You're facing a skeleton, what you do ?")
-            if self.room.enemy == "zombie":
-                self.display.clear_console()
-                self.display.zombie()
-                print("You're facing a zombie, what you do ?")
-            if self.room.enemy == "goblin":
-                self.display.clear_console()
-                self.display.goblin()
-                print("You're facing a goblin, what you do ?")
+            match self.room.enemy:
+                case "skeleton":
+                    self.display.clear_console()
+                    self.display.skeleton()
+                    print("You're facing a skeleton, what you do ?")
+                case "zombie":
+                    self.display.clear_console()
+                    self.display.zombie()
+                    print("You're facing a zombie, what you do ?")
+                case "goblin":
+                    self.display.clear_console()
+                    self.display.goblin()
+                    print("You're facing a goblin, what you do ?")
             print(f"[red]{self.room.entity.name}[/red] : {self.room.entity.hp}/{self.room.entity.max_hp} ❤️ \n")
             print(f"[{self.playercolor}]{self.player.name}[/{self.playercolor}] : {self.player.hp}/{self.player.max_hp} ❤️")
-            self.display.wich_attack(self.player.attack1, self.player.attack2)
+            self.display.which_attack(self.player.attack1, self.player.attack2)
             choice = int(input(""))
-            if choice == 1:
-                self.player.attack(self.room.entity,self.player.attack1.calculate_damages(self.player))
-            if choice == 2:
-                self.player.attack(self.room.entity,self.player.attack2.calculate_damages(self.player))
-            if choice == 3:
-                pot_inv = Inventory()
-                for item in self.player.inventory.items:
-                    if item.type == "Potion":
-                        pot_inv.add_item(item)
-                if len(pot_inv.items) != 0:
-                    pot_inv.display_inventory()
-                    pot_choice = int(input())
-                    print(f"{pot_inv.items[pot_choice - 1].health_amount}")
-                    self.player.increase_hp(pot_inv.items[pot_choice - 1].health_amount)
-                    self.player.inventory.items.remove(pot_inv.items[pot_choice - 1])
-                else :
-                    print("You don't have any potions (choose an attack)")
+            match choice:
+                case 1:
+                    self.player.attack(self.room.entity,self.player.attack1.calculate_damages(self.player))
+                case 2:
+                    self.player.attack(self.room.entity,self.player.attack2.calculate_damages(self.player))
+                case 3:
+                    pot_inv = Inventory()
+                    for item in self.player.inventory.items:
+                        if item.type == "Potion":
+                            pot_inv.add_item(item)
+                        if len(pot_inv.items) != 0:
+                            pot_inv.display_inventory()
+                            pot_choice = int(input())
+                            print(f"{pot_inv.items[pot_choice - 1].health_amount}")
+                            self.player.increase_hp(pot_inv.items[pot_choice - 1].health_amount)
+                            self.player.inventory.items.remove(pot_inv.items[pot_choice - 1])
+                        else:
+                            print("You don't have any potions (choose an attack)")
+                            sleep(2)
+                            self.fight()
+                            return 0
+                case _:
+                    print("Wrong entry")
                     sleep(2)
                     self.fight()
-                    return 0
             if self.room.entity.is_alive():
                 self.room.entity.attack(self.player,self.room.entity.random_attack())
             if not self.player.is_alive() or not self.room.entity.is_alive():
@@ -354,14 +397,14 @@ class Game:
             print(f"[{self.playercolor}]{self.player.name}[/{self.playercolor}] : {self.player.hp}/{self.player.max_hp} ❤️")
             self.finished_fight()
         if not self.player.is_alive():
-            print("You have been defeated , what a shame !(returning to the village)")
+            print("You have been defeated, what a shame ! (returning to the village)")
             sleep(3)
             self.player.hp = self.player.max_hp
             self.hub()
 
     def finished_fight(self):
         drop = self.enemy_dropped()
-        self.player.gold += 5
+        self.player.gold += 10
         if drop == None:
             print("You defeated the enemy !")
             sleep(3)
@@ -371,11 +414,12 @@ class Game:
             print(" - 1 Yes")
             print(" - 2 No")
             choice = int(input(""))
-            if choice == 1:
-                self.replace_decision_room(drop)
-                self.next_room()
-            if choice == 2:
-                self.next_room()
+            match choice:
+                case 1:
+                    self.replace_decision_room(drop)
+                    self.next_room()
+                case 2:
+                    self.next_room()
 
     def enemy_dropped(self):
         dice = Dice(100)
@@ -462,14 +506,19 @@ class Game:
     def next_room(self):
         self.display.next_room()
         choice = int(input())
-        self.next_room_decision(choice)
-
-    def next_room_decision(self, choice):
-        if choice == 2:
-            self.create_room()
-        if choice == 1:
-            self.player.hp = self.player.max_hp
-            self.hub()
+        match choice:
+            case 1:
+                self.player.hp = self.player.max_hp
+                self.hub()
+            case 2:
+                self.display.clear_console()
+                self.display.door()
+                sleep(4)
+                self.display.clear_console()
+                self.create_room()
+            case _:
+                print("Wrong entry")
+                return self.new_room()
 
     def dungeon(self, choice):
         match choice:
@@ -481,7 +530,7 @@ class Game:
                 sleep(5)
                 while self.player.is_alive():
                     for _ in range(4):
-                        break
+                        pass
             case 2:
                 self.new_adventure()
                 sleep(5)
