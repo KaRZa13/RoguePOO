@@ -6,10 +6,15 @@ from items import *
 
 durability_weapons = [25, 50, 100, 200, 500, 666]
 durability_armor = [25, 50, 100, 200, 500, 666]
+durability_potion = 1
 damage_modifier = [1, 1.1, 1.2, 1.3, .4, 1.5]
 armor_modifier = [1, 1.1, 1.2, 1.3, 1.4, 1.5]
+health_amount = []
+mana_amount = []
 value_weapons = [15, 30, 50, 100, 200, 500]
 value_armor = [20, 35, 75, 150, 300, 600]
+value_potions = [10, 20, 50, 75, 100, 200]
+
 drop_chance = [50, 25, 17, 12, 5, 1]
 rarity = ["Common", "Uncommon", "Rare", "Epic", "Legendary", "Mythic"]
 
@@ -700,8 +705,8 @@ boots_inventory.add_item(mythic_boots)
 
 common_health_potion = Potion("Basic potion", 
                               "Just a little potion", 
-                              1, 
-                              10, 
+                              durability_potion, 
+                              value_potions[0], 
                               40, 
                               10, 
                               0, 
@@ -761,8 +766,8 @@ legendary_health_potion = Potion("Guargantuan potion",
 
 mythic_health_potion = Potion("DAAAAAMMMMMNNNN potion", 
                               "I can't even quantify this thing", 
-                              1, 
-                              200, 
+                              durability_potion, 
+                              value_potions[5], 
                               1, 
                               200, 
                               0, 
@@ -782,8 +787,8 @@ health_pot_inventory.add_item(mythic_health_potion)
 
 common_mana_potion = Potion("Basic mana potion", 
                             "Same stuff but for mana", 
-                            1, 
-                            10, 
+                            durability_potion, 
+                            value_potions[0], 
                             40, 
                             0, 
                             10,
@@ -842,8 +847,8 @@ legendary_mana_potion = Potion("Guargantuan mana potion",
 
 mythic_mana_potion = Potion("DAAAAAMMMMMNNNN mana potion", 
                             "You're definitely insane", 
-                            1, 
-                            200, 
+                            durability_potion, 
+                            value_potions[5], 
                             1, 
                             0, 
                             200, 
