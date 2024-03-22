@@ -349,15 +349,15 @@ class Game:
                 case "skeleton":
                     self.display.clear_console()
                     self.display.skeleton()
-                    print("You're facing a skeleton, what you do ?")
+                    print("You're facing a skeleton, what are you going to do ?")
                 case "zombie":
                     self.display.clear_console()
                     self.display.zombie()
-                    print("You're facing a zombie, what you do ?")
+                    print("You're facing a zombie, what are you going to do ?")
                 case "goblin":
                     self.display.clear_console()
                     self.display.goblin()
-                    print("You're facing a goblin, what you do ?")
+                    print("You're facing a goblin, what are you going to do ?")
             print(f"[red]{self.room.entity.name}[/red] : {self.room.entity.hp}/{self.room.entity.max_hp} ❤️ \n")
             print(f"[{self.playercolor}]{self.player.name}[/{self.playercolor}] : {self.player.hp}/{self.player.max_hp} ❤️")
             self.display.which_attack(self.player.attack1, self.player.attack2)
