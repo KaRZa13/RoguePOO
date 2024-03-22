@@ -286,15 +286,22 @@ class Game:
                 sleep(3)
                 self.shop_categories()
 
+
     def buy_decision(self, item):
         if self.player.gold >= item.value:
             if self.player.char_class == item.item_class or item.item_class == "Any":
-                if item not in self.player.inventory.items and item.item_class == "Any":
+                if len(self.player.inventory.items) == 0:
                     self.player.inventory.add_item(item)
                     self.player.gold -= item.value
                     self.shop_categories()
                 else:
-                    self.replace_decision(item)
+                    for i in self.player.inventory.items:
+                        if i.item_type == item.item_type and not item.item_class == "Any":
+                            self.replace_decision(item)
+                        elif i.item_type != item.item_type or item.item_class == "Any": 
+                            self.player.inventory.add_item(item)
+                            self.player.gold -= item.value
+                            self.shop_categories()
             else:
                self.display.wrong_class(self.player.char_class)
                sleep(2)
