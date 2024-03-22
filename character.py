@@ -64,7 +64,7 @@ class Mage(Character):
 
 class Thief(Character):
     def __init__(self, name, base_hp, base_mana, armor, attack1, attack2, gold=0):
-        super().__init__(name, base_hp, base_mana, armor, attack1, attack2, gold=50)
+        super().__init__(name, base_hp, base_mana, armor, attack1, attack2, gold=1150)
         self.char_class = "Thief"
 
     def attack(self, target, amount):
