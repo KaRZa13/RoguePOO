@@ -344,8 +344,8 @@ common_shield = Armor("Cardboard shield",
                       "Armor",
                       "Shield")
 
-uncommon_shield = Armor("Name", 
-                      "Description", 
+uncommon_shield = Armor("Shiebre", 
+                      "Some french shit", 
                       durability_armor[1], 
                       value_armor[1], 
                       "drop chance", 
@@ -355,8 +355,8 @@ uncommon_shield = Armor("Name",
                       "Armor",
                       "Shield")
 
-rare_shield = Armor("Name", 
-                      "Description", 
+rare_shield = Armor("Medieval shield", 
+                      "Back to XV", 
                       durability_armor[2], 
                       value_armor[2], 
                       "drop chance", 
@@ -366,8 +366,8 @@ rare_shield = Armor("Name",
                       "Armor",
                       "Shield")
 
-epic_shield = Armor("Name", 
-                      "Description", 
+epic_shield = Armor("Reinhardt's shield", 
+                      "It's pretty big , no ?", 
                       durability_armor[3], 
                       value_armor[3], 
                       "drop chance", 
@@ -377,8 +377,8 @@ epic_shield = Armor("Name",
                       "Armor",
                       "Shield")
 
-legendary_shield = Armor("Reinhardt shield", 
-                      "It's pretty big , no ?", 
+legendary_shield = Armor("Vibranium shield", 
+                      "What did you do to captain america ?", 
                       durability_armor[4], 
                       value_armor[4], 
                       "drop chance", 
@@ -409,8 +409,8 @@ shield_inventory.add_item(mythic_shield)
 
 # ARMOR HELMET
 
-common_helmet = Armor("Common helmet", 
-                      "Description", 
+common_helmet = Armor("Leather helmet", 
+                      "You killed some cows , well done !", 
                       durability_armor[0], 
                       value_armor[0], 
                       "drop chance", 
@@ -420,8 +420,8 @@ common_helmet = Armor("Common helmet",
                       "Armor",
                       "Shield")
 
-uncommon_helmet = Armor("Uncommon helmet", 
-                      "Description", 
+uncommon_helmet = Armor("Bike helmet", 
+                      "you are too old for this ...", 
                       durability_armor[1], 
                       value_armor[1], 
                       "drop chance", 
@@ -431,8 +431,8 @@ uncommon_helmet = Armor("Uncommon helmet",
                       "Armor",
                       "Helmet")
 
-rare_helmet = Armor("Rare helmet", 
-                      "Description", 
+rare_helmet = Armor("Arai helmet", 
+                      "You just want to cruise on your T-max", 
                       durability_armor[2], 
                       value_armor[2], 
                       "drop chance", 
@@ -442,8 +442,8 @@ rare_helmet = Armor("Rare helmet",
                       "Armor",
                       "Helmet")
 
-epic_helmet = Armor("Epic helmet", 
-                      "Description", 
+epic_helmet = Armor("Beats studio pro helmet", 
+                      "Ok Dr.Dre", 
                       durability_armor[3], 
                       value_armor[3], 
                       "drop chance", 
@@ -453,8 +453,8 @@ epic_helmet = Armor("Epic helmet",
                       "Armor",
                       "Helmet")
 
-legendary_helmet = Armor("Legendary helmet", 
-                      "Description", 
+legendary_helmet = Armor("Diamond Helmet", 
+                      "Cover me in diamonds", 
                       durability_armor[4], 
                       value_armor[4], 
                       "drop chance", 
@@ -464,8 +464,8 @@ legendary_helmet = Armor("Legendary helmet",
                       "Armor",
                       "Helmet")
 
-mythic_helmet = Armor("Mythic helmet", 
-                      "Description", 
+mythic_helmet = Armor("Magneto's helmet", 
+                      "Good style bro", 
                       durability_armor[5], 
                       value_armor[5], 
                       "drop chance", 
@@ -485,8 +485,8 @@ helmet_inventory.add_item(mythic_helmet)
 
 # ARMOR CHESTPLATE
 
-common_chestplate = Armor("Common chestplate", 
-                          "Description", 
+common_chestplate = Armor("Holey shirt", 
+                          "did you find it in the trash can ?", 
                           durability_armor[0], 
                           value_armor[0], 
                           "drop chance", 
@@ -496,8 +496,8 @@ common_chestplate = Armor("Common chestplate",
                           "Armor",
                           "Chestplate")
 
-uncommon_chestplate = Armor("Uncommon chestplate", 
-                          "Description", 
+uncommon_chestplate = Armor("Barbarian chestplate", 
+                          "This one significantly reduces your IQ", 
                           durability_armor[1], 
                           value_armor[1], 
                           "drop chance", 
@@ -507,8 +507,8 @@ uncommon_chestplate = Armor("Uncommon chestplate",
                           "Armor",
                           "Chestplate")
 
-rare_chestplate = Armor("Rare chestplate", 
-                          "Description", 
+rare_chestplate = Armor("Gragas's belly", 
+                          "Too much beer for you", 
                           durability_armor[2], 
                           value_armor[2], 
                           "drop chance", 
@@ -518,8 +518,8 @@ rare_chestplate = Armor("Rare chestplate",
                           "Armor",
                           "Chestplate")
 
-epic_chestplate = Armor("Epic chestplate", 
-                          "Description", 
+epic_chestplate = Armor("Daedric chestplate", 
+                          "Fus Ro Dah", 
                           durability_armor[3], 
                           value_armor[3], 
                           "drop chance", 
@@ -529,8 +529,8 @@ epic_chestplate = Armor("Epic chestplate",
                           "Armor",
                           "Chestplate")
 
-legendary_chestplate = Armor("Legendary chestplate", 
-                          "Description", 
+legendary_chestplate = Armor("Diamond chestplate", 
+                          "Cover me in diamonds", 
                           durability_armor[4], 
                           value_armor[4], 
                           "drop chance", 
@@ -540,8 +540,8 @@ legendary_chestplate = Armor("Legendary chestplate",
                           "Armor",
                           "Chestplate")
 
-mythic_chestplate = Armor("Mythic helmet", 
-                          "Description", 
+mythic_chestplate = Armor("Gucci coat", 
+                          "3k$ for that , really ?", 
                           durability_armor[5], 
                           value_armor[5], 
                           "drop chance", 
