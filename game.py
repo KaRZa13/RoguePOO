@@ -33,7 +33,7 @@ class Game:
                 self.player = Mage(name, 20, 20, 3, ATT1,ATT2)
                 self.playercolor = "blue"
             case 3:
-                self.player = Thief(name, 20, 0, 3, ATT1,ATT2, 10)
+                self.player = Thief(name, 20, 0, 3, ATT1,ATT2, gold=50)
                 self.playercolor = "green"
             case 4:
                 self.player = Colossus(name, 20, 0, 3, ATT1,ATT2)
@@ -106,7 +106,7 @@ class Game:
                 buy_choice = int(input(""))
                 match buy_choice:
                     case buy_choice if 1 <= buy_choice <= 6:
-                        self.buy_decision(health_pot_inventory.items[(buy_choice - 1)])
+                        self.buy_decision(sword_inventory.items[(buy_choice - 1)])
                     case 7:
                         self.shop_categories()
                     case _:
@@ -124,7 +124,7 @@ class Game:
                 buy_choice = int(input(""))
                 match buy_choice:
                     case buy_choice if 1 <= buy_choice <= 6:
-                        self.buy_decision(health_pot_inventory.items[(buy_choice - 1)])
+                        self.buy_decision(knives_inventory.items[(buy_choice - 1)])
                     case 7:
                         self.shop_categories()
                     case _:
@@ -141,7 +141,7 @@ class Game:
                 buy_choice = int(input(""))
                 match buy_choice:
                     case buy_choice if 1 <= buy_choice <= 6:
-                        self.buy_decision(health_pot_inventory.items[(buy_choice - 1)])
+                        self.buy_decision(hammer_inventory.items[(buy_choice - 1)])
                     case 7:
                         self.shop_categories()
                     case _:
@@ -158,7 +158,7 @@ class Game:
                 buy_choice = int(input(""))
                 match buy_choice:
                     case buy_choice if 1 <= buy_choice <= 6:
-                        self.buy_decision(health_pot_inventory.items[(buy_choice - 1)])
+                        self.buy_decision(stick_inventory.items[(buy_choice - 1)])
                     case 7:
                         self.shop_categories()
                     case _:
@@ -175,7 +175,7 @@ class Game:
                 buy_choice = int(input(""))
                 match buy_choice:
                     case buy_choice if 1 <= buy_choice <= 6:
-                        self.buy_decision(health_pot_inventory.items[(buy_choice - 1)])
+                        self.buy_decision(shield_inventory.items[(buy_choice - 1)])
                     case 7:
                         self.shop_categories()
                     case _:
@@ -192,7 +192,7 @@ class Game:
                 buy_choice = int(input(""))
                 match buy_choice:
                     case buy_choice if 1 <= buy_choice <= 6:
-                        self.buy_decision(health_pot_inventory.items[(buy_choice - 1)])
+                        self.buy_decision(helmet_inventory.items[(buy_choice - 1)])
                     case 7:
                         self.shop_categories()
                     case _:
@@ -209,7 +209,7 @@ class Game:
                 buy_choice = int(input(""))
                 match buy_choice:
                     case buy_choice if 1 <= buy_choice <= 6:
-                        self.buy_decision(health_pot_inventory.items[(buy_choice - 1)])
+                        self.buy_decision(chestplate_inventory.items[(buy_choice - 1)])
                     case 7:
                         self.shop_categories()
                     case _:
@@ -226,7 +226,7 @@ class Game:
                 buy_choice = int(input(""))
                 match buy_choice:
                     case buy_choice if 1 <= buy_choice <= 6:
-                        self.buy_decision(health_pot_inventory.items[(buy_choice - 1)])
+                        self.buy_decision(leggings_inventory.items[(buy_choice - 1)])
                     case 7:
                         self.shop_categories()
                     case _:
@@ -243,7 +243,7 @@ class Game:
                 buy_choice = int(input(""))
                 match buy_choice:
                     case buy_choice if 1 <= buy_choice <= 6:
-                        self.buy_decision(health_pot_inventory.items[(buy_choice - 1)])
+                        self.buy_decision(boots_inventory.items[(buy_choice - 1)])
                     case 7:
                         self.shop_categories()
                     case _:
@@ -349,15 +349,15 @@ class Game:
                 case "skeleton":
                     self.display.clear_console()
                     self.display.skeleton()
-                    print("You're facing a skeleton, what you do ?")
+                    print("You're facing a skeleton, what are you going to do ?")
                 case "zombie":
                     self.display.clear_console()
                     self.display.zombie()
-                    print("You're facing a zombie, what you do ?")
+                    print("You're facing a zombie, what are you going to do ?")
                 case "goblin":
                     self.display.clear_console()
                     self.display.goblin()
-                    print("You're facing a goblin, what you do ?")
+                    print("You're facing a goblin, what are you going to do ?")
             print(f"[red]{self.room.entity.name}[/red] : {self.room.entity.hp}/{self.room.entity.max_hp} ❤️ \n")
             print(f"[{self.playercolor}]{self.player.name}[/{self.playercolor}] : {self.player.hp}/{self.player.max_hp} ❤️")
             self.display.which_attack(self.player.attack1, self.player.attack2)
