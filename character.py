@@ -4,7 +4,7 @@ from dice import Dice
 
 class Character:
 
-    def __init__(self, name, base_hp, base_mana, armor, attack1, attack2, gold=0):
+    def __init__(self, name, base_hp, base_mana, armor, attack1, attack2, gold=1000):
         self.name = name
         self.max_hp = base_hp
         self.hp = self.max_hp
@@ -48,38 +48,38 @@ class Character:
         self.gold += item.value
 
 class Warrior(Character):
-    def __init__(self, name, base_hp, base_mana, armor, attack1, attack2, gold=0):
-        super().__init__(name, base_hp, base_mana, armor, attack1, attack2, gold=0)
+    def __init__(self, name, base_hp, base_mana, armor, attack1, attack2, gold=1000):
+        super().__init__(name, base_hp, base_mana, armor, attack1, attack2, gold=1000)
         self.char_class = "Warrior"
 
     def attack(self, target, amount):
         target.decrease_hp(amount + target.armor)
     
 class Mage(Character):
-    def __init__(self, name, base_hp, base_mana, armor, attack1, attack2, gold=0):
-        super().__init__(name, base_hp, base_mana, armor, attack1, attack2, gold=0)
+    def __init__(self, name, base_hp, base_mana, armor, attack1, attack2, gold=1000):
+        super().__init__(name, base_hp, base_mana, armor, attack1, attack2, gold=1000)
         self.char_class = "Mage"
 
     pass
 
 class Thief(Character):
-    def __init__(self, name, base_hp, base_mana, armor, attack1, attack2, gold=0):
-        super().__init__(name, base_hp, base_mana, armor, attack1, attack2, gold=1150)
+    def __init__(self, name, base_hp, base_mana, armor, attack1, attack2, gold=1000):
+        super().__init__(name, base_hp, base_mana, armor, attack1, attack2, gold=1000)
         self.char_class = "Thief"
 
     def attack(self, target, amount):
         target.decrease_hp(amount + target.armor)
     
 class Colossus(Character):
-    def __init__(self, name, base_hp, base_mana, armor, attack1, attack2, gold=0):
-        super().__init__(name, base_hp, base_mana, armor, attack1, attack2, gold=0)
+    def __init__(self, name, base_hp, base_mana, armor, attack1, attack2, gold=1000):
+        super().__init__(name, base_hp, base_mana, armor, attack1, attack2, gold=1000)
         self.char_class = "Colossus"
 
     def decrease_hp(self, amount):
         return super().decrease_hp(amount - 3)
     
 class Enemy(Character):
-    def __init__(self, name, base_hp, base_mana, armor, attack1, attack2, drop_chances, gold=0):
+    def __init__(self, name, base_hp, base_mana, armor, attack1, attack2, drop_chances, gold=1000):
         super().__init__(name, base_hp, base_mana, armor, attack1, attack2, gold)
         self.drop_chances = drop_chances
 
@@ -89,7 +89,14 @@ class Enemy(Character):
             return self.attack1.calculate_damages(self)
         else:
             return self.attack2.calculate_damages(self)
+        
 class Boss(Character):
-    def __init__(self, name, base_hp, base_mana, armor, attack1, attack2, gold=0):
+    def __init__(self, name, base_hp, base_mana, armor, attack1, attack2, gold=1000):
         super().__init__(name, base_hp, base_mana, armor, attack1, attack2, gold)
-    
+        
+    def random_attack(self):
+        dice = Dice(2)
+        if dice.roll() == 1:
+            return self.attack1.calculate_damages(self)
+        else:
+            return self.attack2.calculate_damages(self)
