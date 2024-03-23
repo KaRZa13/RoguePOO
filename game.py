@@ -500,7 +500,7 @@ class Game:
                         if self.hub_deci == 4:
                             self.next_room_dungeon()
                     case _:
-                        if self.hub.deci == 3:
+                        if self.hub_deci == 3:
                             self.next_room_infinite()
                         if self.hub_deci == 4:
                             self.next_room_dungeon()
@@ -553,41 +553,41 @@ class Game:
         added = False
         for item in self.player.inventory.items:
             if new_item.item_type == None:
-                if self.hub.deci == 3:
+                if self.hub_deci == 3:
                     self.player.inventory.add_item(new_item)
                     self.next_room_infinite()
-                if self.hub.deci == 4:
+                if self.hub_deci == 4:
                     self.player.inventory.add_item(new_item)
                     self.next_room_dungeon()
             elif new_item.item_type == item.item_type:
                 if new_item.item_class == self.player.char_class or new_item.item_class == "Any":
-                    if self.hub.deci == 3:
+                    if self.hub_deci == 3:
                         added = True
                         self.player.inventory.remove_item(item)
                         self.player.inventory.add_item(new_item)
                         self.next_room_infinite()
-                    if self.hub.deci == 4:
+                    if self.hub_deci == 4:
                         added = True
                         self.player.inventory.remove_item(item)
                         self.player.inventory.add_item(new_item)
                         self.next_room_dungeon()
                 else:
-                    if self.hub.deci == 3:
+                    if self.hub_deci == 3:
                         print("Wrong class for this item , returning to the choice")
                         self.next_room_infinite()
-                    if self.hub.deci == 4:
+                    if self.hub_deci == 4:
                         print("Wrong class for this item , returning to the choice")
                         self.next_room_dungeon()
         if added == False:
             if new_item.item_class == self.player.char_class or new_item.item_class == "Any":
-                if self.hub.deci == 3:
+                if self.hub_deci == 3:
                     self.player.inventory.add_item(new_item)
                     self.next_room_infinite()
                 if self.hub_deci == 4:
                     self.player.inventory.add_item(new_item)
                     self.next_room_dungeon()
             else:
-                if self.hub.deci == 3:
+                if self.hub_deci == 3:
                     self.display.wrong_class
                     sleep(2)
                     self.next_room_infinite()
