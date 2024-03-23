@@ -35,7 +35,7 @@ class Game:
                 self.player = Mage(name, 20, 20, 3, ATT1,ATT2)
                 self.playercolor = "blue"
             case 3:
-                self.player = Thief(name, 20, 0, 3, ATT1,ATT2, gold=50)
+                self.player = Thief(name, 2000, 0, 3, ATT1,ATT2, gold=50)
                 self.playercolor = "green"
             case 4:
                 self.player = Colossus(name, 20, 0, 3, ATT1,ATT2)
@@ -54,7 +54,7 @@ class Game:
         hub_choice = int(input(""))
         self.hub_decision(hub_choice)
 
-    def hub_decision(self,choice):
+    def hub_decision(self, choice):
         match choice:
             case 1:
                 self.hub_deci = 1
@@ -86,7 +86,7 @@ class Game:
         inventory_choice = int(input(""))
         self.inventory_decision(inventory_choice)
 
-    def inventory_decision(self,choice):
+    def inventory_decision(self, choice):
         match choice:
             case 1:
                 self.hub()
@@ -106,7 +106,7 @@ class Game:
         category_choice = int(input(""))
         self.shop_categories_decision(category_choice)
 
-    def shop_categories_decision(self,choice):
+    def shop_categories_decision(self, choice):
         match choice:
             case 1:
                 self.display.clear_console()
@@ -285,7 +285,6 @@ class Game:
                 print("Wrong entry (automatically returning to the shop)")
                 sleep(3)
                 self.shop_categories()
-
 
     def buy_decision(self, item):
         if self.player.gold >= item.value:
@@ -485,18 +484,36 @@ class Game:
         chest.add_item(self.generate_loot())
         return chest
 
-    def chest_decision(self,choice):
-        if choice == 1:
-            print(f"This chest contain a {self.room.entity.items[0].name} Do you want to take it (and sell your equipped one ?)")
-            print("1 - Yes")
-            print("2 - No")
-            replace_choice = int(input())
-            if replace_choice == 1 :
-                self.replace_loot_decision(self.room.entity.items[0])
-            if replace_choice == 2 :
-                self.next_room()
-        if choice == 2:
-            self.next_room()
+    def chest_decision(self, choice):
+        match choice:
+            case 1:
+                print(f"This chest contain a {self.room.entity.items[0].name} Do you want to take it (and sell your equipped one ?)")
+                print("1 - Yes")
+                print("2 - No")
+                replace_choice = int(input())
+                match replace_choice:
+                    case 1:
+                        self.replace_loot_decision(self.room.entity.items[0])
+                    case 2:
+                        if self.hub_deci == 3:
+                            self.next_room_infinite()
+                        if self.hub_deci == 4:
+                            self.next_room_dungeon()
+                    case _:
+                        if self.hub.deci == 3:
+                            self.next_room_infinite()
+                        if self.hub_deci == 4:
+                            self.next_room_dungeon()
+            case 2:
+                if self.hub_deci == 3:
+                    self.next_room_infinite()
+                if self.hub_deci == 4:
+                    self.next_room_dungeon()
+            case _:
+                if self.hub_deci == 3:
+                    self.next_room_infinite()
+                if self.hub_deci == 4:
+                    self.next_room_dungeon()
 
     def generate_loot(self):
         rarity_probabilities = drop_chance
@@ -536,25 +553,48 @@ class Game:
         added = False
         for item in self.player.inventory.items:
             if new_item.item_type == None:
-                self.player.inventory.add_item(new_item)
-                self.next_room()
+                if self.hub.deci == 3:
+                    self.player.inventory.add_item(new_item)
+                    self.next_room_infinite()
+                if self.hub.deci == 4:
+                    self.player.inventory.add_item(new_item)
+                    self.next_room_dungeon()
             elif new_item.item_type == item.item_type:
                 if new_item.item_class == self.player.char_class or new_item.item_class == "Any":
-                    added = True
-                    self.player.inventory.remove_item(item)
-                    self.player.inventory.add_item(new_item)
-                    self.next_room()
+                    if self.hub.deci == 3:
+                        added = True
+                        self.player.inventory.remove_item(item)
+                        self.player.inventory.add_item(new_item)
+                        self.next_room_infinite()
+                    if self.hub.deci == 4:
+                        added = True
+                        self.player.inventory.remove_item(item)
+                        self.player.inventory.add_item(new_item)
+                        self.next_room_dungeon()
                 else:
-                    print("Wrong class for this item , returning to the choice")
-                    self.next_room()
+                    if self.hub.deci == 3:
+                        print("Wrong class for this item , returning to the choice")
+                        self.next_room_infinite()
+                    if self.hub.deci == 4:
+                        print("Wrong class for this item , returning to the choice")
+                        self.next_room_dungeon()
         if added == False:
             if new_item.item_class == self.player.char_class or new_item.item_class == "Any":
-                self.player.inventory.add_item(new_item)
-                self.next_room()
+                if self.hub.deci == 3:
+                    self.player.inventory.add_item(new_item)
+                    self.next_room_infinite()
+                if self.hub_deci == 4:
+                    self.player.inventory.add_item(new_item)
+                    self.next_room_dungeon()
             else:
-                self.display.wrong_class
-                sleep(2)
-                self.next_room()
+                if self.hub.deci == 3:
+                    self.display.wrong_class
+                    sleep(2)
+                    self.next_room_infinite()
+                if self.hub_deci == 4:
+                    self.display.wrong_class
+                    sleep(2)
+                    self.next_room_dungeon()
 
     def next_room_infinite(self):
         self.display.next_room_infinite()

@@ -16,7 +16,6 @@ class Character:
         self.attack2 = attack2
         self.inventory = Inventory()
 
-
     def __str__(self):
         return f"I am {self.name} I have {self.hp} ❤️ and my attacks are {self.attack1.name} and {self.attack2.name}"
     
@@ -59,8 +58,6 @@ class Mage(Character):
     def __init__(self, name, base_hp, base_mana, armor, attack1, attack2, gold=1000):
         super().__init__(name, base_hp, base_mana, armor, attack1, attack2, gold=1000)
         self.char_class = "Mage"
-
-    pass
 
 class Thief(Character):
     def __init__(self, name, base_hp, base_mana, armor, attack1, attack2, gold=1000):

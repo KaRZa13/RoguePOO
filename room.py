@@ -3,7 +3,7 @@ from character import Enemy, Boss
 from attack import Attack
 
 BOSS_TYPES = ["Demon", "Drake"]
-ENEMY_TYPES = ["Squeletton", "Zombie", "Goblin"]
+ENEMY_TYPES = ["Skeleton", "Zombie", "Goblin"]
 ATTACK_DICE = Dice(100)
 HALF = 50
 THREE_QUARTERS = 75
@@ -28,19 +28,18 @@ class Room:
         if roll > 12:
             self.event = "enemy"
             roll2 = self.dice.roll()
-            if roll2 < 33:
+            if roll2 <= 33:
                 self.entity = Enemy(ENEMY_TYPES[0], 20, 0, 3, ATT1, ATT2, 70)
                 self.enemy = "skeleton"
-            if roll2 > 33 or roll2 < 66:
+            if roll2 > 33 or roll2 <= 66:
                 self.entity = Enemy(ENEMY_TYPES[1], 15, 0, 5, ATT1, ATT2, 60)
                 self.enemy = "zombie"
-            if roll > 66:
+            if roll2 > 66:
                 self.entity = Enemy(ENEMY_TYPES[2], 25, 0, 3, ATT1, ATT2, 65)
                 self.enemy = "goblin"
         else : 
             self.event = "chest"
-            chest = self.game.create_chest()
-            self.entity = chest
+            self.entity = self.game.create_chest()
     
     def reset_entities(self):
         self.entity = None

@@ -171,6 +171,7 @@ ___| |___| |  \  || |      ___| |___| |  \  |___| |___   | |   | |____/\
             
         You see a door at the back of the room and you go deeper in the dungeon
 """)
+    
     @staticmethod
     def goblin():
         print(r"""

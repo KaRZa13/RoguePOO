@@ -11,7 +11,6 @@ class Inventory:
     def remove_item(self, item):
         self.items.remove(item)
 
-
     def display_inventory(self):
         i = 0
         if not self.items:
