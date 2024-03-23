@@ -13,6 +13,8 @@ class Game:
         self.enemies = []
         self.display = Display()
         self.room = Room(self)
+        self.hub_deci = None
+        self.boss_spawned = False
 
     def start(self):
         self.display.clear_console()
@@ -40,7 +42,8 @@ class Game:
                 self.playercolor = "yellow1"
             case _:
                 print("Wrong entry, choose a number between 1 and 4.")
-                return self.choose_class()
+                sleep(3)
+                return self.start()
 
     def hub(self):
         self.display.clear_console()
@@ -54,12 +57,16 @@ class Game:
     def hub_decision(self,choice):
         match choice:
             case 1:
+                self.hub_deci = 1
                 self.inventory()
             case 2:
+                self.hub_deci = 2
                 self.shop_categories()
             case 3:
+                self.hub_deci = 3
                 self.infinite()
             case 4:
+                self.hub_deci = 4
                 self.display.clear_console()
                 self.display.title()
                 self.display.dungeon()
@@ -80,10 +87,15 @@ class Game:
         self.inventory_decision(inventory_choice)
 
     def inventory_decision(self,choice):
-        if choice == 1:
-            self.hub()
-        if choice == 2:
-            self.hub_decision(1)
+        match choice:
+            case 1:
+                self.hub()
+            case 2:
+                self.hub_decision(1)
+            case _:
+                print("Wrong entry, can you read ?")
+                sleep(3)
+                self.hub_decision(1)
 
     def shop_categories(self):
         self.display.clear_console()
@@ -340,13 +352,17 @@ class Game:
 
     def create_room(self):
         print(f"[{self.playercolor}]{self.player.name}[/{self.playercolor}] : {self.player.hp}/{self.player.max_hp} ❤️")
-        self.room.random_event()
-        if self.room.event == "chest":
-            self.display.chest()
-            self.display.open_chest()
-            chest_choice = int(input())
-            self.chest_decision(chest_choice)
-        if self.room.event == "enemy":
+        if self.boss_spawned == False:
+            self.room.random_event()
+            if self.room.event == "chest":
+                self.display.chest()
+                self.display.open_chest()
+                chest_choice = int(input())
+                self.chest_decision(chest_choice)
+            if self.room.event == "enemy":
+                self.fight()
+        else:
+            self.room.boss()
             self.fight()
 
     def fight(self):
@@ -365,6 +381,14 @@ class Game:
                     self.display.clear_console()
                     self.display.goblin()
                     print("You're facing a goblin, what are you going to do ?")
+                case "drake":
+                    self.display.clear_console()
+                    self.display.drake()
+                    print("You're facing a huge drake, what are you going to do ?")
+                case "demon":
+                    self.display.clear_console()
+                    self.display.demon()
+                    print("You're facing an old demon, what are you going to do ?")
             print(f"[red]{self.room.entity.name}[/red] : {self.room.entity.hp}/{self.room.entity.max_hp} ❤️ \n")
             print(f"[{self.playercolor}]{self.player.name}[/{self.playercolor}] : {self.player.hp}/{self.player.max_hp} ❤️")
             self.display.which_attack(self.player.attack1, self.player.attack2)
@@ -402,20 +426,23 @@ class Game:
             self.display.clear_console()
             print(f"[red]{self.room.entity.name}[/red] : {self.room.entity.hp}/{self.room.entity.max_hp} ❤️ \n")
             print(f"[{self.playercolor}]{self.player.name}[/{self.playercolor}] : {self.player.hp}/{self.player.max_hp} ❤️")
-            self.finished_fight()
+            if self.hub_deci == 3:
+                self.finished_fight_infinite()
+            if self.hub_deci == 4:
+                self.finished_fight_dungeon()
         if not self.player.is_alive():
             print("You have been defeated, what a shame ! (returning to the village)")
             sleep(3)
             self.player.hp = self.player.max_hp
             self.hub()
 
-    def finished_fight(self):
+    def finished_fight_infinite(self):
         drop = self.enemy_dropped()
         self.player.gold += 10
         if drop == None:
             print("You defeated the enemy !")
             sleep(3)
-            self.next_room()
+            self.next_room_infinite()
         else:
             print(f"The enemy dropped a {drop.name} do you want to take it ?(It will replace your current one if you have one)")
             print(" - 1 Yes")
@@ -423,10 +450,29 @@ class Game:
             choice = int(input(""))
             match choice:
                 case 1:
-                    self.replace_decision_room(drop)
-                    self.next_room()
+                    self.replace_loot_decision(drop)
+                    self.next_room_infinite()
                 case 2:
-                    self.next_room()
+                    self.next_room_infinite()
+
+    def finished_fight_dungeon(self):
+        drop = self.enemy_dropped()
+        self.player.gold += 10
+        if drop == None:
+            print("You defeated the enemy !")
+            sleep(3)
+            self.next_room_dungeon()
+        else:
+            print(f"The enemy dropped a {drop.name} do you want to take it ?(It will replace your current one if you have one)")
+            print(" - 1 Yes")
+            print(" - 2 No")
+            choice = int(input(""))
+            match choice:
+                case 1:
+                    self.replace_loot_decision(drop)
+                    self.next_room_dungeon()
+                case 2:
+                    self.next_room_dungeon()
 
     def enemy_dropped(self):
         dice = Dice(100)
@@ -446,7 +492,7 @@ class Game:
             print("2 - No")
             replace_choice = int(input())
             if replace_choice == 1 :
-                self.replace_decision_room(self.room.entity.items[0])
+                self.replace_loot_decision(self.room.entity.items[0])
             if replace_choice == 2 :
                 self.next_room()
         if choice == 2:
@@ -486,7 +532,7 @@ class Game:
             case 3:
                 return potions
 
-    def replace_decision_room(self, new_item):
+    def replace_loot_decision(self, new_item):
         added = False
         for item in self.player.inventory.items:
             if new_item.item_type == None:
@@ -510,8 +556,8 @@ class Game:
                 sleep(2)
                 self.next_room()
 
-    def next_room(self):
-        self.display.next_room()
+    def next_room_infinite(self):
+        self.display.next_room_infinite()
         choice = int(input())
         match choice:
             case 1:
@@ -525,7 +571,31 @@ class Game:
                 self.create_room()
             case _:
                 print("Wrong entry")
+                sleep(2)
                 return self.new_room()
+            
+    def next_room_dungeon(self):
+        self.display.next_room_dungeon()
+        choice = int(input())
+        match choice:
+            case 1:
+                self.display.clear_console()
+                self.display.door()
+                sleep(4)
+                self.display.clear_console()
+                self.create_room()
+            case 2:
+                self.display.clear_console()
+                self.display.door()
+                sleep(4)
+                self.display.clear_console()
+                self.create_room()
+            case _:
+                self.display.clear_console()
+                self.display.door()
+                sleep(4)
+                self.display.clear_console()
+                self.create_room()
 
     def dungeon(self, choice):
         match choice:
@@ -537,25 +607,42 @@ class Game:
                 sleep(5)
                 while self.player.is_alive():
                     for _ in range(4):
-                        pass
+                        self.create_room()
+                    self.boss_spawned = True
+                    self.create_room()
             case 2:
                 self.new_adventure()
                 sleep(5)
+                self.display.clear_console()
+                self.display.room()
+                sleep(5)
                 while self.player.is_alive():
                     for _ in range(9):
-                        pass
+                        self.create_room()
+                    self.boss_spawned = True
+                    self.create_room()
             case 3:
                 self.new_adventure()
                 sleep(5)
+                self.display.clear_console()
+                self.display.room()
+                sleep(5)
                 while self.player.is_alive():
                     for _ in range(24):
-                        pass
+                        self.create_room()
+                    self.boss_spawned = True
+                    self.create_room()
             case 4:
                 self.new_adventure()
                 sleep(5)
+                self.display.clear_console()
+                self.display.room()
+                sleep(5)
                 while self.player.is_alive():
                     for _ in range(49):
-                        pass
+                        self.create_room()
+                    self.boss_spawned = True
+                    self.create_room()
             case _:
                 return self.hub()
 

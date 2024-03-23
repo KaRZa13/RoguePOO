@@ -572,7 +572,7 @@ ______ _____ _____ _____ _____ _   _  _____
 
     @staticmethod
     def already_have(item):
-        p("\n You already have a "+item.item_class+" Do you want to replace it ? \n ")
+        p("\n You already have a "+item.item_name+" Do you want to replace it ? \n ")
         p(" - 1 : Yes")
         p(" - 2 : No")
 
@@ -595,10 +595,16 @@ ______ _____ _____ _____ _____ _   _  _____
         p(" - 2 : [red]No ! (I'm a boring guy)[/red]")
 
     @staticmethod
-    def next_room():
+    def next_room_infinite():
         p("You finished this room , what do you want to do now ?")
         p(" - 1 Return to the village")
         p(" - 2 Continue the endless cave (Be carefull if you die you lost everything)")
+
+    @staticmethod
+    def next_room_dungeon():
+        p("You finished this room , are you ready for the next one ? (You don't really have the choice)")
+        p(" - 1 : Yes")
+        p(" - 2 : Second answer")
 
     @staticmethod
     def which_attack(attack1, attack2):
