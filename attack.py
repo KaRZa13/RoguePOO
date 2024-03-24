@@ -8,6 +8,8 @@ class Attack:
         self.crit_multiplier = crit_multiplier
         self.description = description
         self.dice = dice
+    
+    
 
     def calculate_damages(self,player):
         mult = 1
@@ -21,5 +23,3 @@ class Attack:
             return 0
         else:
             return self.damages * mult
-
-    

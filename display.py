@@ -385,6 +385,19 @@ ___| |___| |  \  |  \   /  | |____/\| |  \  |   | |   | |___| || | \ \__   | |
 """)
 
     @staticmethod
+    def bye():
+        p(r"""[red]
+ ______            _______   ______            _______ 
+|  ___ \ |\     /||  ____ \ |  ___ \ |\     /||  ____ \
+| |   | || \   / || |    \/ | |   | || \   / || |    \/
+| |__/ /  \ \_/ / | |__     | |__/ /  \ \_/ / | |__    
+|  __ |    \   /  |  __|    |  __ |    \   /  |  __|   
+| |  \ \    | |   | |       | |  \ \    | |   | |      
+| |___| |   | |   | |____/\ | |___| |   | |   | |____/\
+|______/    \_/   |_______/ |______/    \_/   |_______/
+[/red]""")
+
+    @staticmethod
     def shop():
         p(r"""[blue]
  _______           _______  _______ 
@@ -536,7 +549,9 @@ ______ _____ _____ _____ _____ _   _  _____
         p(" - 1 : [red]See the inventory[/red]")
         p(" - 2 : [blue]Go to shop[/blue]")
         p(" - 3 : [green]Endless cave[/green]")
-        p(" - 4 : [yellow1]Dungeon (INSANE!)[/yellow1] \n \n")
+        p(" - 4 : [yellow1]Dungeon (INSANE!)[/yellow1] \n \n \n")
+        p("\n - 5 : [bright_green]Save and quit[/bright_green]")
+
 
     @staticmethod
     def quit_inventory():
@@ -591,7 +606,7 @@ ______ _____ _____ _____ _____ _   _  _____
 
     @staticmethod
     def open_chest():
-        p("Do you want to open the chest ?")
+        p("Do you want to open it ?")
         p(" - 1 : [green1]Yes[/green1]")
         p(" - 2 : [red]No ! (I'm a boring guy)[/red]")
 
@@ -609,7 +624,13 @@ ______ _____ _____ _____ _____ _   _  _____
 
     @staticmethod
     def which_attack(attack1, attack2):
-        p(f"Wich attack do you want to do ?")
+        p(f"Which attack do you want to do ?")
         p(f" - 1 {attack1.name}")
         p(f" - 2 {attack2.name}")
         p(f" - 3 Drink a potion")
+
+    @staticmethod
+    def print_new_game():
+        print("Hi advanturer, what do you want to do ?")
+        p(" - 1 : [blue]Load a save[/blue]")
+        p(" - 2 : [green]Start a new game[/green]")

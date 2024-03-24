@@ -1,6 +1,7 @@
 from rich import print
 from display import Display
 from room import Room
+from save import Save
 from time import sleep
 from init import *
 import random
@@ -15,13 +16,25 @@ class Game:
         self.room = Room(self)
         self.hub_deci = None
         self.boss_spawned = False
+        self.save = Save("saves/save.json")
 
     def start(self):
         self.display.clear_console()
         self.display.title()
         self.display.menu()
-        if self.player == None:
-            self.choose_class()
+        self.display.print_new_game()
+        choice = int(input(""))
+        match choice:
+            case 1:
+                self.save.load_save()
+                self.hub()
+            case 2:
+                if self.player == None:
+                    self.choose_class()
+                    self.hub()
+            case _:
+                print("Wrong entry")
+                return self.start()
 
     def choose_class(self):
         name = input(" \n Choose your name : ")
@@ -29,16 +42,16 @@ class Game:
         class_input = int(input(""))
         match class_input:
             case 1:
-                self.player =  Warrior(name, 20, 0, 3, ATT1,ATT2)
+                self.player =  Warrior(name, 25, 3, all_attacks["attack1"], all_attacks["attack2"])
                 self.playercolor = "red"
             case 2:
-                self.player = Mage(name, 20, 20, 3, ATT1,ATT2)
+                self.player = Mage(name, 20, 3, all_attacks["attack1"], all_attacks["attack2"])
                 self.playercolor = "blue"
             case 3:
-                self.player = Thief(name, 2000, 0, 3, ATT1,ATT2, gold=50)
+                self.player = Thief(name, 20, 3, all_attacks["attack1"], all_attacks["attack2"], gold=50)
                 self.playercolor = "green"
             case 4:
-                self.player = Colossus(name, 20, 0, 3, ATT1,ATT2)
+                self.player = Colossus(name, 30, 3, all_attacks["attack1"], all_attacks["attack2"])
                 self.playercolor = "yellow1"
             case _:
                 print("Wrong entry, choose a number between 1 and 4.")
@@ -73,6 +86,13 @@ class Game:
                 self.display.difficulty()
                 difficulty_choice = int(input(""))
                 self.dungeon(difficulty_choice)
+            case 5:
+                self.save.save_run(self.player)
+                self.display.bye()
+                sleep(3)
+                self.display.clear_console()
+                quit()
+                
             case _:
                 return self.hub()
 
@@ -346,9 +366,6 @@ class Game:
         self.display.clear_console()
         self.display.room()
 
-    def new_room(self):
-        self.room.random_event()
-
     def create_room(self):
         print(f"[{self.playercolor}]{self.player.name}[/{self.playercolor}] : {self.player.hp}/{self.player.max_hp} ❤️")
         if self.boss_spawned == False:
@@ -431,6 +448,7 @@ class Game:
                 self.finished_fight_dungeon()
         if not self.player.is_alive():
             print("You have been defeated, what a shame ! (returning to the village)")
+            self.player.defeat()
             sleep(3)
             self.player.hp = self.player.max_hp
             self.hub()
@@ -518,17 +536,17 @@ class Game:
     def generate_loot(self):
         rarity_probabilities = drop_chance
         items_dict = self.random_loot_category()
-        rarity_roll = Dice(100).roll()  # Supposons que Dice(100) donne un entier aléatoire entre 1 et 1000
+        rarity_roll = Dice(100).roll() 
         rarity_cumulative_prob = 0
 
-        # Déterminer la rareté en fonction des probabilités cumulatives
-        for rarityi, probability in enumerate(rarity_probabilities):
+
+        for i, probability in enumerate(rarity_probabilities):
             rarity_cumulative_prob += probability
-            if rarity_roll <= rarity_cumulative_prob * 100:  # Multiplier par 1000 pour ajuster l'échelle
+            if rarity_roll <= rarity_cumulative_prob * 100: 
                 break
 
-        # Choisir un item aléatoire en fonction de la rareté
-        rarity_name = rarity[rarityi]
+
+        rarity_name = rarity[i]
         item_list = items_dict.get(rarity_name, [])
         item_count = len(item_list)
         if item_count > 0:
@@ -612,7 +630,7 @@ class Game:
             case _:
                 print("Wrong entry")
                 sleep(2)
-                return self.new_room()
+                return self.room.random_event()
             
     def next_room_dungeon(self):
         self.display.next_room_dungeon()
@@ -621,19 +639,19 @@ class Game:
             case 1:
                 self.display.clear_console()
                 self.display.door()
-                sleep(4)
+                sleep(3)
                 self.display.clear_console()
                 self.create_room()
             case 2:
                 self.display.clear_console()
                 self.display.door()
-                sleep(4)
+                sleep(3)
                 self.display.clear_console()
                 self.create_room()
             case _:
                 self.display.clear_console()
                 self.display.door()
-                sleep(4)
+                sleep(3)
                 self.display.clear_console()
                 self.create_room()
 
@@ -649,7 +667,7 @@ class Game:
                     for _ in range(4):
                         self.create_room()
                     self.boss_spawned = True
-                    self.create_room()
+                    self.romm.boss()
             case 2:
                 self.new_adventure()
                 sleep(5)

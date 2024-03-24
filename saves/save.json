@@ -1,0 +1,11 @@
+{
+    "name": "AZE",
+    "hp": 20,
+    "max_hp": 20,
+    "armor": 3,
+    "attack1": "Normal attack",
+    "attack2": "Big attack",
+    "gold": 20,
+    "char_class": "Thief",
+    "inventaire": []
+}
