@@ -16,8 +16,8 @@ class Save:
             "hp": player.hp,
             "max_hp": player.max_hp,
             "armor": player.armor,
-            "attack1": player.attack1.name,
-            "attack2": player.attack2.name,
+            "attack1": player.attack1,
+            "attack2": player.attack2,
             "gold": player.gold,
             "char_class": player.char_class,
             "inventaire": [item.__dict__ for item in player.inventory.items]
