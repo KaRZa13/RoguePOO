@@ -447,7 +447,7 @@ class Game:
             if self.hub_deci == 4:
                 self.finished_fight_dungeon()
         if not self.player.is_alive():
-            self.dislay.loose_fight()
+            self.display.loose_fight()
             self.player.defeat()
             sleep(3)
             self.player.hp = self.player.max_hp
