@@ -54,7 +54,7 @@ class Game:
                 self.player = Colossus(name, 30, 3, all_attacks["attack1"], all_attacks["attack2"])
                 self.playercolor = "yellow1"
             case _:
-                print("Wrong entry, choose a number between 1 and 4.")
+                self.display.wrong_input_class()
                 sleep(3)
                 return self.start()
 
@@ -113,7 +113,7 @@ class Game:
             case 2:
                 self.hub_decision(1)
             case _:
-                print("Wrong entry, can you read ?")
+                self.display.wrong_input_inventory()
                 sleep(3)
                 self.hub_decision(1)
 
@@ -142,7 +142,7 @@ class Game:
                     case 7:
                         self.shop_categories()
                     case _:
-                        print("Wrong entry (automatically returning to the shop)")
+                        self.display.wrong_input_shop()
                         sleep(3)
                         self.shop_categories()
         
@@ -160,7 +160,7 @@ class Game:
                     case 7:
                         self.shop_categories()
                     case _:
-                        print("Wrong entry (automatically returning to the shop)")
+                        self.display.wrong_input_shop()
                         sleep(3)
                         self.shop_categories()
             case 3:
@@ -177,7 +177,7 @@ class Game:
                     case 7:
                         self.shop_categories()
                     case _:
-                        print("Wrong entry (automatically returning to the shop)")
+                        self.display.wrong_input_shop()
                         sleep(3)
                         self.shop_categories()
             case 4:
@@ -194,7 +194,7 @@ class Game:
                     case 7:
                         self.shop_categories()
                     case _:
-                        print("Wrong entry (automatically returning to the shop)")
+                        self.display.wrong_input_shop()
                         sleep(3)
                         self.shop_categories()
             case 5:
@@ -211,7 +211,7 @@ class Game:
                     case 7:
                         self.shop_categories()
                     case _:
-                        print("Wrong entry (automatically returning to the shop)")
+                        self.display.wrong_input_shop()
                         sleep(3)
                         self.shop_categories()
             case 6:
@@ -228,7 +228,7 @@ class Game:
                     case 7:
                         self.shop_categories()
                     case _:
-                        print("Wrong entry (automatically returning to the shop)")
+                        self.display.wrong_input_shop()
                         sleep(3)
                         self.shop_categories()
             case 7:
@@ -245,7 +245,7 @@ class Game:
                     case 7:
                         self.shop_categories()
                     case _:
-                        print("Wrong entry (automatically returning to the shop)")
+                        self.display.wrong_input_shop()
                         sleep(3)
                         self.shop_categories()
             case 8:
@@ -262,7 +262,7 @@ class Game:
                     case 7:
                         self.shop_categories()
                     case _:
-                        print("Wrong entry (automatically returning to the shop)")
+                        self.display.wrong_input_shop()
                         sleep(3)
                         self.shop_categories()
             case 9:
@@ -279,7 +279,7 @@ class Game:
                     case 7:
                         self.shop_categories()
                     case _:
-                        print("Wrong entry (automatically returning to the shop)")
+                        self.display.wrong_input_shop()
                         sleep(3)
                         self.shop_categories()
             case 10:
@@ -296,13 +296,13 @@ class Game:
                     case 7:
                         self.shop_categories()
                     case _:
-                        print("Wrong entry (automatically returning to the shop)")
+                        self.display.wrong_input_shop()
                         sleep(3)
                         self.shop_categories()
             case 11:
                 self.hub()
             case _:
-                print("Wrong entry (automatically returning to the shop)")
+                self.display.wrong_input_shop()
                 sleep(3)
                 self.shop_categories()
 
@@ -388,23 +388,23 @@ class Game:
                 case "skeleton":
                     self.display.clear_console()
                     self.display.skeleton()
-                    print("You're facing a skeleton, what are you going to do ?")
+                    self.display.facing_enemy(self.room.enemy)
                 case "zombie":
                     self.display.clear_console()
                     self.display.zombie()
-                    print("You're facing a zombie, what are you going to do ?")
+                    self.display.facing_enemy(self.room.enemy)
                 case "goblin":
                     self.display.clear_console()
                     self.display.goblin()
-                    print("You're facing a goblin, what are you going to do ?")
+                    self.display.facing_enemy(self.room.enemy)
                 case "drake":
                     self.display.clear_console()
                     self.display.drake()
-                    print("You're facing a huge drake, what are you going to do ?")
+                    self.display.facing_enemy(self.room.enemy)
                 case "demon":
                     self.display.clear_console()
                     self.display.demon()
-                    print("You're facing an old demon, what are you going to do ?")
+                    self.display.facing_enemy(self.room.enemy)
             print(f"[red]{self.room.entity.name}[/red] : {self.room.entity.hp}/{self.room.entity.max_hp} ❤️ \n")
             print(f"[{self.playercolor}]{self.player.name}[/{self.playercolor}] : {self.player.hp}/{self.player.max_hp} ❤️")
             self.display.which_attack(self.player.attack1, self.player.attack2)
@@ -426,7 +426,7 @@ class Game:
                             self.player.increase_hp(pot_inv.items[pot_choice - 1].health_amount)
                             self.player.inventory.items.remove(pot_inv.items[pot_choice - 1])
                         else:
-                            print("You don't have any potions (choose an attack)")
+                            self.display.no_potion()
                             sleep(2)
                             self.fight()
                             return 0
@@ -447,7 +447,7 @@ class Game:
             if self.hub_deci == 4:
                 self.finished_fight_dungeon()
         if not self.player.is_alive():
-            print("You have been defeated, what a shame ! (returning to the village)")
+            self.dislay.loose_fight()
             self.player.defeat()
             sleep(3)
             self.player.hp = self.player.max_hp
@@ -461,9 +461,7 @@ class Game:
             sleep(3)
             self.next_room_infinite()
         else:
-            print(f"The enemy dropped a {drop.name} do you want to take it ?(It will replace your current one if you have one)")
-            print(" - 1 Yes")
-            print(" - 2 No")
+            self.display.finish_fight(drop.name)
             choice = int(input(""))
             match choice:
                 case 1:
@@ -480,9 +478,7 @@ class Game:
             sleep(3)
             self.next_room_dungeon()
         else:
-            print(f"The enemy dropped a {drop.name} do you want to take it ?(It will replace your current one if you have one)")
-            print(" - 1 Yes")
-            print(" - 2 No")
+            self.display.finish_fight(drop.name)
             choice = int(input(""))
             match choice:
                 case 1:
@@ -505,9 +501,7 @@ class Game:
     def chest_decision(self, choice):
         match choice:
             case 1:
-                print(f"This chest contain a {self.room.entity.items[0].name} Do you want to take it (and sell your equipped one ?)")
-                print("1 - Yes")
-                print("2 - No")
+                self.display.choice_chest(self.room.entity.items[0].name)
                 replace_choice = int(input())
                 match replace_choice:
                     case 1:
